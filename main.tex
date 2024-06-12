@@ -1,0 +1,70 @@
+\documentclass{memoir}
+\input{preamble.tex}
+
+\begin{document}
+\frontmatter
+\thispagestyle{empty}
+\pagecolor{navyblue}\afterpage{\nopagecolor}
+\color{white}
+\vspace*{10pt}
+\begin{center}
+\Huge\bfseries\scshape
+\vspace*{10pt}
+\rule{\textwidth}{1pt}
+\vspace*{-9pt}
+Introduction to $K_SK_S$ Physics at GlueX
+\rule{\textwidth}{1pt}
+\vfill
+\begin{fmffile}{diagram}
+\begin{fmfgraph*}(200,200)
+    \fmfpen{thick}
+    \fmfstraight
+    \fmfleftn{i}{2}
+    \fmfrightn{o}{3}
+    \fmflabel{$p$}{i1}
+    \fmflabel{$\gamma$}{i2}
+    \fmflabel{$K_S$}{o2}
+    \fmflabel{$K_S$}{o3}
+    \fmflabel{$p$}{o1}
+    \fmf{plain,foreground=white}{i1,t1}
+    \fmf{photon,foreground=white}{i2,t2}
+    \fmf{plain,foreground=white}{t1,t2}
+    \fmf{plain,foreground=white}{t1,v1}
+    \fmf{plain,foreground=white}{v1,o1}
+    \fmf{phantom}{t2,v2}
+    \fmf{phantom}{v2,o3}
+    \fmffreeze
+    \fmf{plain,label=$X$,foreground=white}{t2,v3}
+    \fmf{plain,foreground=white}{v3,o3}
+    \fmf{plain,foreground=white}{v3,o2}
+    \fmflabel{$p$}{i1}
+\end{fmfgraph*}
+\end{fmffile}
+\vfill
+\Huge\bfseries\scshape
+Nathaniel Dene Hoffman
+
+Carnegie Mellon University
+\end{center}
+\color{black}
+\clearpage
+\begin{KeepFromToc}
+    \setcounter{tocdepth}{2}
+    \renewcommand{\contentsname}{Table of Contents}
+    \tableofcontents
+\end{KeepFromToc}
+\thispagestyle{empty}
+\mainmatter
+\chapter{Introduction}
+\include{introduction.tex}
+\chapter{Baryon Contributions}
+% \include{Baryons.tex}
+\chapter{Partial Wave Analysis}
+% \include{KMatrix.tex}
+
+\appendix
+\backmatter
+\bibliography{references}
+\bibliographystyle{plain}
+\newpage
+\end{document}
