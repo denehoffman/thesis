@@ -15,3 +15,29 @@ Herein, I will focus on a particular portion of the Standard Model that dictates
 Next, I will describe my own analysis, beginning with the the impetus of this study, a search for $\Sigma^+$ baryons using a different recombination of the final state in this channel. This will lead to a first-order peek at the many resonances which decay to $K_S$ pairs, and I will delineate the layers of data selection which I carried out to produce a clean sample of events.
 
 I will then discuss the process of partial-wave analysis (PWA), modeling resonances, and selecting a waveset for my data. I will conclude with the results from fits of these models to the data, the implications of such fits, and the next steps which I or another future particle physicist might take in order to illuminate another corner of the light mesonic spectrum.
+
+\section{Motivation}\label{sec:motivation}
+
+While this will be discussed in detail later, I believe it is important to emphasize the motivation for such a study of photoproduction of $K_SK_S$. While the majority of GlueX research concerns the study of hybrid mesons (mesons with forbidden quantum numbers), such mesons cannot be found in this channel. Given a bound state of two spin-$\frac{1}{2}$ quarks with relative angular momentum $L$, total spin $S$ and total angular momentum $J$ (the eigenvalue of $\hat{J}^2 = \hat{L}^2 \oplus \hat{S}^2$), we can define the parity operator $\hat{P}$ by its effect on the wave function of the system,
+\begin{equation}
+  \hat{P}\ket{\vec{r}} = \eta\ket{\vec{r}}
+\end{equation}
+where $\eta$ can be determined by noting that states of angular momentum are generally proportional to a spherical harmonic in their angular distribution ($\ket{r,\theta,\varphi;LM} \sim Y_L^M(\theta,\varphi)$) and
+\begin{equation}
+  \hat{P}Y_L^M(\theta,\varphi) = Y_L^M(\pi-\theta,\pi+\varphi) = (-1)^LY_L^M(\theta,\varphi)
+\end{equation}
+so $\eta = (-1)^L$. The Dirac equation can be used to show that the intrinsic parity of quarks and antiquarks, when multiplied, yields a factor of $-1$, so
+\begin{equation}
+  \hat{P}\ket{q\bar{q};JLMS} = -(-1)^L
+\end{equation}
+
+Similarly, the operator $\hat{C}$ representing C-parity will also introduce a factor of $(-1)^L$ because exchanging charges of a (neutral\footnote{For $\hat{C}$ to be Hermitian, and thus observable, acting it twice on a state should return the original state, so only eigenvalues of $\pm 1$ are allowed. Therefore, only states which are overall charge neutral are eigenstates of $\hat{C}$.}) quark-antiquark system is akin to reversing their positions under parity. If $\ket{S}$ is antisymmetric under C-parity, we should get an additional factor of $-1$, which is the case for the $S=0$ singlet. With the aformentioned $-1$ due to the intrinsic parity of the quarks and antiquarks, we find
+\begin{equation}
+  \hat{C}\ket{q\bar{q};JLMS} = (-1)^{L+S}
+\end{equation}
+
+Labeling states with the common $J^{PC}$ notation, it can then be shown that states like $0^{--}$, $0^{+-}$, $1^{-+}$, and $2^{+-}$ (among others) are not allowed states for $q\bar{q}$ mesons. As mentioned, the investigation of such states is the primary focus of the GlueX experiment. However, since the particle we are concerned with decays to two identical particles ($K_S$) which have a symmetric spatial wave function, and because this particle is a meson which follows Bose-Einstein statistics, the angular part of the total wave function must also be symmetric, i.e. $J = \text{even integers}$. Furthermore, because parity is conserved in strong decays, and the state of two identical particles is symmetric under parity, the decaying meson must also have $P=+$. Finally, the strong interaction also conserves C-parity, and both kaons are neutral, so we can determine the $J^{PC}$ quantum numbers of the resonance to be $\text{even}^{++}$. There should be no overlap here with the aformentioned hybrid mesons, but that does not mean the channel is not of interest to GlueX and the larger scientific community. Particularly, the lowest lying glueball states are predicted to not only share these quantum numbers, but exist in the middle of the mass range produced by GlueX energies\cite{morningstar_glueball_1999}. To add to this, the spin-$0$ isospin-$0$ light flavorless mesons, denoted as $f_0$-mesons, are supernumerary, either due to mixing with a supposed light scalar glueball or by the presence of a light tetraquark (or both)\cite{particle_data_group_review_2020}.
+
+However, it would be an understatement to say that the $K_SK_S$ channel at GlueX is not the ideal place to be looking for either glueballs or tetraquarks. This is because, while we have excellent handles for reconstructing this channel, we have no ability to separate particles of different isospin with these data alone. This means that these $f$ states will be indistinguishable from their isospin-$1$ partners, the $a$-mesons. At first glance, it might seem like a model of the masses of these particles would make it easy to separate them, even if they remained indistinguishable between resonant peaks, but with broad states like the $f_0(1370)$ and states which sit right on top of each other (like the $f_0(980)$ and $a_0(980)$, which also tend to interfere with each other), there is likely no unique mass model which can distinguish all of the possible states without relying on data from other channels.
+
+The silver lining is that, due to the GlueX detector's state-of-the-art angular acceptance\cite{adhikari_gluex_2021}, we do stand a chance at separating spin-$0$ states from spin-$2$ states, and GlueX's polarized beam allows us to further understand the mechanisms at play by giving us some indication of the parity of the $t$-channel exchanged particle in the production interaction. We can also use this channel as a proving ground for more complex amplitude analysis involving a mass model, which could be extended to a coupled-channel analysis in the future.

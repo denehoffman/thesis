@@ -1,3 +1,21 @@
+We begin with the dispersion integral\footnote{see \href{https://arxiv.org/pdf/1411.2004.pdf}{arXiv paper}}:
 \begin{equation}
-
+  C(s) = C(s_\text{thr}) - \frac{s - s_\text{thr}}{\pi} \int_{s_\text{thr}}^{\infty} \dd{s'} \frac{\rho(s')}{(s' - s)(s' - s_\text{thr})}
 \end{equation}
+where $s_\text{thr} = (m_1 + m_2)^2$ and
+\begin{equation}
+  \rho(s) = \sqrt{\left(1 - \frac{(m_1 + m_2)^2}{s}\right)\left(1 - \frac{(m_1 - m_2)^2}{s}\right)}
+\end{equation}
+
+We first focus on just the integral part:
+\begin{equation}
+  I(s) = \int_{s_\text{thr}}^{\infty} \dd{s'} \frac{\rho(s')}{(s' - s)(s'-s_\text{thr})}
+\end{equation}
+
+\begin{equation}
+  \lim_{\epsilon\to 0}\int_a^b \dd{x} \frac{f(x)}{(x-x_0) + \imath\epsilon} = \fint_a^b \dd{x} \frac{f(x)}{(x-x_0)} + \imath\pi f(x_0)
+\end{equation}
+
+\begin{align}
+  I(s) &= \fint_{s_\text{thr}}^{\infty} 
+\end{align}
