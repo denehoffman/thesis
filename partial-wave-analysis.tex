@@ -1,214 +1,151 @@
 \section{Amplitude Formalism}
 {\color{red}TODO: cite http://scipp.ucsc.edu/\textasciitilde haber/ph218/ExperimentersGuideToTheHelicityFormalism.pdf and S.U. Chung spin formalisms}
-We begin by representing a single particle with four-momentum $\mathbf{P} = (E,\vec{p})$, spin $s$, and helicity $\lambda = -s, -s+1, \ldots, s-1, s$ with the notation $\ket{\vec{p},s,\lambda}$, a vector with Lorentz-invariant normalization
-\begin{equation}
-  \bra{\vec{p}',s',\lambda'}\ket{\vec{p},s,\lambda} = (2\pi)^3 2E \delta^3(\vec{p}'- \vec{p}) \delta_{s's}\delta{\lambda'\lambda}
-\end{equation}
 
-Since we are primarily interested in two-body decays, we can then represent a two-body state using the notation
-\begin{equation}
-  \ket{\vec{p}_1,s_1,\lambda_1} \otimes \ket{\vec{p}_2,s_2,\lambda_2} = \ket{\vec{p}_1,s_1,\lambda_1;\vec{p}_2,s_2,\lambda_2}
-\end{equation}
-with normalization
-\begin{equation}\label{pwa:eq:two-particle-norm}
-  \bra{\vec{p}'_1,s'_1,\lambda'_1;\vec{p}'_2,s'_2,\lambda'_2}\ket{\vec{p}_1,s_1,\lambda_1;\vec{p}_2,s_2,\lambda_2} = (2\pi)^6 4E_1 E_2 \delta^3(\vec{p}'_1 - \vec{p}_1)\delta^3(\vec{p}'_2 - \vec{p}_2)\delta_{s'_1 s_1}\delta_{s'_2 s_2}\delta_{\lambda'_1\lambda_1}\delta_{\lambda'_2\lambda_2}
-\end{equation}
+Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity{\color{red}TODO: citation}. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description.
 
-For simplification, we will work in the center-of-momentum frame. This allows us to use a single momentum, $\vec{p}_{1} = -\vec{p}_{2}$ without loss of generality in this frame. We can also assume that the spin of each particle is fixed and suppress $s_1$ and $s_2$ in the following derivations.
+\subsection{Single-Particle Helicity States}
 
-Next, we write the three-momentum in terms of spherical angles $\Omega_1 = (\theta_1, \varphi_1)$: $\vec{p}_1 = p_1(\sin\theta_1\cos\varphi_1, \sin\theta_1\sin\varphi_1, \cos\theta_1)$ where we use the shorthand $p_1\equiv\abs{\vec{p}_1}$. The equivalent coordinate transform must now be done on the normalization. It can be shown that,
-\begin{align}
-  \dd[3]{\vec{p}_1}\dd[3]{\vec{p}_2} &= \dd[3]{\vec{p}}\dd[3]{\vec{p_1}} \notag\\
-                                     &= \dd[3]{\vec{p}}p_1^2 \dd{\left(p_1\right)}\dd[2]\Omega_1
-\end{align}
-where $\mathbf{P} = (E,\vec{p})$ is the total four-momentum in the center-of-momentum frame. Now note that, because we are in this frame, we can write $E = E_1 + E_2 = \sqrt{p_1^2 + m_1^2} + \sqrt{p_1^2 + m_2^2}$. Equivalently, we can write the differential element, $\dd{E}$, as
-\begin{equation}
-  \dd{E} = p_1\dd{p_1}\left(\frac{1}{\sqrt{p_1 + m_1^2}} + \frac{1}{\sqrt{p_1 + m_2^2}}\right) = p_1\dd{p_1}\left(\frac{1}{E_1} + \frac{1}{E_2}\right) = \frac{\sqrt{s}}{E_1E_2}p_1\dd{p_1}
-\end{equation}
-
-where $s = E^2$ is the Mandelstam variable, so
-\begin{equation}
-  \dd[3]{\vec{p}_1}\dd[3]{\vec{p}_2} = \dd[3]{\vec{p}}\dd{E}\frac{p_1E_1E_2}{\sqrt{s}}\dd[2]\Omega_1 = \frac{p_1E_1E_2}{\sqrt{s}}\dd[4]\mathbf{P}\dd[2]\Omega_1
-\end{equation}
-
-We can now take an arbitrary state and integrate over both sides:
-
-\begin{align}
-  \int\dd[3]{\vec{p}_1}\dd[3]{\vec{p}_2}\bra{\vec{p}'_1,\lambda'_1;\vec{p}'_2,\lambda'_2}\ket{\vec{p}_1,\lambda_1;\vec{p}2\lambda_2} &= \int\frac{p_1E_1E_2}{\sqrt{s}}\dd[4]\mathbf{P}\dd[2]\Omega_1\bra{p'_1,\Omega'_1,\lambda'_1,\lambda'_2}\ket{p_1,\Omega_1,\lambda_1,\lambda_2} \notag \\
-  (2\pi)^6 4E_1E_2\delta_{\lambda'_1\lambda_1}\delta_{\lambda'_2\lambda_2} &= \int\frac{p_1E_1E_2}{\sqrt{s}}\dd[4]\mathbf{P}\dd[2]\Omega_1\bra{p'_1,\Omega'_1,\lambda'_1,\lambda'_2}\ket{p_1,\Omega_1,\lambda_1,\lambda_2} \notag \\
-  (2\pi)^6 \frac{4\sqrt{s}}{p_1}\delta_{\lambda'_1\lambda_1}\delta_{\lambda'_2\lambda_2} &= \int\dd[4]\mathbf{P}\dd[2]\Omega_1\bra{p'_1,\Omega'_1,\lambda'_1,\lambda'_2}\ket{p_1,\Omega_1,\lambda_1,\lambda_2}\\
-\end{align}
-
-from \Cref{pwa:eq:two-particle-norm}, so the normalization factor should then be
+We begin by defining a set of observables which are independent of frames and rotations on those frames. This is known as the helicity formalism, where helicity resembles the spin projection along the axis of a particle's motion. First, we define a rotation $R(\alpha, \omega, \gamma)$ as a matrix whose action on a vector is a rotation about the Euler angles $\alpha$, $\omega$, and $\gamma$. For each rotation, we can define a unitary operator $U[R]$ which has the group property $U[R_2 R_1] = U[R_2] U[R_1]$ as it is an operator on the group $SO(3)$. Being an operator on $SO(3)$, we can also write it as
 
 \begin{equation}
-  \bra{p'_1,\Omega'_1,\lambda'_1,\lambda'_2}\ket{p_1,\Omega_1,\lambda_1,\lambda_2} = (2\pi)^6\frac{4\sqrt{s}}{p_1}\delta^4(\mathbf{P}' - \mathbf{P})\delta^2(\Omega'_1 - \Omega_1)\delta_{\lambda'_1\lambda_1}\delta_{\lambda'_2\lambda_2}
+  U[R(\alpha,\omega,\gamma)] = e^{-\imath \alpha J_z} e^{-\imath \omega J_y} e^{-\imath \gamma J_z}
+  \label{eq:rotation-rep}
 \end{equation}
 
-Since $\vec{p} = \vec{0}$ in the center-of-momentum frame, these states are eigenstates of the total four-momentum operator $\hat{\mathbf{P}}$, and we can factor it out as
+We can then describe the matrix elements of this operator in the angular momentum eigenbasis $\ket{jm}$ (representing a spin-$j$ particle where $m$ is the projection of spin onto the $\hat{z}$-axis) with the Wigner D-matrix:
 
-\begin{equation}\label{pwa:eq:two-particle-state}
-  \ket{p_1,\Omega_1,\lambda_1,\lambda_2} = (2\pi)^3\sqrt{\frac{4\sqrt{s}}{p_1}}\ket{\Omega_1,\lambda_1,\lambda_2}\ket{\mathbf{P}}
-\end{equation}
+\begin{gather}
+  U[R(\alpha, \omega, \gamma)] \equiv \sum_{m'} \ket{jm} D_{m'm}^j(R(\alpha, \omega, \gamma)) \\
+  \text{where} \notag\\
+  D_{m'm}^j(\alpha, \omega, \gamma) \equiv e^{-\imath m' \alpha} d_{m'm}^j e^{-\imath m\gamma} \\
+  \text{and} \notag\\
+  d_{m'm}^j(\omega) = \mel{jm'}{e^{-\imath\omega J_y}}{jm}
+  \label{eq:wigner-d-definition}
+\end{gather}
 
-We can then imagine replacing the two-body system with a single decaying particle. Such a particle can be defined in terms of its total angular momentum, $J$, and the eigenvalue of $\hat{J}_z$, $M$. Such a basis is an eigenstate of $\hat{J}^2$ and therefore transforms under rotations as
-
-\begin{equation}\label{pwa:eq:jm-transform}
-  \ket{p_1,J,M,\lambda_1,\lambda_2} \xrightarrow{R(\alpha,\beta,\gamma)} \sum_{M'} D^J_{M'M}(\alpha,\beta,\gamma)\ket{p_1,J,M',\lambda_1,\lambda_2}
-\end{equation}
-
-where $D^J_{M'M}(\alpha,\beta,\gamma)$ is the Wigner D-matrix with Euler angles $\alpha$, $\beta$, and $\gamma$. Next, we can define the transformation between our two-particle state and the single-particle state:
-
-\begin{align}
-  \ket{p_1,\Omega_1,\lambda_1,\lambda_2} &= \sum_{JM} c_{JM}\left(p_1,\Omega_1,\lambda_1,\lambda_2\right) \ket{p_1,J,M,\lambda_1,\lambda_2} \notag \\
-  \ket{p_1,(0,0),\lambda_1,\lambda_2} &= \sum_{J} c_{J\lambda}\left(p_1,(0,0),\lambda_1,\lambda_2\right) \ket{p_1,J,\lambda,\lambda_1,\lambda_2}
-\end{align}
-
-where $\lambda = \lambda_1 - \lambda_2$ is the eigenvalue of $\hat{J}_z$ for the state where $\theta_1=\phi_1=0$, or $\vec{p}_1 = p_1\hat{z} = -\vec{p}_2$. To rotate from this specific choice back to an arbitrary $\Omega_1$, we apply a rotation $R(\varphi_1,\theta_1,-\varphi_1)$ according to \Cref{pwa:eq:jm-transform}:
-
-\begin{align}
-  \ket{p_1,\Omega_1,\lambda_1,\lambda_2} &= \sum_{J\lambda} c_{J\lambda}\left(p_1,(0,0),\lambda_1,\lambda_2\right)D^J_{M'\lambda}(\varphi_1,\theta_1,-\varphi_1)\ket{p_1,J,M',\lambda_1,\lambda_2} \\
-  \sum_{JM} c_{JM}\left(p_1,\Omega_1,\lambda_1,\lambda_2\right)\ket{p_1,J,M',\lambda_1,\lambda_2} &= \sum_{J\lambda} c_{J\lambda}\left(p_1,(0,0),\lambda_1,\lambda_2\right)D^J_{M'\lambda}(\varphi_1,\theta_1,-\varphi_1)\ket{p_1,J,M',\lambda_1,\lambda_2}
-\end{align}
-
-so
+We can further extend this eigenbasis to include linear momentum by introducing Lorentz boosts $L(\vec{\beta})$. We denote the operation of a boost along the $\hat{z}$-axis with velocity $\beta$ as $L_z(\beta)$. A boost in any direction described by polar angles $(\theta, \varphi)$ can be achieved by rotating the $\hat{z}$-axis to align with the direction vector, boosting in the new $\hat{z}$-direction, and rotating back:
 
 \begin{equation}
-  c_{JM}(p_1,\Omega_1,\lambda_1,\lambda_2) = c_{J\lambda}(p_1,(0,0),\lambda_1,\lambda_2)D^J_{M\lambda}(\varphi_1,\theta_1,-\varphi_1)
+  L(\vec{\beta}) = R(\varphi, \theta, 0) L_z(\beta) R^{-1}(\varphi,\theta,0)
 \end{equation}
 
-By the Schur orthagonality relations applied to the Wigner D-matrices, we find that, without loss of generality,
+Together, the space of rotations and boosts defines the Lorentz group, where each arbitrary Lorentz transformation $\Lambda$ has a unitary operator $U[\Lambda]$ with the group property $U[\Lambda_2 \Lambda_1] = U[\Lambda_2]U[\Lambda_1]$, so in terms of operators, we can also write
 
 \begin{equation}
-  c_{JM} = c_J = \sqrt{\frac{2J + 1}{4\pi}}
+  U[L(\vec{p})] = U[R(\varphi, \theta, 0)]U[L_z(p)]U^{-1}[R(\varphi,\theta,0)]
 \end{equation}
 
-so that
-
-\begin{equation}\label{pwa:eq:two-to-one}
-  \ket{p_1,\Omega_1,\lambda_1,\lambda_2} = \sum_{JM}\sqrt{\frac{2J + 1}{4\pi}}D^J_{M\lambda}(\varphi_1,\theta_1,-\varphi_1)\ket{p_1,J,M,\lambda_1,\lambda_2}
+Finally, this allows us to define the ``canonical'' basis for a single particle as
+\begin{equation}
+  U[L(\vec{p})]\ket{jm} \equiv \ket{\vec{p},jm}
+  \label{eq:canonical-single-particle}
 \end{equation}
 
-or
-
-\begin{equation}\label{pwa:eq:jm-integral-form}
-  \ket{p_1,J,M,\lambda_1,\lambda_2} = \sqrt{\frac{2J+1}{4\pi}}\int\dd{\Omega_1} D^{J*}_{M\lambda}(\varphi_1,\theta_1,-\varphi_1)\ket{p_1,\Omega_1,\lambda_1,\lambda_2}
-\end{equation}
-
-From this, it can also be shown that
-
-\begin{equation}\label{pwa:eq:jm-two-particle-inner-product}
-  \bra{J,M,\lambda'_1,\lambda'_2}\ket{\Omega_1,\lambda_1,\lambda_2} = \delta_{\lambda'_1\lambda_1}\delta_{\lambda'_2\lambda_2}\sqrt{\frac{2J + 1}{4\pi}} D^J_{M\lambda}(\varphi_1,\theta_1,-\varphi_1)
-\end{equation}
-
-Finally, these states are also eigenstates of $\hat{\mathbf{P}}$ since we are still working in the frame where $\vec{p} = \vec{0}$:
-
-\begin{equation}\label{pwa:eq:one-particle-state}
-  \ket{p_1,J,M,\lambda_1,\lambda_2} = (2\pi)^3\sqrt{\frac{4\sqrt{s}}{p_1}}\ket{J,M,\lambda_1,\lambda_2}\ket{\mathbf{P}}
-\end{equation}
-
-\subsection{Two-to-Two Scattering}
-Let us now apply this to a two-to-two scattering problem $a + b \to c + d$ (which we will later apply to $\gamma p \to Xp$). We can write the initial and final states, working in the center-of-momentum frame, according to \Cref{pwa:eq:two-particle-state}. We will choose an initial frame where $\vec{p}_a \equiv p_i\hat{z} = -\vec{p}_b$. By definition, the final state momentum can also be defined relative to either particle, so we can choose $\vec{p}_f \equiv \vec{p}_c = -\vec{p}_d$:
-
-\begin{align}
-  \ket{i} &= (2\pi)^3\sqrt{\frac{4\sqrt{s}}{p_i}}\ket{(0,0),\lambda_a,\lambda_b}\ket{\mathbf{P_i}} \\
-  \ket{f} &= (2\pi)^3\sqrt{\frac{4\sqrt{s}}{p_f}}\ket{\Omega_f,\lambda_a,\lambda_b}\ket{\mathbf{P_f}}
-\end{align}
-
-We can define a scattering amplitude between state $\ket{i}$ and $\ket{j}$ as $S$ such that
-
-\begin{align}\label{pwa:eq:scattering-amplitude-def}
-  \mel{f}{S}{i} &= (2\pi)^6 \sqrt{\frac{16 s}{p_i p_f}}\bra{\mathbf{P}_f}\mel{\Omega_f,\lambda_c,\lambda_d}{S}{(0,0),\lambda_a,\lambda_b}\ket{\mathbf{P}_i} \notag \\
-                &= (2\pi)^6 \bra{\mathbf{P}_f}\ket{\mathbf{P}_i} \sqrt{\frac{16 s}{p_i p_f}}\mel{\Omega_f,\lambda_c,\lambda_d}{S(s)}{(0,0),\lambda_a,\lambda_b} \notag \\
-                &= (2\pi)^6 \delta^4\left(\mathbf{P}_f - \mathbf{P}_i\right) \sqrt{\frac{16 s}{p_i p_f}}\mel{\Omega_f,\lambda_c,\lambda_d}{S(s)}{(0,0),\lambda_a,\lambda_b}
-\end{align}
-
-Since we mostly do not care about the case where the initial and final states are the same, we will define (by convention) a transition amplitude which factors out such scatterings:
+Unfortunately, the quantum number $m$ is only valid in the rest frame of the state because the $\hat{z}$-axis of the rest frame is not equivalent to the $\hat{z}$-axis in any arbitrarily Lorentz-transformed frame. Therefore, we will define helicity $\lambda$ as the projection of spin along the direction of motion and introduce new helicity states,
 
 \begin{equation}
-  S_{fi} = \delta_{fi} + \imath (2\pi)^4 \delta^4(\mathbf{P}_f - \mathbf{P}_i) T_{fi}
+  \ket{\vec{p},j\lambda} = U[L(\vec{p})]U[R(\varphi,\theta,0)]\ket{j\lambda} = U[R(\varphi,\theta,0)]U[L_z(p)]\ket{j\lambda}
+  \label{eq:helicity-single-particle}
 \end{equation}
 
-such that
+In this definition, we have two ways of obtaining the helicity frame: We can either rotate the state first such that the quantization axis is aligned with $\vec{p}$ and then boost in the $\hat{p}$-direction or we can first boost in the $\hat{z}$-direction and then rotate. In either equivalent case, $\lambda$ is invariant under rotations as well as boosts parallel to $\vec{p}$. Finally, we can define these helicity states over a basis of canonical states:
 
 \begin{equation}
-  \mel{f}{T}{i} = -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}}\mel{\Omega_f,\lambda_c,\lambda_d}{T(s)}{(0,0),\lambda_a,\lambda_b}
+  \ket{\vec{p},j\lambda} = \sum_m D_{m\lambda}^j(R(\varphi, \theta, 0)) \ket{\vec{p}, jm}
+  \label{eq:canonical-to-helicity}
 \end{equation}
 
-By inserting a complete set of states for both the initial and final two-particle systems:
+The single-particle states are normalized such that
 
-{\color{red}TODO: Fix box}
-\begin{equation}
-  \mel{f}{T}{i} = -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}}\bra{\Omega_f,\lambda_f,\lambda_d}\left(\sum_{JM}\ket{J,M,\lambda_c,\lambda_d}\bra{J,M,\lambda_c,\lambda_d}\right) T(s) \left(\sum_{J'M'}\ket{J',M',\lambda_a,\lambda_b}\bra{J',M',\lambda_a,\lambda_b}\right)\ket{(0,0),\lambda_a,\lambda_b}
-\end{equation}
+\begin{gather}
+  \bra{\vec{p}',j'\lambda'}\ket{\vec{p},j\lambda} = \tilde{\delta}(\vec{p}' - \vec{p})\delta_{j'j}\delta_{\lambda'\lambda} \\
+  \text{with } \tilde{\delta}(\vec{p}' - \vec{p}) = (2\pi)^3(2E)\delta^{(3)}(\vec{p}'-\vec{p}) \notag
+  \label{eq:helicity-normalization}
+\end{gather}
 
-From \Cref{pwa:eq:two-to-one}, we can write this as
-
-\begin{align}\label{pwa:eq:scattering-mel}
-  \mel{f}{T}{i} &= -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}}\sum_{JMJ'M'}\sqrt{\frac{2J+1}{4\pi}}\sqrt{\frac{2J'+1}{4\pi}}D^{J*}_{M\lambda_f}(\varphi_f,\theta_f,-\varphi_f)\mel{J,M,\lambda_c,\lambda_d}{T(s)}{J',M',\lambda_a,\lambda_b} D^{J'}_{M'\lambda_f}(0,0,0) \notag \\
-                &= -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}}\sum_{JMJ'M'}\sqrt{\frac{2J+1}{4\pi}}\sqrt{\frac{2J'+1}{4\pi}}D^{J*}_{M\lambda_f}(\varphi_f,\theta_f,-\varphi_f)\delta_{JJ'}\delta_{MM'}\mel{\lambda_c,\lambda_d}{T^J(s)}{\lambda_a,\lambda_b} D^{J'}_{M'\lambda_f}(0,0,0) \notag \\
-                &= -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}} \sum_{J} \left(\frac{2J + 1}{4\pi}\right) D^{J*}_{\lambda_i\lambda_f}(\varphi_f,\theta_f,-\varphi_f)\mel{\lambda_c,\lambda_d}{T^J(s)}{\lambda_a,\lambda_b}
-\end{align}
-
-where $\lambda_i \equiv \lambda_a - \lambda_b$ and $\lambda_f \equiv \lambda_c - \lambda_d$. The Wigner D-matrix is related to Wigner's small d-matrix by
+since the Lorentz-invariant phase space element is given by $\tilde{\dd{p}} = \frac{\dd[3]{\vec{p}}}{(2\pi)^3(2E)}$. This gives the following representation of the identity:
 
 \begin{equation}
-  D^{j*}_{m'm}(\alpha,\beta,\gamma)\equiv e^{\imath m'\alpha}d^j_{m'm}(\beta)e^{\imath m \gamma}
+  \sum_{j\lambda}\int \ket{\vec{p},j\lambda}\tilde{\dd{p}}\bra{\vec{p},j\lambda} = I
 \end{equation}
 
-so we can also write
+\subsection{Two-Particle Helicity States}
 
-\begin{align}\label{pwa:eq:scattering-mel2}
-  \mel{f}{T}{i} &= -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}} \sum_J \left(\frac{2J + 1}{4\pi}\right) e^{-\imath(\lambda_f - \lambda_i)\varphi_f}d^J_{\lambda_i\lambda_j}(\theta_f) \mel{\lambda_c,\lambda_d}{T^J(s)}{\lambda_a,\lambda_b} \notag \\
-                &= -\imath(2\pi)^2\sqrt{\frac{16s}{p_fp_i}} \sum_J \left(\frac{2J + 1}{4\pi}\right) e^{-\imath(\lambda_f - \lambda_i)\varphi_f}d^J_{\lambda_i\lambda_j}(\theta_f) T^{J}_{\lambda_c,\lambda_d;\lambda_a,\lambda_b}(s) \notag \\
-                &= (-\imath)4\pi\sqrt{\frac{s}{p_fp_i}} \sum_J \left(2J + 1\right) e^{-\imath(\lambda_f - \lambda_i)\varphi_f}d^J_{\lambda_i\lambda_j}(\theta_f) T^{J}_{\lambda_c,\lambda_d;\lambda_a,\lambda_b}(s)
-\end{align}
+Of course, we would like to extend these states to be able to talk about interactions and decays. For notation, I will use $\Omega$ to represent the polar angles $\theta$ and $\varphi$ and $\varnothing$ to describe the specific value of $0$ for both of these angles. Similarly, $R_\Omega$ and $R_\varnothing$ will represent the corresponding rotation operators (the second being a null rotation the direction of the $\hat{z}$-axis). $R$ without subscript or angles will represent an arbitrary rotation whose angles are not important for the derivation.
 
-The actual observable we care about is the differential cross section,
-
-\begin{equation}\label{pwa:eq:scattering-xsection}
-  \pdv{\sigma}{s}{\Omega_f} \propto \abs{\mel{f}{T}{i}}^2
-\end{equation}
-
-so we can ignore the overall factor of $-\imath$ in \Cref{pwa:eq:scattering-mel,pwa:eq:scattering-mel2}.
-
-\subsection{Two-Body Decays}
-
-Next, we will give a similar treatment to a particle $d \to 1 + 2$ where $X$ is a particle with mass $m_X$, spin $J_X$, and spin projection $M_X$. Again, we will work in the center-of-momentum frame of this decay, so we can chose $\vec{p}_f \equiv \vec{p}_1 = -\vec{p}_2$. In the rest frame of particle $X$, we get the relation $s_X \equiv E_X^2 = m_X^2$ From \Cref{pwa:eq:two-particle-state}, we write the final state as
+Next, we can define a joint state of two particles with masses $w_1$ and $w_2$ (to avoid confusion with angular moments) and spins $s_1$ and $s_2$. In the center-of-momentum (COM) frame, these particles are back-to-back, and we can define the momentum of particle 1 as $\vec{p}$ with direction $\Omega$ and particle 2 as $-\vec{p}$. Then the joint canonical state, up to a normalization constant $\mathcal{N}$, is given by
 
 \begin{equation}
-  \ket{f} = (2\pi)^3\sqrt{\frac{4m_X}{p_f}}\ket{\Omega_f,\lambda_1,\lambda_2}\ket{\mathbf{P}_f}
+  \ket{\Omega,s_1m_1s_2m_2} = \mathcal{N} U[L(\vec{p})]\ket{s_1m_1} U[L(-\vec{p})]\ket{s_2m_2}
+  \label{eq:two-particle-canonical}
 \end{equation}
 
-while the initial state has no dependence on the final state helicities and is given by
+Such a state can also be described with a total spin $s$ and moment $m_s$:
 
 \begin{equation}
-  \ket{i} = \ket{J,M}\ket{\mathbf{P}_X}
+  \ket{\Omega, sm_s} = \sum_{m_1m_2} \left(s_1m_1s_2m_2\mid sm_s\right)\ket{\Omega,s_1m_1s_2m_2}
 \end{equation}
 
-Given a decay amplitude $A$ which functions like our scattering matrix $S$ in \Cref{pwa:eq:scattering-amplitude-def}, we can write
+Here, $\left(s_1m_1s_2m_2\mid sm_s\right)$ is the Clebsch-Gordan coefficient describing the angular momentum coupling. Next, we can add additional angular momentum apart from the spin. For a system with angular momentum $\ell$ with moment $m$, we use the fact that $\bra{\Omega}\ket{\ell m} = Y_{\ell}^m(\Omega)$ (spherical harmonics) to define
+
+\begin{equation}
+  \ket{\ell m s m_s} = \int \dd{\Omega} Y_{\ell}^m(\Omega) \ket{\Omega; s m_s}
+  \label{eq:two-particle-canonical-angular-momentum}
+\end{equation}
+
+Next, the spin $s$ and angular momentum $\ell$ can be coupled into the total angular momentum $J$ with moment $M$:
+
+\begin{equation}
+  \ket{J M \ell m s m_s} = \sum_{m\,m_s} \left(\ell m s m_s \mid JM\right)\ket{\ell m s m_s}
+  \label{eq:two-particle-canonical-total-angular-momentum}
+\end{equation}
+
+This coupled state is still in the canonical formalism, and we would like to use the helicity basis. Using \Cref{eq:helicity-single-particle},
+
+\begin{equation}
+  \ket{\Omega,s_1\lambda_1 s_2\lambda_2} = \mathcal{N} U[R_\Omega] \underbrace{\left(U[L_z(p)]\ket{s_1\lambda_1} U[L_{-z}(p)]\ket{s_2,-\lambda_2}\right)}_{\ket{\varnothing, s_1\lambda_1 s_2\lambda_2}}
+  \label{eq:two-particle-helicity}
+\end{equation}
+
+To obtain states with a total angular momentum, we can integrate over the space of all rotations, weighted by Wigner D-matrices:
+
+\begin{equation}
+  \ket{JM s_1\lambda_1 s_2\lambda_2} = \frac{N_J}{2\pi} \int \dd{R} D_{M\mu}^{J*}(R) U[R]\ket{\varnothing, s_1\lambda_1 s_2\lambda_2}
+\end{equation}
+
+This is, of course, incomplete, as we have not defined the normalization factor $N_J$ or the coupling $\mu$ which relates helicities to total angular momentum. To do both, let us specify the rotation $R$ as follows,
 
 \begin{align}
-  \mel{f}{A}{i} &= (2\pi)^3\sqrt{\frac{4m_X}{p_f}}\mel{\Omega_f,\lambda_1,\lambda_2}{A}{J_X,M_X} \notag \\
-                &= (2\pi)^3\sqrt{\frac{4m_X}{p_f}}\bra{\Omega_f,\lambda_1,\lambda_2}\left(\sum_{J'M'}\ket{J',M',\lambda_1,\lambda_2}\bra{J',M',\lambda_1,\lambda_2}\right)A\ket{J_X,M_X} \notag \\
-                &= (2\pi)^3 \sqrt{\frac{4m_X}{p_f}}\sum_{J'M'}\sqrt{\frac{2J'+1}{4\pi}}D^{J'*}_{M'\lambda}(\varphi_f,\theta_f,-\varphi_f)\mel{J',M',\lambda_1,\lambda_2}{A}{J_X,M_X}
+  \ket{JM s_1\lambda_1 s_2\lambda_2} &= \frac{N_J}{2\pi}\int \dd{R} D_{M\mu}^{J*}(R) U[R(\varphi, \theta, \gamma)]\ket{\varnothing, s_1\lambda_1 s_2\lambda_2} \notag \\
+                                     &= \frac{N_J}{2\pi}\int \dd{R} D_{M\mu}^{J*}(R) U[R(\varphi, \theta, 0)]U[R(0, 0, \gamma)]\ket{\varnothing, s_1\lambda_1 s_2\lambda_2} \notag \\
+                                     &= \frac{N_J}{2\pi}\int \dd{R} D_{M\mu}^{J*}(R) e^{-\imath (\lambda_1 - \lambda_2)\gamma}U[R(\varphi, \theta, 0)]\ket{\varnothing, s_1\lambda_1 s_2\lambda_2} \notag \\
+                                     &= \frac{N_J}{2\pi}\int \dd{\Omega}\dd{\gamma} e^{\imath M \varphi} d^{J*}_{M\mu} e^{\imath \mu \gamma} e^{-\imath (\lambda_1 - \lambda_2)\gamma}U[R(\varphi, \theta, 0)]\ket{\varnothing, s_1\lambda_1 s_2\lambda_2} \notag \\
+                                     &= \frac{N_J}{2\pi}\int \dd{\Omega}\dd{\gamma} e^{\imath M \varphi} d^{J*}_{M\mu} e^{\imath (\mu - (\lambda_1 - \lambda_2)) \gamma} \ket{\Omega, s_1\lambda_1 s_2\lambda_2} \notag \\
+                                     &= N_J\int \dd{\Omega} D_{M\lambda}^{J*}(R_{\Omega}) \ket{\Omega, s_1\lambda_1 s_2\lambda_2} \\
+                                     &\text{with } \lambda = \lambda_1 - \lambda_2 \notag
 \end{align}
 
-where the last line comes from \Cref{pwa:eq:jm-two-particle-inner-product}. Since $\bra{J',M'}\ket{J_X,M_X} = \delta_{J'J_X}\delta_{M'M_X}$, (see \Cref{pwa:eq:jm-integral-form}), and because the matrix element should be rotationally invariant, we can write $\mel{J',M',\lambda_1,\lambda_2}{A}{J_X,M_X} \equiv \delta_{J'J_X}\delta_{M'M_X} A_{\lambda_1\lambda_2}$:
+It can be shown that the normalization $\mathcal{N} = \frac{1}{4\pi} \sqrt{\frac{p}{w}}$ where $p$ is the relative momentum and $w$ the effective mass of the two-particle system. The normalization of the standard two-particle states is given by
 
-\begin{equation}\label{pwa:eq:decay-mel}
-  \mel{f}{A}{i} = (2\pi)^3\sqrt{\frac{4m_X}{p_f}}\sqrt{\frac{2J_X+1}{4\pi}}D^{J_X*}_{M_X\lambda}(\varphi_f,\theta_f,-\varphi_f) A_{\lambda_1\lambda_2}
+\begin{equation}
+  \bra{\Omega', s'_1\lambda'_1 s'_2\lambda'_2}\ket{\Omega, s_1\lambda_1 s_2\lambda_2} = \delta^{(2)}(\Omega' - \Omega) \delta_{s'_1 s_1} \delta_{\lambda'_1\lambda_1} \delta_{s'_2 s_2} \delta_{\lambda'_2\lambda_2}
 \end{equation}
 
-Again, to relate this to an actual experimental observable, we take the square of the norm. Because we don't actually measure the helicities $\lambda_1$ or $\lambda_2$ in the GlueX experiment, we can instead sum over them:
+This follows immediately from \Cref{eq:helicity-normalization}. Next, to ensure that
 
-\begin{equation}\label{pwa:eq:decay-xsection}
-  \pdv{\sigma}{\Omega_f} = \sum_{\lambda_1\lambda_2}(2\pi)^3\frac{2J_X+1}{\pi }\frac{m_X}{p_f}\abs{D^{J_X*}_{M_X\lambda}(\varphi_f,\theta_f,-\varphi_f)A_{\lambda_1\lambda_2}}^2
+\begin{equation}
+  \bra{J'M' s'_1\lambda'_1 s'_2\lambda'_2}\ket{JM s_1\lambda_1 s_2\lambda_2} = \delta_{J'J} \delta{M'M} \delta_{s'_1 s_1} \delta_{\lambda'_1\lambda_1} \delta_{s'_2 s_2} \delta_{\lambda'_2\lambda_2}
+\end{equation}
+
+we must have $N_J = \sqrt{\frac{2J+1}{4\pi}}$. Finally,
+
+\begin{equation}
+  \bra{\Omega, s'_1\lambda'_1 s'_2\lambda'_2}\ket{JM s_1\lambda_1 s_2\lambda_2} = N_J D_{M\lambda}^{J*}(R_\Omega) \delta_{s'_1 s_1} \delta_{\lambda'_1\lambda_1} \delta_{s'_2 s_2} \delta_{\lambda'_2\lambda_2}
 \end{equation}
 
 \subsection{Production Amplitudes}
 {\color{red}TODO: cite https://link.springer.com/article/10.1140/epjc/s10052-020-7930-x}
-Now we are ready to put everything together to work out a cross section for the reaction $\gamma + p \to [X \to K_S + K_S] + p'$. This is somewhat equivalent to combining \Cref{pwa:eq:scattering-mel} and \Cref{pwa:eq:decay-mel}, but the decay amplitude now includes the state of the spectator (recoil) proton. To temporarily maintain similar notation, we can write this reaction as $a + b \to c + X$ where $X \to 1 + 2$. We can write the matrix element as
+
 
 \section{Second attempt}
 {\color{red}Following https://onlinelibrary.wiley.com/doi/10.1155/2020/6674595}
