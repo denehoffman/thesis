@@ -4,6 +4,3 @@ build:
 
 open: build
   sioyek main.pdf
-
-transfer:
-  rsync -avz nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/gluex_ksks/analysis/plots/* figures/
