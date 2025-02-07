@@ -1,0 +1,73 @@
+Unsurprisingly, data collected from the GlueX detector mostly contains reaction topologies (the set of initial\-/, intermediate\-/, and final\-/state particles) which are not the channel of interest in this thesis. Additionally, due to the unavoidable finite resolution of each detector, the measured quantities such as the momentum of each particle might not exactly align with physical expectations (such as four-momentum conservation). For these reasons, we need to filter the detected data to just events which match our desired topology and kinematically fit the observables such as particle masses, decay vertices, and four-momenta with constraints that enforce conservation laws and other desirable properties.
+
+This process begins with particle reconstruction, where the raw detector data is transformed into charged particle tracks (from the drift chambers), photon showers (from the calorimeters), and some timing data from the ST and TOF. Next, the charged tracks are matched up with their respective showers from the calorimeters, and the remaining showers are labeled as ``neutral showers'' originating from photons (or possibly large neutral particles like neutrons). At this stage, no particle identification is assigned to the charged and neutral tracks.
+
+\subsubsection{Particle Identification Cuts}
+
+The next stage involves filtering through reconstructed tracks to find events which match our topology. First, we apply some basic selections to the track data, including a requirement that neutral showers must have an energy of at least $\SI{100}{\mega\eV}$ and neutral showers in the BCAL must be detected in at least two detector cells. Timing cuts are then applied to whichever detector gives the best timing information (the order being BCAL, TOF, FCAL, ST). By timing, we mean the difference between the time measured in the detector and the time of the RF beam bunch measured in the TAGH/TAGM. Each set of charged tracks is identified with each charged particle in the topology (events with too many or too few charged tracks are excluded). Each hypothetical identification is then subjected to cuts on the energy lost in the drift chambers or deposited in the calorimeters. Since there are no ``missing'' final-state particles (such as a neutron) in our reaction, an additional cut is made on the missing energy (the difference between the initial energy from the beam photon and the summed energy of the final-state particles). Finally, cuts are made on the invariant mass of some particles, as well as the missing mass (squared) for the step of the reaction from which the particle originated. For example, in the reaction $\gamma p \to K_S^0 K_S^0 p \to \pi^+\pi^-\pi^+\pi^- p$, a missing mass cut applied to the recoil proton would use the difference between the (squared) invariant mass of $\gamma p$ and $4\pi p$, but the missing mass cuts applied to one of th $\pi^+$ would involve the difference between the (squared) invariant mass of the $K_S^0$ it originated from and the decay product $\pi^+\pi^-$. A summary of these particle identification (PID) cuts can be seen in \Cref{tab:pid-cuts}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{cccc}\toprule
+      Particle & Selected Values & Unit & Detector \\\midrule
+      \gamma & $-1.5 \leq \Delta t_{\text{RF}} \leq 1.5$ & $\si{\nano\s}$ & BCAL\\
+             & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & FCAL\\
+             & $-0.1 \leq \text{MM}^2 \leq 0.1$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
+      \pi^{\pm} & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
+                & $-0.5 \leq \Delta t_{\text{RF}} \leq 0.5$ & $\si{\nano\s}$ & TOF\\
+                & $-2.0 \leq \Delta t_{\text{RF}} \leq 2.0$ & $\si{\nano\s}$ & FCAL\\
+                & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & ST\\
+                & $\dv{E}{x} < \exp[-7.0\abs{\vec{p}} + 3.0] + 6.2$ & $\si{\kilo\eV/\centi\m}$ ($\dv{E}{x}$), $\si{\giga\eV/c}$ ($\abs{\vec{p}}$) & CDC \\
+                & $-1.0 \leq \text{MM}^2 \leq 1.0$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
+      p & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
+                & $-0.6 \leq \Delta t_{\text{RF}} \leq 0.6$ & $\si{\nano\s}$ & TOF\\
+                & $-2.0 \leq \Delta t_{\text{RF}} \leq 2.0$ & $\si{\nano\s}$ & FCAL\\
+                & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & ST\\
+                & $\dv{E}{x} > \exp[-4.0\abs{\vec{p}} + 2.25] + 1.0$ & $\si{\kilo\eV/\centi\m}$ ($\dv{E}{x}$), $\si{\giga\eV/c}$ ($\abs{\vec{p}}$) & CDC \\
+                & $-0.5 \leq \text{MM}^2 \leq 4.41$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
+      $\pi^0$ & $0.08 \leq \text{IM} \leq 0.19$ & $\si{\giga\eV/c^2}$ & N/A\\
+              & $-1.0 \leq \text{MM}^2 \leq 1.0$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
+      $K_S^0$ & $0.3 \leq \text{IM} \leq 0.7$ & $\si{\giga\eV/c^2}$ & N/A\\
+              & $-1.0 \leq \text{MM}^2 \leq 2.0$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
+      N/A & $-3.0 \leq \text{ME} \leq 3.0$ & $\si{\giga\eV}$ & N/A\\\bottomrule
+    \end{tabular}
+    \caption{PID cuts used in event reconstruction. $\text{MM}^2$ corresponds to the missing mass squared, $\text{IM}$ corresponds to the invariant mass, and $ME$ corresponds to the total missing energy.}\label{tab:pid-cuts}
+  \end{center}
+\end{table}
+
+\subsubsection{Kinematic Fit}
+
+The final stage of reconstruction invokes a kinematic fit (KinFit) over data which has passed all PID cuts. This kinematic fit minimizes the following objective function:
+
+\begin{equation}
+  \chi^2(\vec{\eta},\vec{\xi}) = (\vec{y} - \vec{\eta})^\intercal \mathbf{V}_{\vec{y}}^{-1}(\vec{y} - \vec{\eta}) + 2 \vec{\lambda}^\intercal\vec{f}(\vec{\eta},\vec{\xi})
+  \label{eq:kinfit-chi}
+\end{equation}
+where $\vec{y}$ are the experimentally measured values of observables $\vec{\eta}$, $\mathbf{V}_{\vec{y}}$ is the covariance matrix of the measured $\vec{y}$, $\vec{f}(\vec{\eta},\vec{\xi}) = 0$ are constraints applied to the system with additional free parameters $\vec{\xi}$ (which do not correspond to measured observables), and $\lambda$ are unknown Lagrange multipliers for said constraints. Since we wish to minimize $\chi^2$, we first take derivatives with respect to each set of free parameters,
+
+\begin{align}
+  \pdv{\chi^2}{\vec{\eta}} &= \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}-\vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal\vec{\lambda} \label{eq:kinfit-dxdeta}\\
+  \pdv{\chi^2}{\vec{\lambda}} &= \vec{f}(\vec{\eta},\vec{\xi}) \label{eq:kinfit-dxdlambda}\\
+  \pdv{\chi^2}{\vec{\xi}} &= \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal\vec{\lambda} \label{eq:kinfit-dxdxi}
+\end{align}
+
+To find an extrema, we set these each to $\vec{0}$ and solve. At GlueX, the KinFit uses the Newton-Raphson method. First, we Taylor expand the constraint equations to first order,
+
+\begin{equation}
+  \vec{f}(\vec{\eta},\vec{\xi}) \approx \vec{f}(\vec{\eta}_0,\vec{\xi}_0) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)\eval_{\vec{\eta}_0,\vec{\xi}_0}\left(\vec{\eta} - \vec{\eta}_0\right) + \left(\pdv{\vec{f}}{\vec{\xi}}\right)\eval_{\vec{\eta}_0,\vec{\xi}_0}\left(\vec{\xi} - \vec{\xi}_0\right)
+\end{equation}
+
+Assuming $\vec{\eta}_0$ and $\vec{\xi}_0$ are near the true minimum, we can set up an iterative method of approach,
+
+\begin{equation}
+  \vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{\eta}_{i+1} - \vec{\eta}_i\right) + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) = \vec{0}
+\end{equation}
+
+To carry out an iteration, we need to determine the next step in each of the free directions $\vec{\eta}_{i+1}$ and $\vec{\xi}_{i+1}$. We start by writing the iterative forms of \Cref{eq:kinfit-dxdeta,eq:kinfit-dxdxi} as
+
+\begin{align}
+  \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}_{i+1} - \vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{kinfit-dxdeta-iter} \\
+  \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{kinfit-dxdxi-iter}
+\end{align}
+
+We can rearrange \Cref{kinfit-dxdeta-iter} as
