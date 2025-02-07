@@ -61,13 +61,49 @@ Assuming $\vec{\eta}_0$ and $\vec{\xi}_0$ are near the true minimum, we can set 
 
 \begin{equation}
   \vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{\eta}_{i+1} - \vec{\eta}_i\right) + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) = \vec{0}
+  \label{eq:kinfit-iter}
 \end{equation}
 
-To carry out an iteration, we need to determine the next step in each of the free directions $\vec{\eta}_{i+1}$ and $\vec{\xi}_{i+1}$. We start by writing the iterative forms of \Cref{eq:kinfit-dxdeta,eq:kinfit-dxdxi} as
+where $\vec{f}_i \equiv \vec{f}(\vec{\eta}_i,\vec{\xi}_i)$, $\left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\equiv \left(\pdv{\vec{f}}{\vec{\eta}}\right)\eval_{\vec{\eta}_i,\vec{\xi}_i}$, and $\left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\equiv \left(\pdv{\vec{f}}{\vec{\xi}}\right)\eval_{\vec{\eta}_i,\vec{\xi}_i}$. To carry out an iteration, we need to determine the next step in each of the free directions $\vec{\eta}_{i+1}$ and $\vec{\xi}_{i+1}$. We start by writing the iterative forms of \Cref{eq:kinfit-dxdeta,eq:kinfit-dxdxi} as
 
 \begin{align}
-  \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}_{i+1} - \vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{kinfit-dxdeta-iter} \\
-  \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{kinfit-dxdxi-iter}
+  \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}_{i+1} - \vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{eq:kinfit-dxdeta-iter} \\
+  \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{eq:kinfit-dxdxi-iter}
 \end{align}
 
-We can rearrange \Cref{kinfit-dxdeta-iter} as
+To obtain the next iterative estimate of $\vec{\eta}$ by rearranging \Cref{eq:kinfit-dxdeta-iter} as
+
+\begin{equation}
+  \vec{\eta}_{i+1} = \vec{y} - \mathbf{V}_{\vec{y}}\left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} \label{eq:kinfit-eta-update}
+\end{equation}
+
+Inserting this back into \Cref{eq:kinfit-iter}, we get
+
+\begin{align}
+  \vec{0} &= \underbrace{\vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{y}- \vec{\eta}_i\right)}_{\vec{r}_i} -\underbrace{\left(\left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\mathbf{V}_{\vec{y}}\left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \right)}_{\mathbf{S}_i} \vec{\lambda}_{i+1} + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \notag\\
+  \vec{0} &= \vec{r}_i - \mathbf{S}_i \vec{\lambda}_{i+1} + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \notag\\
+  \vec{\lambda}_{i+1} &= \mathbf{S}_i^{-1}\left(\vec{r}_i + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \right) \label{eq:kinfit-lambda-update}
+\end{align}
+
+We can plug this definition of $\vec{\lambda}_{i+1}$ into \Cref{eq:kinfit-dxdxi-iter} to find the iterative update for $\vec{\xi}$:
+
+\begin{align}
+  \vec{0} &= \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \mathbf{S}_i^{-1}\vec{r}_i + \underbrace{\left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \mathbf{S}_i^{-1}\left(\pdv{\vec{f}}{\vec{\xi}}\right)_i}_{\mathbf{U}_i}\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \notag\\
+  \vec{\xi}_{i+1} &= \vec{\xi}_i - \mathbf{U}_i^{-1}\left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \mathbf{S}_i^{-1}\vec{r}_i \label{eq:kinfit-xi-update}
+\end{align}
+
+To perform the kinematic fit, we use the available measured observables and their covariances (contained in $\vec{r}$, $\mathbf{S}$, and $\mathbf{U}$) to update our estimate of $\vec{\xi}$ via \Cref{eq:kinfit-xi-update}. Next, we use that result to update $\vec{\lambda}$ via \Cref{eq:kinfit-lambda-update}. Finally, we update $\vec{\eta}$ via \Cref{eq:kinfit-eta-update}. This process is repeated until the desired precision of these variables is met, and is guaranteed to converge as long as the initial values start near the minimum. The $\chi^2$ value obtained from evauating \Cref{eq:kinfit-chi} on the converged values tells us the quality of the fit. See {\color{red} FIGURE} for the distribution of $\chi^2_\nu \equiv \chi^2 / \nu$, where $\nu$ is the number of degrees of freedom in the fit, for both the real data and Monte Carlo simulation of the signal.
+
+The constraints $\vec{f}$ used in this channel include four-momentum conservation,
+
+\begin{equation}
+  \sum_{f\in\text{final}} p^\mu_{f} - \sum_{i\in\text{initial}} p^\mu_{i} = 0^\mu
+\end{equation}
+
+where the sum over four-momenta of of the initial-state particles must match that of the final-state particles, and the masses of each particle (including the intermediate $K_S^0$s),
+
+\begin{equation}
+  p^2 - m^2 = 0
+\end{equation}
+
+where $m$ is the known mass of the particle being constrained and $p$ is the fitted estimate of the four-momentum measured by the detectors. Additionally we constrain the positional vertices of each decay with a term that minimizes the distance at the point of closest approach within a drift chamber. It is important to note that this vertex constraint cannot be done in the case where a $K_S^0$ decays to $2\pi^0$, since the neutral pions will decay to $2\gamma$ which can only be detected the calorimeters. Because there is not a second point of detection for these photons, their trajectory and therefore the point at which the original $\pi^0$ decayed is unknown, so there is no way to further reconstruct the kaon decay vertex because the point of closest approach is unknown\footnote{The best we could do would be to assume the kaon decayed at the initial reaction vertex inside the target, which is not only unrealistic given that kaons decay via the weak interaction, but also causes problems later when we try to calculate the kaon lifetime to use in event weighting in \Cref{sec:splot}.}. Therefore, when we specify channels where one or both kaons decay as $K_S^0\to 2\pi^0$, we do not include these $K_S^0$s in the kinematic fit at all, and must infer them by adding the $\pi^0$ four-momenta (see {\color{red} SECTION}).
