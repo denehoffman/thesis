@@ -10,16 +10,16 @@ The next stage involves filtering through reconstructed tracks to find events wh
   \begin{center}
     \begin{tabular}{cccc}\toprule
       Particle & Selected Values & Unit & Detector \\\midrule
-      \gamma & $-1.5 \leq \Delta t_{\text{RF}} \leq 1.5$ & $\si{\nano\s}$ & BCAL\\
+      $\gamma$ & $-1.5 \leq \Delta t_{\text{RF}} \leq 1.5$ & $\si{\nano\s}$ & BCAL\\
              & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & FCAL\\
              & $-0.1 \leq \text{MM}^2 \leq 0.1$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
-      \pi^{\pm} & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
+      $\pi^{\pm}$ & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
                 & $-0.5 \leq \Delta t_{\text{RF}} \leq 0.5$ & $\si{\nano\s}$ & TOF\\
                 & $-2.0 \leq \Delta t_{\text{RF}} \leq 2.0$ & $\si{\nano\s}$ & FCAL\\
                 & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & ST\\
                 & $\dv{E}{x} < \exp[-7.0\abs{\vec{p}} + 3.0] + 6.2$ & $\si{\kilo\eV/\centi\m}$ ($\dv{E}{x}$), $\si{\giga\eV/c}$ ($\abs{\vec{p}}$) & CDC \\
                 & $-1.0 \leq \text{MM}^2 \leq 1.0$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
-      p & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
+      $p$ & $-1.0 \leq \Delta t_{\text{RF}} \leq 1.0$ & $\si{\nano\s}$ & BCAL\\
                 & $-0.6 \leq \Delta t_{\text{RF}} \leq 0.6$ & $\si{\nano\s}$ & TOF\\
                 & $-2.0 \leq \Delta t_{\text{RF}} \leq 2.0$ & $\si{\nano\s}$ & FCAL\\
                 & $-2.5 \leq \Delta t_{\text{RF}} \leq 2.5$ & $\si{\nano\s}$ & ST\\
@@ -35,9 +35,9 @@ The next stage involves filtering through reconstructed tracks to find events wh
   \end{center}
 \end{table}
 
-\subsubsection{Kinematic Fit}
+\subsubsection{Kinematic Fit}\label{subsub:kinematic-fit}
 
-The final stage of reconstruction invokes a kinematic fit (KinFit) over data which has passed all PID cuts. This kinematic fit minimizes the following objective function:
+The final stage of reconstruction invokes a kinematic fit (KinFit) over data which has passed all PID cuts. The general structure of the kinematic fit is underpinned by the following derivation from {\color{red}[?]\footnote{How to cite GlueX docdb 2112?}}. This kinematic fit minimizes the following objective function:
 
 \begin{equation}
   \chi^2(\vec{\eta},\vec{\xi}) = (\vec{y} - \vec{\eta})^\intercal \mathbf{V}_{\vec{y}}^{-1}(\vec{y} - \vec{\eta}) + 2 \vec{\lambda}^\intercal\vec{f}(\vec{\eta},\vec{\xi})
@@ -92,7 +92,24 @@ We can plug this definition of $\vec{\lambda}_{i+1}$ into \Cref{eq:kinfit-dxdxi-
   \vec{\xi}_{i+1} &= \vec{\xi}_i - \mathbf{U}_i^{-1}\left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \mathbf{S}_i^{-1}\vec{r}_i \label{eq:kinfit-xi-update}
 \end{align}
 
-To perform the kinematic fit, we use the available measured observables and their covariances (contained in $\vec{r}$, $\mathbf{S}$, and $\mathbf{U}$) to update our estimate of $\vec{\xi}$ via \Cref{eq:kinfit-xi-update}. Next, we use that result to update $\vec{\lambda}$ via \Cref{eq:kinfit-lambda-update}. Finally, we update $\vec{\eta}$ via \Cref{eq:kinfit-eta-update}. This process is repeated until the desired precision of these variables is met, and is guaranteed to converge as long as the initial values start near the minimum. The $\chi^2$ value obtained from evauating \Cref{eq:kinfit-chi} on the converged values tells us the quality of the fit. See {\color{red} FIGURE} for the distribution of $\chi^2_\nu \equiv \chi^2 / \nu$, where $\nu$ is the number of degrees of freedom in the fit, for both the real data and Monte Carlo simulation of the signal.
+To perform the kinematic fit, we use the available measured observables and their covariances (contained in $\vec{r}$, $\mathbf{S}$, and $\mathbf{U}$) to update our estimate of $\vec{\xi}$ via \Cref{eq:kinfit-xi-update}. Next, we use that result to update $\vec{\lambda}$ via \Cref{eq:kinfit-lambda-update}. Finally, we update $\vec{\eta}$ via \Cref{eq:kinfit-eta-update}. This process is repeated until the desired precision of these variables is met, and is guaranteed to converge as long as the initial values start near the minimum. The $\chi^2$ value obtained from evauating \Cref{eq:kinfit-chi} on the converged values tells us the quality of the fit. See \Cref{fig:chisqdof-initial} for the distribution of $\chi^2_\nu \equiv \chi^2 / \nu$, where $\nu$ is the number of degrees of freedom in the fit, for both the real data and Monte Carlo simulation of the signal.
+
+\begin{figure}
+  \begin{center}
+    \begin{subfigure}[b]{.8\columnwidth}
+      \includegraphics[width=1\linewidth]{figures/chisqdof_data_accpol.png}
+      \caption{}
+      \label{fig:chisqdof-data}
+    \end{subfigure}
+    \begin{subfigure}[b]{.8\columnwidth}
+      \includegraphics[width=1\linewidth]{figures/chisqdof_accmc_accpol.png}
+      \caption{}
+      \label{fig:chisqdof-mc}
+    \end{subfigure}
+  \end{center}
+  \caption{Distributions of $\chi^2_\nu$ (the $\chi^2$ per degree of freedom of the GlueX kinematic fit) for (a) data and (b) signal Monte Carlo after reconstruction cuts but before any fiducial selections from \Cref{sub:fiducial-cuts}. Note that the data extends past $\chi^2_\nu > 10$, but the plot was truncated for legibility. Both datasets have had accidental subtraction applied and combos flattened (see \Cref{subsub:combos,sec:data-selection}).}\label{fig:chisqdof-initial}
+\end{figure}
+
 
 The constraints $\vec{f}$ used in this channel include four-momentum conservation,
 
@@ -108,6 +125,6 @@ where the sum over four-momenta of of the initial-state particles must match tha
 
 where $m_{K_S^0}$ is the known mass of the $K_S^0$ and $p_{K_S^0}$ is the fitted estimate of the four-momentum reconstructed from the $\pi^+\pi^-$ four-momentum measured by the detectors. Additionally we constrain the initial and final positional vertices of each production step in the topology. For this channel, this means we constrain the initial production vertex and the point of closest approach of the $K_S^0$s and recoil proton, as well as the decay vertex of each $K_S^0$ with the closest approach of its constituent pions. It is important to note that this vertex constraint cannot be done in the case where a $K_S^0$ decays to $2\pi^0$, since the neutral pions will decay to $2\gamma$ which can only be detected the calorimeters. Because there is not a second point of detection for these photons, their trajectory and therefore the point at which the original $\pi^0$ decayed is unknown, so there is no way to further reconstruct the kaon decay vertex because the point of closest approach is unknown\footnote{The best we could do would be to assume the kaon decayed at the initial reaction vertex inside the target, which is not only unrealistic given that kaons decay via the weak interaction, but also causes problems later when we try to calculate the kaon lifetime to use in event weighting in \Cref{sec:splot}.}. Therefore, when we specify channels where one or both kaons decay as $K_S^0\to 2\pi^0$, we do not include these $K_S^0$s in the kinematic fit at all, and must infer them by adding the $\pi^0$ four-momenta (see {\color{red} SECTION}). For the main $\gamma p \to K_S^0K_S^0p \to 2\pi^+2\pi^-p$ channel, we have four constraints from four-momentum conservation, two mass constraints (one for each kaon), 14 vertex constraints (two for each constrained particle, viz. four pions, two kaons, and a proton), and nine unknowns from the vertex constraints (the position of the vertex introduces three unknowns for each vertex, and there are three constrained vertices, viz. two kaon decays and the initial production vertex). This gives a total of 20 constraints with nine unknowns, or 11 degrees of freedom in the fit.
 
-\subsubsection{Combos}
+\subsubsection{Combos}\label{subsub:combos}
 
-
+While the initial interaction vertex in theory contains a single photon, in practice, the incident beam contains multiple tagged photons, any of which might provide the requisite energy needed to kinematically generate a given set of final-state tracks. Additionally, there could be multiple ways to recombine or identify final-state particles to arrive at the same event topology. The GlueX reconstruction process considers all valid combinations of tagged photons and sets of reconstructed final-state particles and saves each one in a sub-event called a ``combo''. Each event has at least one of these combos, and some events may have many due to there being many candidate beam photons with similar energies. Since only one combo can be the true event, we need to flatten the data in a way that avoids double counting events. The method for doing so is discussed in {\color{red} SECTION}.
