@@ -1,7 +1,7 @@
 \section{Amplitude Formalism}
 {\color{red}TODO: cite http://scipp.ucsc.edu/\textasciitilde haber/ph218/ExperimentersGuideToTheHelicityFormalism.pdf and S.U. Chung spin formalisms}
 
-Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity{\color{red}TODO: citation}. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description.
+Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description.
 
 \subsection{Single-Particle Helicity States}
 
@@ -125,7 +125,7 @@ This is, of course, incomplete, as we have not defined the normalization factor 
                                      &\text{with } \lambda = \lambda_1 - \lambda_2 \notag
 \end{align}
 
-It can be shown that the normalization $\mathcal{N} = \frac{1}{4\pi} \sqrt{\frac{p}{w}}$ where $p$ is the relative momentum and $w$ the effective mass of the two-particle system. The normalization of the standard two-particle states is given by
+It can be shown that the normalization is $\mathcal{N} = \frac{1}{4\pi} \sqrt{\frac{p}{\sqrt{s}}}$ where $p$ is the relative momentum and $\sqrt{s}$ the center-of-momentum energy the two-particle system ($s$ is the Mandelstam variable). The normalization of the standard two-particle states is given by
 
 \begin{equation}
   \bra{\Omega', s'_1\lambda'_1 s'_2\lambda'_2}\ket{\Omega, s_1\lambda_1 s_2\lambda_2} = \delta^{(2)}(\Omega' - \Omega) \delta_{s'_1 s_1} \delta_{\lambda'_1\lambda_1} \delta_{s'_2 s_2} \delta_{\lambda'_2\lambda_2}
@@ -141,13 +141,446 @@ we must have $N_J = \sqrt{\frac{2J+1}{4\pi}}$. Finally,
 
 \begin{equation}
   \bra{\Omega, s'_1\lambda'_1 s'_2\lambda'_2}\ket{JM s_1\lambda_1 s_2\lambda_2} = N_J D_{M\lambda}^{J*}(R_\Omega) \delta_{s'_1 s_1} \delta_{\lambda'_1\lambda_1} \delta_{s'_2 s_2} \delta_{\lambda'_2\lambda_2}
+  \label{eq:angular-momentum-angle-coupling}
 \end{equation}
 
-\subsection{Production Amplitudes}
-{\color{red}TODO: cite https://link.springer.com/article/10.1140/epjc/s10052-020-7930-x}
+\subsection{Production Amplitudes}\label{sub:production-amplitudes}
 
+Given the two-particle helicity states, we can now construct production amplitudes which will model what we measure in the experiment.
 
-\subsection{Including Linear Polarization}
+We approach this with the $S$-matrix formalism. We assert that all of the dynamics of any reaction $i \to f$ are elements of an invariant scattering matrix $S$ written $\mel{f}{S}{i}$. We then define the matrix $T$ such that $S = 1 + 2 \imath T$, called the transition matrix\footnote{The factor of $2\imath$ here is purely convention and makes some derivations more compact.}.
+
+Let us examine the reaction $a + b \to c + d$. We can write the invariant $S$-matrix element as
+
+\begin{equation}
+  \mel{\vec{p}_c\lambda_c;\vec{p}_d\lambda_d}{S}{\vec{p}_a\lambda_a;\vec{p}_b\lambda_b} = (4\pi)^2 \sqrt{\frac{s}{p_fp_i}}\mel{\Omega\lambda_c\lambda_d}{S(\sqrt{s})}{\varnothing\lambda_a\lambda_b}
+  \label{eq:s-matrix-abcd}
+\end{equation}
+
+where we have used \Cref{eq:two-particle-helicity} to write the states with an initial momentum $(-)\vec{p}_i$ for particle ($b$)$a$ pointing along the direction $(\theta,\varphi) = (0,0) \equiv \varnothing$ and a final momentum $(-)\vec{p}_f$ for particle ($d$)$c$ pointing in the direction $\Omega$ with respect to $\vec{p}_i$. We can replace $S$ with the definition of $T$ to arrive at a similar formula for the invariant transition amplitude $\mathcal{M}_{fi}$,
+
+\begin{equation}
+  \mathcal{M}_{fi} = (4\pi)^2 \sqrt{\frac{s}{p_fp_i}}\mel{\Omega\lambda_c\lambda_d}{T(\sqrt{s})}{\varnothing\lambda_a\lambda_b}
+  \label{eq:transition-amplitude}
+\end{equation}
+
+While we will not measure a cross-section exactly, we will roughly measure the number of events as a function of mass and helicity angles, which is proportional to the cross section. We refer to this as the ``intensity'' function (see Appendix B of {\color{red}Chung Spin Formalisms}),
+
+\begin{equation}
+  I(m, \Omega) \propto \pdv{\sigma}{m}{\Omega} \equiv \frac{p_f}{p_i}\abs{\frac{\mathcal{M}_{fi}}{8\pi\sqrt{s}}}^2
+  \label{eq:intensity-definition}
+\end{equation}
+
+We can also use this formalism to model two-body decays of the form $c \to 1 + 2$, where $c$ has total angular momentum $J$. Starting in the rest frame of particle $c$, we say that particle ($2$)$1$ has momentum $(-)\vec{p}$, so the amplitude for a particular angular moment $M$ can be written as
+
+\begin{align}
+  \mel{\vec{p}\lambda_1;-\vec{p}\lambda_2}{\mathcal{M}}{JM} &= \bra{\vec{p}\lambda_1;-\vec{p}\lambda_2}\dyad{JM\lambda_1\lambda_2}{JM\lambda_1\lambda_2}\mathcal{M}\ket{JM} \\
+                                                            &= 4\pi\sqrt{\frac{w}{p}}\underbrace{\bra{\Omega\lambda_1;-\vec{p}\lambda_2}\ket{JM\lambda_1\lambda_2}}_{N_J D_{M\lambda}^{J*}(\Omega)}\bra{JM\lambda_1\lambda_2}\mathcal{M}\ket{JM} \\
+                                                            &\equiv N_J D_{M\lambda}^{J*}(\Omega) F^J_{\lambda_1\lambda_2}
+  \label{eq:decay-amplitude}
+\end{align}
+
+where $w$ is the effective mass of the decaying particle, $\lambda = \lambda_1 - \lambda_2$, and we use the completeness relation $\sum_{JM\lambda_1\lambda_2}\dyad{JM\lambda_1\lambda_2}{JM\lambda_1\lambda_2} = 1$ along with \Cref{eq:angular-momentum-angle-coupling}. We call $F^J_{\lambda_1\lambda_2}$ the helicity decay amplitude.
+
+If we wish to model $X \to K_S^0 K_S^0$, we first recognize that the kaon is a spin-$0$ particle, so the difference in helicity is $\lambda = 0$. Therefore,
+
+\begin{equation}
+  I(m,\Omega) \propto \abs{\mathcal{M}_{fi}}^2 \sim \abs{N_J D^{J*}_{M0}(\Omega) F^J(m)}^1 = \abs{Y_J^M(\Omega) F^J(m)}^2
+  \label{eq:decay-amplitude-intensity}
+\end{equation}
+
+Since we cannot know the spin projection of a particle \textit{a priori}, we will typically obtain it from fitting the intensity to a sum over these spherical harmonics, assigning an coefficient $a^J_M$ to each and determining the spin from the best-fitting harmonic,
+
+\begin{equation}
+  I(m,\Omega)\propto \abs{\sum_{JM}a^J_M F^J(m) Y_J^M(\Omega)}^2
+  \label{eq:partial-wave-expansion}
+\end{equation}
+
+It is important to remember here that $\Omega$ has always been defined in terms of the helicity angles of the decay, i.e. the spherical angles with respect to the direction of particle $X$'s motion found after boosting to the helicity frame. This frame is defined as the rest-frame of $X$ (found by boosting first from the lab frame to the center-of-momentum) with $\hat{z}$ defined as the boost direction from the center-of-momentum frame, $\hat{y}$ as normal to the production plane (the plane in which the beam and recoil proton move), and $\hat{x} = \hat{y}\cross\hat{z}$.
+
+\subsection{Including Linear Photon Polarization}
+
+As the GlueX beam has a known polarization, we can take advantage of this extra information to explore the parity exchanged in our reaction. Mathieu et al.~\cite{mathieu_moments_2019} provide a derivation which begins with a slightly different representation of the scattering matrix, written in terms of spin-density matrix elements $\rho^\gamma_{\lambda\lambda'}$ describing the coupling of a polarized photon to the helicity of the proton target (and that of the recoiling proton product):
+
+\begin{equation}
+  I(m,\Omega) \propto \frac{p_f}{p_i}\abs{\frac{\mathcal{M}_{fi}}{8\pi\sqrt{s}}}^2 = \kappa \sum_{\lambda\lambda'\lambda_p\lambda_{p'}} A_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega)\rho^{\gamma}_{\lambda\lambda'}A^*_{\lambda';\lambda_1\lambda_2}(m,\Omega)
+  \label{eq:intensity-sdme}
+\end{equation}
+
+where
+
+\begin{equation}
+  \kappa(m, s) = \frac{1}{(2\pi)^3}\frac{1}{4\pi}\frac{1}{2\pi}\frac{1}{2}\frac{\sqrt{\lambda\left(m^2,m^2_{K_S^0},m^2_{K_S^0}\right)}}{16 m(s-m_p^2)^2}
+\end{equation}
+
+where $\lambda(a,b,c) \equiv a^2 + b^2 + c^2 - 2(ab + bc + ca)$\footnote{It is unfortunate that the notation for this function is typically written with a $\lambda$, and we will attempt to ensure the distinction from helicity is clear when we use it.} and we define the reaction as $\gamma p \to X p'$ with $X \to K_S^0 K_S^0$. Here, the indices $\lambda$ and $\lambda'$ couple the helicity of the incident photon to the amplitude $A$, while $\lambda_p$ and $\lambda_{p'}$ correspond to the helicity of the target and recoiling proton, respectively. Note that these nucleon helicities are not measured at GlueX, but we will keep them in our model for the sake of completeness. Additionally, since the Mandelstam variable $s$ only shows up in this term, we will suppress its notation for now, but will bring it back at the end of the derivation.
+
+The spin-density matrix for the photon, $\rho^\gamma_{\lambda\lambda'}$, can be written in terms of the polarization vector,
+
+\begin{equation}
+  \rho^\gamma_{\lambda\lambda'} = \frac{1}{2}\left(I + \vec{P}_\gamma \cdot \vec{\sigma} \right)
+  \label{eq:photon-sdme}
+\end{equation}
+
+where $\vec{\sigma}$ are the Pauli matrices and
+
+\begin{equation}
+  \vec{P}_\gamma = P_\gamma \mqty[-\cos(2\Phi)\\-\sin(2\Phi)\\0]
+  \label{eq:polarization-vector}
+\end{equation}
+
+for linearly polarized photons with polarization degree $P_\gamma \in [0, 1]$ and polarization angle $\Phi$ (measured with respect to the production plane). From here, we can expand the intensity into three terms,
+
+\begin{equation}
+  I(m,\Omega,P_\gamma,\Phi) = I^0(m,\Omega) - P_\gamma I^1(m,\Omega)\cos(2\Phi) - P_\gamma(m,\Omega)\sin(2\Phi)
+  \label{eq:polarized-intensity}
+\end{equation}
+where
+
+\begin{align}
+  I^0(m,\Omega) &= \frac{\kappa}{2}\sum_{\lambda\lambda_p\lambda_{p'}} A_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega)A^*_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega) \\
+  I^1(m,\Omega) &= \frac{\kappa}{2}\sum_{-\lambda\lambda_p\lambda_{p'}} A_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega)A^*_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega) \\
+  I^2(m,\Omega) &= \imath\frac{\kappa}{2}\sum_{\lambda\lambda_p\lambda_{p'}} \lambda A_{-\lambda;\lambda_p\lambda_{p'}}(m,\Omega)A^*_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega)
+\end{align}
+
+Next, we can write
+
+\begin{equation}
+  A_{\lambda;\lambda_p\lambda_{p'}} = a^J_{M;\lambda\lambda_p\lambda_{p'}} F^J_{\lambda\lambda_p\lambda_{p'}}(m) Y_J^M(\Omega)
+\end{equation}
+
+For clarity, we will absorb the coefficient $a$ into the mass-dependent term $F$ and define
+
+\begin{equation}
+  T^{J}_{M;\lambda\lambda_p\lambda_{p'}}(m) \equiv a_{JM;\lambda\lambda_p\lambda_{p'}} F^J_{\lambda\lambda_p\lambda_{p'}}(m)
+  \label{eq:amplitude-definition}
+\end{equation}
+
+As mentioned, the polarization of the beam gives us access to information about the parity of the exchanged particle in the t-channel reaction. For this, we work in the ``reflectivity'' basis,
+
+\begin{equation}
+  T^{J(\epsilon)}_{M;\lambda_p\lambda_{p'}}(m) \equiv \frac{1}{2} \left[T^J_{M;+,\lambda_p\lambda_{p'}}(m) - \epsilon(-1)^M T^J_{-M;-,\lambda_p\lambda_{p'}}(m)\right]
+  \label{eq:reflectivity-amplitude}
+\end{equation}
+
+This basis is useful, as it can be shown that in the high-energy limit, the reflectivity $\epsilon=\pm 1$ corresponds to the exchanged naturality in $t$-channel reactions\footnote{i.e. Positive reflectivity implies natural parity exchange and negative reflectivity implies unnatural parity exchange}. Furthermore, parity invariance leads to the relation
+
+\begin{equation}
+  T^{J(\epsilon)}_{M;-\lambda_p{-\lambda_{p'}}}(m) = \epsilon(-1)^{\lambda_p-\lambda_{p'}}T^{J(\epsilon)}_{M;\lambda_p\lambda_{p'}}(m)
+  \label{eq:nucleon-parity-invariance}
+\end{equation}
+
+so there are really only two unique partial waves, those where the proton helicity flips ($\eta = -1$) and those where it does not ($\eta = +1$), which we will write as $T^{J(\epsilon)}_{M;\eta}$:
+
+\begin{equation}
+  T^{J(\epsilon)}_{M;+}(m) \equiv T^{J(\epsilon)}_{M;++}(m) \qquad T^{J(\epsilon)}_{M;-}(m) \equiv T^{J(\epsilon)}_{M;+-}(m)
+  \label{eq:nucleon-flip-amplitude}
+\end{equation}
+
 \section{The $Z_\ell^m$ Amplitude}
+
+The next part of the derivation pertains to both how we formulate this amplitude in practice and how we define sets of waves with which to fit our data, and it closely follows the work of {\color{red}Shepherd GlueXdoc4094}.
+
+We can rewrite the intensity function in \Cref{eq:polarized-intensity} in terms of exponentials. We will also expand out the sums over $\lambda = \pm$, the photon helicity, and temporarily suppress the indices of nucleon helicity for clarity (although I will keep the sum to remind us that these indices exist on each $A$).
+
+\begin{equation}
+  I(m,\Omega,P_\gamma,\Phi) = \frac{\kappa}{2}\sum_{\lambda_p\lambda_{p'}}  \left[A_-(m,\Omega)A^*_-(m,\Omega) + A_+(m,\Omega)A^*_+(m,\Omega) - P_\gamma e^{\imath 2\Phi}A_-(m,\Omega)A^*_+(m,\Omega) - P_\gamma e^{-\imath 2\Phi}A_+(m,\Omega)A^*_-(m,\Omega)\right]
+  \label{eq:intensity-equation-exp}
+\end{equation}
+
+Next, we define polarized amplitudes,
+
+\begin{equation}
+  \tilde{A}_\pm(m,\Omega,\Phi) \equiv e^{\mp\imath\Phi}A_\pm(m,\Omega),
+\end{equation}
+so that the intensity can be written as
+\begin{equation}
+  \frac{\kappa}{4}\sum_{\lambda_p\lambda_{p'}}\left[(1-P_\gamma)\abs{\tilde{A}_+(m,\Omega,\Phi) + \tilde{A}_-(m,\Omega,\Phi)}^2 + (1+P_\gamma)\abs{\tilde{A}_+(m,\Omega,\Phi) - \tilde{A}_-(m,\Omega,\Phi)}^2\right]
+  \label{eq:polarized-intensity-tilde}
+\end{equation}
+
+Rewriting these polarized amplitudes in terms of those of \Cref{eq:reflectivity-amplitude}, we find
+
+\begin{align}
+  \tilde{A}_+(m,\Omega,\Phi) &= \sum_{\lambda_p\lambda_{p'}}\sum_{J,M} \left[T^{J(-)}_M(m) + T^{J(+)}_M(m)\right] e^{-\imath\Phi}Y_J^M(\Omega) \\
+  \tilde{A}_-(m,\Omega,\Phi) &= \sum_{\lambda_p\lambda_{p'}}\sum_{J,M} \left[T^{J(-)}_M(m) - T^{J(+)}_M(m)\right] e^{-\imath\Phi}Y_J^{M*}(\Omega) \\
+\end{align}
+
+We now define the function,
+
+\begin{equation}
+  \hat{Z}_J^M(\Omega,\Phi) \equiv e^{-\imath\Phi}Y_J^M(\Omega)
+  \label{eq:zjm-hat-definition}
+\end{equation}
+
+This allows us to rewrite \Cref{eq:polarized-intensity-tilde} as
+
+\begin{align}
+  I(m,\Omega,P_\gamma,\Phi) = \sum_{\lambda_p\lambda_{p'}}\kappa &\left\{(1-P_\gamma)\abs{T^{J(-)}_M(m) \Re[\hat{Z}_J^M(\Omega,\Phi)] + \imath T^{J(+)}_M(m) \Im[\hat{Z}_J^M(\Omega,\Phi)]}^2\right. \\
+  + &\left.(1+P_\gamma)\abs{T^{J(+)}_M(m) \Re[\hat{Z}_J^M(\Omega,\Phi)] + \imath T^{J(-)}_M(m) \Im[\hat{Z}_J^M(\Omega,\Phi)]}^2\right\} \\
+  \label{eq:polarized-intensity-zjm-hat}
+\end{align}
+
+Next, we recognize the parity invariance mentioned in \Cref{eq:nucleon-parity-invariance} to transform the intensity into four coherent sums. To demonstrate this, we will show the expansion of the first coherent sum given in \Cref{eq:polarized-intensity-zjm-hat}, suppressing $m$, $\Omega$ and $\Phi$ for simplicity:
+
+\begin{align}
+  &\sum_{\lambda_p\lambda_{p'}}\abs{\sum_{JM}\left(T^{J(-)}_{M;\lambda_p\lambda_{p'}}\Re[\hat{Z}^M_J] + \imath T^{J(+)}_{M;\lambda_p\lambda_{p'}}\Im[\hat{Z}^M_J]\right)}^2 \notag\\
+  &=\sum_{\lambda_p\lambda_{p'}}\sum_{JM}\sum_{J'M'}\left(T^{J(-)}_{M;\lambda_p\lambda_{p'}}\Re[\hat{Z}^M_J] + \imath T^{J(+)}_{M;\lambda_p\lambda_{p'}}\Im[\hat{Z}^M_J]\right)\left(T^{J'(-)*}_{M';\lambda_p\lambda_{p'}}\Re[\hat{Z}^{M'}_{J'}] + \imath T^{J'(+)*}_{M';\lambda_p\lambda_{p'}}\Im[\hat{Z}^{M'}_{J'}]\right) \notag\\
+  &= \begin{aligned}[t]
+    \sum_{\lambda_p\lambda_{p'}}\sum_{JM}\sum_{J'M'}&\left\{\left(T^{J(-)}_{M;\lambda_p\lambda_{p'}}T^{J'(-)*}_{M';\lambda_p\lambda_{p'}}\Re[\hat{Z}^M_J]\Re[\hat{Z}^{M'}_{J'}]\right) - \left(T^{J(+)}_{M;\lambda_p\lambda_{p'}}T^{J'(+)*}_{M';\lambda_p\lambda_{p'}}\Im[\hat{Z}^M_J]\Im[\hat{Z}^{M'}_{J'}]\right)\right. \\
+  &\left.+\imath\left(T^{J(-)}_{M;\lambda_p\lambda_{p'}}T^{J'(+)*}_{M';\lambda_p\lambda_{p'}}\Re[\hat{Z}^M_J]\Im[\hat{Z}^{M'}_{J'}]\right) + \imath\left(T^{J(+)}_{M;\lambda_p\lambda_{p'}}T^{J'(-)*}_{M';\lambda_p\lambda_{p'}}\Im[\hat{Z}^M_J]\Re[\hat{Z}^{M'}_{J'}]\right)\right\}
+    \end{aligned}
+    \label{eq:zjm-summation-before-parity}
+\end{align}
+
+Next, we use the relation
+\begin{equation}
+  \sum_{\lambda_p\lambda_{p'}} T^{J(\epsilon)}_{M;\lambda_p\lambda_{p'}}T^{J'(\epsilon')*}_{M';\lambda_p\lambda_{p'}} = (1 + \epsilon\epsilon') \sum_{\eta}T^{J(\epsilon)}_{M;\eta}T^{J'(\epsilon')*}_{M';\eta}
+\end{equation}
+from parity conservation, which causes the last two terms in \Cref{eq:zjm-summation-before-parity} to vanish. The remaining terms can be rewritten as coherent sums, yielding the following expression for the intensity:
+
+\begin{align}
+  I(m,\Omega,P_\gamma,\Phi) = 2\kappa \sum_\eta \Bigg\{ &(1 - P_\gamma) \abs{\sum_{JM}T^{J(-)}_{M;\eta}(m)\Re[\hat{Z}_J^M(\Omega,\Phi)]}^2 + (1 - P_\gamma) \abs{\sum_{JM}T^{J(+)}_{M;\eta}(m)\Im[\hat{Z}_J^M(\Omega,\Phi)]}^2 \notag\\
+                                                &(1 + P_\gamma) \abs{\sum_{JM}T^{J(+)}_{M;\eta}(m)\Re[\hat{Z}_J^M(\Omega,\Phi)]}^2 + (1 + P_\gamma) \abs{\sum_{JM}T^{J(-)}_{M;\eta}(m)\Im[\hat{Z}_J^M(\Omega,\Phi)]}^2\Bigg\}
+\end{align}
+
+We can absorb the factors of $(1 \pm P_\gamma)$ by defining the function
+
+\begin{equation}
+  Z_J^{M(\pm)}(\Omega, P_\gamma, \Phi) = \left(\sqrt{1\pm P_\gamma} + \imath \sqrt{1\mp P_\gamma}\right) \hat{Z}_J^M(\Omega, \Phi)
+  \label{eq:zjm-definition}
+\end{equation}
+
+We finally note that in the energy range of this reaction, we do not expect to make states with additional angular momentum $L$, so for our interests, $J$ corresponds to spin. However, to be consisent with common nomenclature on this topic, we will use the notation $(\ell, m)$ in lieu of $(J, M)$ and consider $\ell$ to correspond to spin. Previously, it was mentioned that we have no way to measure the helicity of the proton before or after this reaction, so in practice we ignore the summation over $\eta$. However, we should be cautious of the phase-space factor $\kappa$, as it depends on both $m$ and $s$. This is not an issue in (mass) binned fits, which we will see later, as we average over $m$ anyway and assume the bins are small enought that $s$ does not vary much in each bin, but this term is non-negligable in mass-dependent formulations.
+
+\begin{align}
+  I(m, s,\Omega,P_\gamma,\Phi) = 2 \sum_\eta \Bigg\{ &\abs{\sum_{JM}\hat{T}^{J(-)}_{M;\eta}(m, s)\Re[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 + \abs{\sum_{JM}\hat{T}^{J(+)}_{M;\eta}(m,s)\Im[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 \notag\\
+                                                     &\abs{\sum_{JM}\hat{T}^{J(+)}_{M;\eta}(m,s)\Re[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 + \abs{\sum_{JM}\hat{T}^{J(-)}_{M;\eta}(m,s)\Im[Z_J^M(\Omega,P_\gamma,\Phi)]}^2\Bigg\}
+\end{align}
+
+where $\hat{T}^{J(\epsilon)}_{M;\eta}(m, s) \equiv \kappa^2(m,s) T^{J(\epsilon)}_{M;\eta}(m)$
+
 \section{The $K$-Matrix Parameterization}
+
+If we wish to parameterize the amplitude $T(m)$ as a function of mass, there are several options. Perhaps the most ubiquitous is the resonant lineshape devised by Breit and Wigner in 1936~\cite{breit_capture_1936} whose amplitude can be written as a function of the invariant mass $m$,
+
+\begin{equation}
+T(m;M,\Gamma) = \frac{M\Gamma / \sqrt{\pi}}{(M^2 - m^2) - \imath M\Gamma}
+  \label{eq:breit-wigner}
+\end{equation}
+where $M$ and $\Gamma$ describe the centroid and width of the peak respectively. We typically relate the centroid to the mass of the resonance and the width to the inverse of the lifetime (see \Cref{appendix:breit-wigner}) This is the non-relativistic form, and we can see that
+
+\begin{equation}
+  \abs{T(m;M,\Gamma)}^2 = \frac{(M\Gamma)^2/\pi}{(m^2 - M^2)^2 + (M\Gamma)^2}
+\end{equation}
+which can be seen to be a Cauchy distribution.
+
+We could continue in this way and define the mass-dependent dynamics of our system as a sum of Breit-Wigner distributions. However, this is not the correct approach, as we will show that this does not preserve the unitarity of the $S$-matrix. Let us examine an alternate formulation, which we will call the $K$-matrix method. We will see that this $K$-matrix yields a Breit-Wigner for a single resonance in a single decay channel, but it can be extended to multiple resonances in multiple channels while preserving unitarity.
+
+Following the derivation by Chung et al.~\cite{chung_partial_1995}, we begin with our definition of the transition operator from \Cref{sub:production-amplitudes},
+
+\begin{equation}
+  S = I + 2 \imath T
+\end{equation}
+
+To conserve probability, we require the $S$ matrix to be unitary, i.e. $SS^\dagger = S^\dagger S = I$. Plugging in the definition of $T$, we see that
+
+\begin{align}
+  I &= (I+2\imath T)(I-2\imath T^{\dagger}) \notag\\
+  I &= I + 2 TT^\dagger + 2\imath T - 2\imath T^\dagger \notag\\
+  T-T^\dagger &= 2\imath TT^\dagger
+\end{align}
+
+We then by the inverse of each matrix,
+
+\begin{align}
+  T(T^\dagger)^{-1}-I &= 2\imath T \notag\\
+  (T^\dagger)^{-1}-T^{-1} &= 2\imath I \notag\\
+  (T^{-1} + \imath I)^\dagger &= T^{-1} + \imath I
+  \label{eq:k-hermitian}
+\end{align}
+
+Next, we introduce the $K$-matrix, defined as
+
+\begin{equation}
+  K^{-1} = T^{-1} + \imath I
+  \label{eq:k-t-inverse-relation}
+\end{equation}
+
+$K$ is Hermitian by \Cref{eq:k-hermitian}, and by time reversal invariance of $T$, $K$ must be symmetric. For simplicity, we can also choose $K\in \mathbb{R}^n$. Continuing from the previous equation,
+
+\begin{align}
+  I &= T^{-1}K + \imath K \notag\\
+  T &= K + \imath T K
+\end{align}
+
+However, we could also reverse the order of multiplication here,
+
+\begin{align}
+  K^{-1}T &= I + \imath T \notag\\
+  T &= K + \imath K T
+\end{align}
+
+Therefore, $K$ and $T$ commute. Furthermore, we can solve for $T$ to find
+
+\begin{align}
+  T - \imath T K &= K \notag\\
+  T (I - \imath K) &= K \notag\\
+  T &= K(I - \imath K)^{-1}
+  \label{eq:t-matrix-from-k-matrix}
+\end{align}
+
+For a single channel, the $S$-matrix is scalar and can be written in the form $S=e^{2\imath \delta}$.
+
+An Argand diagram plots the real and imaginary parts of $T$ in the complex plane. By the definition of $T$ along with this definition of $S$, unitarity-preserving trajectories for $T$ must lie within a circle of radius $1/2$ centered at $0+\frac{1}{2}\imath$, which we refer to as the unitary circle. Since $K$ is defined from a unitary $T$- and $S$-matrix, it will always preserve unitarity as long as its properties of Hermiticity and symmetry are met. Therefore, any real symmetric $K$-matrix will yield a unitary $S$-matrix.
+
+Next, we must choose how to parameterize this $K$-matrix and write it in a Lorentz-invariant form.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/argand_diagram.png}
+  \end{center}
+  \caption{An Argand diagram depicting two fictitious resonances with masses of $\SI{1.2}{\giga\eV}/c^2$ and $\SI{1.4}{\giga\eV}/c^2$ and widths of $\SI{200}{\mega\eV}/c^2$ and $\SI{100}{\mega\eV}/c^2$ respectively using both the $K$-matrix formalism and interfering Breit-Wigners. The $T$-matrix formed from Breit-Wigners exceeds the unitary circle, implying that this construction breaks unitarity, while the $K$-matrix does not.}\label{fig:argand-diagram}
+\end{figure}
+
+\subsection{Resonances as Poles of the $K$-matrix}
+
+Resonances can be parametrized either as constant elements in the $K$-matrix, which are usually interpreted as ``molecular'' resonances resulting from the exchange of force-carrying bosons, or from poles, which are thought of as the resonances describing decaying hadrons~\cite{au_meson_1987}. While we are more interested in the second case, we will include a linear combination of poles and constant terms in the parameterization, as follows:
+
+\begin{equation}
+  K_{ij}(m) = \sum_{\alpha} \frac{g_{\alpha i}(m) g_{\alpha j}(m)}{m_\alpha^2 - m^2} + c_{ij}
+  \label{eq:k-matrix-parameterization}
+\end{equation}
+
+Here, $\alpha$ indexes the resonances, with $m_\alpha$ corresponding to the pole mass\footnote{This is not necessarily the same value as the centroid of a Breit-Wigner fit to the same data.} of the $\alpha$th resonance and $g_{\alpha i}$ corresponding to a term coupling the $\alpha$th resonance to the $i$th decay channel. $c_{ij}$ denotes any constant terms mentioned in the previously.
+
+For a single resonance in a single channel, we can write the $T$-matrix as
+
+\begin{align}
+  T &= K(I-\imath K)^{-1} \\
+    &= \frac{\frac{g^2(m)}{m_\alpha^2 - m^2}}{1 - \imath \left(\frac{g^2(m)}{m_\alpha^2 - m^2}\right)} \\
+    &= \frac{g^2(m)}{m_\alpha^2 - m^2 - \imath g^2(m)}
+\end{align}
+
+which we see is identical to the Breit-Wigner form given in \Cref{eq:breit-wigner} with $g^2(m) = m_\alpha\Gamma_\alpha(m)$\footnote{Here, $\Gamma$ depends on $m$, which is true for a relativistic form of the Breit-Wigner amplitude.}.
+
+Furthermore, we can now demonstrate the fundamental reason why we need to use the $K$-matrix in lieu of Breit-Wigners when describing multiple overlapping resonances. \Cref{fig:argand-diagram} shows that, even in a single channel, two interfering Breit-Wigners do not preserve unitarity, while the corresponding $K$-matrix does.
+
+In the case where a resonance can decay into multiple channels, we say that $\Gamma_\alpha(m) = \sum_i \Gamma_{\alpha i}(m)$ is the total width and $\Gamma_{\alpha i}(m)$ are called the partial widths. In the relativistic form of the Breit-Wigner (and the Lorentz-invariant form of the resulting $S$-matrix), widths (and therefore partial widths) are given by
+
+\begin{equation}
+  \Gamma_{\alpha i} = \gamma^2_{\alpha i} \Gamma_{\alpha} B^\ell_{\alpha i}(m) \sqrt{\rho_i(m)}
+  \label{eq:partial-width}
+\end{equation}
+
+where $\gamma^2_{\alpha i}$ is the fraction of the total width\footnote{However, $\gamma_{\alpha i}$ may itself be negative so long as it is purely real.}, $\Gamma_\alpha$, which is coupled to the channel $i$, and $\rho_i(m)$ is the phase space factor
+
+\begin{equation}
+  \rho_i(m) = \sqrt{\chi^+_i(m)\chi^-_i(m)}\quad\text{where}\quad\chi^{\pm}_i = 1 - \left(\frac{m_1 \pm m_2}{m}\right)^2
+  \label{eq:rho}
+\end{equation}
+
+when the $i$th channel describes the decay $\alpha \to 1 + 2$ and $B^\ell_{\alpha i}(m)$ is the centrifugal barrier factor describing the suppression to the partial width when a resonance has angular momentum $\ell$. We typically parameterize this via form factors derived by Blatt and Weisskopf~\cite{blatt_theoretical_1979},
+
+\begin{align}
+  B^\ell_{\alpha i}(m) &= \frac{F_\ell(z_i(m))}{F_\ell(z_i(m_\alpha))} \\
+  z_i(m) &\equiv \left(\frac{q_i(m)}{q_R}\right)^2 \\
+  F_0(z) &= 1 \\
+  F_1(z) &= \sqrt{\frac{2z}{z+1}} \\
+  F_2(z) &= \sqrt{\frac{13z^2}{(z-3)^2 + 9z}} \\
+  F_\ell(z) &= \sqrt{\frac{\abs{h_\ell^{(1)}(1)}^2}{z\abs{h_\ell^{(1)}(\sqrt{z})}^2}}
+\end{align}
+
+where $q_i(m) = m\rho_i(m)/2$ is the breakup momentum for the $i$th channel\footnote{i.e. the magnitude of the momentum either decay product will have in the rest frame of the decay}, $q_R$ is the impact parameter/interaction radius (we use $\SI{0.1973}{\giga\eV}$ in our calculations), and $h_\ell^{(1)}$ is a spherical Hankel function of the first kind (see Equation 2.4 of \cite{von_hippel_centrifugal-barrier_1972})
+
+For clarity, we typically reparameterize these partial widths such that
+
+\begin{equation}
+  g_{\alpha i}(m) = g_{\alpha i}B^\ell_{\alpha i}(m)\sqrt{\rho_i(m)}
+  \label{eq:coupling-expansion}
+\end{equation}
+
+so we can define the Lorentz-invariant $K$-matrix, $\hat{K}$, as
+
+\begin{align}
+  K_{ij}(m) &= \sqrt{\rho_i(m)}\left(\sum_{\alpha}B^\ell_{\alpha i}(m)\left[\frac{g_{\alpha i}g_{\alpha j}}{m_\alpha^2 - m^2} + \sum_n \bar{c}_{nij} m^{2n}\right]B^\ell_{\alpha j}\right)\sqrt{\rho_j(m)} \notag\\
+  K_{ij}(m) &= \sqrt{\rho_i(m)} \hat{K}_{ij}(m) \sqrt{\rho_j(m)} \\
+  \label{eq:invariant-k-matrix}
+\end{align}
+
+where we have absorbed some multiplicative factors into $c_{ij}$ to form the series expansion over powers of $m^2$ (since $\rho(m)$ and $B^\ell_{\alpha i}(m)$ only contain even powers of $m$) with coefficients $\bar{c}_{ij}$. Here, $\bar{K}$ replaces $K$ in \Cref{eq:t-matrix-from-k-matrix} as an intermediate step to defining a Lorentz-invariant formulation.
+
+According to Chung\footnote{\color{red}cite: S. U. Chung, Spin Formalisms, CERN Yellow Report, CERN (1971) 71-78}, the Lorentz-invariant form of the $T$-matrix, $\hat{T}$ can be written as
+
+\begin{equation}
+  T = \sqrt{\rho}\hat{T}\sqrt{\rho}
+\end{equation}
+
+where we define the notation
+
+\begin{align}
+  \rho_{ij}(m) &\equiv \rho_i(m)\delta_{ij}\\
+  \sqrt{\rho_{ij}(m)} &\equiv \sqrt{\rho_i(m)}\delta_{ij}
+\end{align}
+
+In terms of \Cref{eq:t-matrix-from-k-matrix,eq:invariant-k-matrix,eq:k-t-inverse-relation}, we can write
+
+\begin{equation}
+  \hat{K}^{-1} = \hat{T}^{-1} + \imath \rho
+\end{equation}
+
+Following the previous derivation with these invariant forms, we find that
+
+\begin{equation}
+  \hat{T} = (I - \imath\hat{K}\rho)^{-1}\hat{K}
+  \label{eq:t-matrix-from-k-matrix-invariant}
+\end{equation}
+
+
+\subsubsection{Production Amplitudes from a $K$-Matrix}
+
+The $T$-matrix given in \Cref{eq:t-matrix-from-k-matrix-invariant} describes $s$-channel resonances (as in $a + b \to X \to c + d$). We can transform this into a production amplitude following Aitchison~\cite{aitchison_k-matrix_1972}:
+
+\begin{equation}
+  \hat{F} = (I - \imath\hat{K}\rho)^{-1}\hat{P}
+  \label{eq:k-matrix-production-amplitude}
+\end{equation}
+where
+\begin{equation}
+  \hat{P}_i(m) = \sum_\alpha \left(\frac{\beta_\alpha g_{\alpha i}}{m_\alpha^2 - m^2} + \sum_n c_{ni} m^{2n} \right)B_{\alpha i}^{\ell}(m)
+  \label{eq:p-vector}
+\end{equation}
+
+Here, $\beta_\alpha$ describes the complex coupling from the initial state to the resonance $\alpha$. This can be thought of like a coupling coefficient in front of a single Breit-Wigner. The polynomial of coefficients are included for completeness, as any constant terms in $P$ preserve unitarity in the same way as constant terms in $K$, and the division of the factor of $\rho_i(m) \sim \rho_i(m^2)$ from \Cref{eq:coupling-expansion} and $B^\ell_{\alpha i}(m) \sim B^\ell_{\alpha i}(m^2)$ creates the given form.
+
+\subsubsection{The Chew-Mandelstam Matrix}
+
+For reasons which will become clear, we will define the diagonal matrix $C$, called the Chew-Mandelstam matrix, with the property
+
+\begin{equation}
+  \Im[C(m)] = -\rho(m)\quad\text{or}\quad C(m) = A(m) - \imath\rho(m)
+\end{equation}
+for some real function $A(m)$. It can be shown that we can replace $-\imath\rho$ in \Cref{eq:t-matrix-from-k-matrix-invariant} with such a matrix $C$ and still retain a valid $K$-matrix representation~\cite{wilson_resonances_2015},
+
+\begin{equation}
+  \hat{T} = (I + \hat{K}C)^{-1}\hat{K}
+\end{equation}
+
+and
+
+\begin{equation}
+  \hat{F} = (I + \hat{K}C)^{-1}\hat{P}
+\end{equation}
+
+The exact form of $A(m)$ is arbitrary, but we will be using
+
+\begin{equation}
+  C_ii(m) = C((m_1 + m_2)^2) + \frac{\rho_i(m)}{\pi}\ln\left[\frac{\chi^+_i(m) + \rho_i(m)}{\chi^+_i(m) - \rho_i(m)}\right] - \frac{\chi^+_i(m)}{\pi}\frac{m_2 - m_1}{m_1 + m_2}\ln\frac{m_2}{m_1}
+  \label{eq:chew-mandelstam}
+\end{equation}
+
+where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \Cref{appendix:chew-mandelstam} for a derivation of this expression.
+
+The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We will later see that we do not have enough data to constrain the pole positions of every resonance in this channel, so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\beta$) to photoproduction.
+
 \section{Waveset Selection}

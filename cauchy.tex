@@ -1,0 +1,36 @@
+The Cauchy distribution, and therefore the non-relativistic Breit-Wigner, can be derived from a Fourier transform of an exponentially decaying function in time, thus relating its width to the lifetime of the resonance.
+
+We begin by writing a simplified form of the Cauchy distribution,
+
+\begin{equation}
+  f(x) = \frac{1}{\pi}\frac{1}{1+x^2}
+  \label{eq:cauchy-distribution}
+\end{equation}
+
+The characteristic function for this distribution is given by the Fourier transform,
+
+\begin{equation}
+  g(t) = \int_{-\infty}^{\infty} \dd{x} f(x) e^{\imath t x} = \int_{-\infty}^{\infty} \dd{x} \frac{1}{\pi}\frac{1}{1+x^2} e^{\imath t x}
+\end{equation}
+
+We can evaluate this integral via a contour integration in the complex plane. The function $f(z)$ has poles at $z=\pm\imath$, and we can choose a half circle ($z = R e^{\imath\theta}$) in either the upper or lower half-plane as the contour of integration. However, by Jordan's lemma, our choice of contour depends on $t$. Since the exponential term is $e^{\imath t z} = e^{\imath t R \cos\theta - t R \sin\theta}$, as $R\to\infty$, the integral along the curved part of the contour will only vanish when $t>0$ and $\sin\theta>0$, i.e. the upper half-plane. We could also calculate $g(t<0)$ by taking the integral over the lower half-plane where $\sin\theta<0$, but it is not necessary for this derivation.
+
+To perform this integral, we need only calculate the residue at $z=\imath$ and use the Cauchy's residue theorem,
+
+\begin{equation}
+  g(t>0) = \lim_{R\to\infty} \int_{C(R,\theta)} \dd{z} f(z)e^{\imath t x} = 2\pi\imath \frac{e^{\imath t (\imath)}}{2\pi\imath} = e^{-t}
+\end{equation}
+
+since $\Res[f(z);z=\imath] = \frac{1}{2\pi\imath}$. Next consider that, when written in the more familiar form, the non-relativistic Breit-Wigner is given by
+
+\begin{equation}
+  \frac{1}{\pi\left(\left(\frac{m^2 - M^2}{M\Gamma})^2 + 1\right)}
+\end{equation}
+
+This function now has poles at $m^2 = M(M\pm \imath \Gamma)$. Choosing again the pole in the upper half-plane, we find that the residue is now $\frac{M\Gamma}{2\pi\imath}$, so the characteristic function becomes
+
+\begin{equation}
+  g(t>0) = M\Gamma e^{\imath M^2 t} e^{-M\Gamma t}
+\end{equation}
+
+It is now clear that the term which decays in time $t$ has a characteristic slope of $M\Gamma$ (in practice, $M$ is usually absorbed into the parameterization of $\Gamma$).
