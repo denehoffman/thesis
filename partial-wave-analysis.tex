@@ -368,7 +368,7 @@ If we wish to parameterize the amplitude $T(m)$ as a function of mass, there are
 T(m;M,\Gamma) = \frac{M\Gamma / \sqrt{\pi}}{(M^2 - m^2) - \imath M\Gamma}
   \label{eq:breit-wigner}
 \end{equation}
-where $M$ and $\Gamma$ describe the centroid and width of the peak respectively. We typically relate the centroid to the mass of the resonance and the width to the inverse of the lifetime (see \Cref{appendix:breit-wigner}) This is the non-relativistic form, and we can see that
+where $M$ and $\Gamma$ describe the centroid and width of the peak respectively. We typically relate the centroid to the mass of the resonance and the width to the inverse of the lifetime. This is the non-relativistic form, and we can see that
 
 \begin{equation}
   \abs{T(m;M,\Gamma)}^2 = \frac{(M\Gamma)^2/\pi}{(m^2 - M^2)^2 + (M\Gamma)^2}
@@ -575,12 +575,22 @@ and
 The exact form of $A(m)$ is arbitrary, but we will be using
 
 \begin{equation}
-  C_ii(m) = C((m_1 + m_2)^2) + \frac{\rho_i(m)}{\pi}\ln\left[\frac{\chi^+_i(m) + \rho_i(m)}{\chi^+_i(m) - \rho_i(m)}\right] - \frac{\chi^+_i(m)}{\pi}\frac{m_2 - m_1}{m_1 + m_2}\ln\frac{m_2}{m_1}
+  C_{ii}(m) = C((m_1 + m_2)^2) + \frac{\rho_i(m)}{\pi}\ln\left[\frac{\chi^+_i(m) + \rho_i(m)}{\chi^+_i(m) - \rho_i(m)}\right] - \frac{\chi^+_i(m)}{\pi}\frac{m_2 - m_1}{m_1 + m_2}\ln\frac{m_2}{m_1}
   \label{eq:chew-mandelstam}
 \end{equation}
 
-where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \Cref{appendix:chew-mandelstam} for a derivation of this expression.
+where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \cite{oller_nd_1999}, \cite{basdevant_unitary_1977}, \cite{oller_chiral_2001}, and \cite{reid_generating_1984} for derivations and additional details of this expression. The motivation for this choice is that it is better behaved below threshold than $\rho(m)$, as can be seen in \Cref{fig:chew-mandelstam}.
 
-The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We will later see that we do not have enough data to constrain the pole positions of every resonance in this channel, so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\beta$) to photoproduction.
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/chew_mandelstam.png}
+  \end{center}
+  \caption{A comparison of the normal phase-space function, $\rho(m)$ (left) and the Chew-Mandelstam matrix, $C(m)$ (right) on the $\pi^0\eta$ channel. Both functions have the same imaginary part above the threshold $m = m_1 + m_2$, but phase-space function has discontinuities and singularities below the threshold.}\label{fig:chew-mandelstam}
+\end{figure}
+
+
+The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We will later see that we do not have enough data to constrain the pole positions of every resonance in this channel, so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\beta$) to photoproduction. Additionally, using the results from these papers requires a Adler zero term in front of the $K$-matrix for the $f_0$ mesons of the form $\frac{(s - s_0)}{s_\text{norm}}$, where they use $s_0 = m^2_{\pi_0}/2$ and $s_\text{norm} = 1$.
 
 \section{Waveset Selection}
+
+
