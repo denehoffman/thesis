@@ -174,13 +174,13 @@ While we will not measure a cross-section exactly, we will roughly measure the n
 We can also use this formalism to model two-body decays of the form $c \to 1 + 2$, where $c$ has total angular momentum $J$. Starting in the rest frame of particle $c$, we say that particle ($2$)$1$ has momentum $(-)\vec{p}$, so the amplitude for a particular angular moment $M$ can be written as
 
 \begin{align}
-  \mel{\vec{p}\lambda_1;-\vec{p}\lambda_2}{\mathcal{M}}{JM} &= \bra{\vec{p}\lambda_1;-\vec{p}\lambda_2}\dyad{JM\lambda_1\lambda_2}{JM\lambda_1\lambda_2}\mathcal{M}\ket{JM} \\
+  \mel{\vec{p}\lambda_1;-\vec{p}\lambda_2}{\mathcal{M}}{JM} &= \bra{\vec{p}\lambda_1;-\vec{p}\lambda_2}\ket{JM\lambda_1\lambda_2}\bra{JM\lambda_1\lambda_2}\mathcal{M}\ket{JM} \\
                                                             &= 4\pi\sqrt{\frac{w}{p}}\underbrace{\bra{\Omega\lambda_1;-\vec{p}\lambda_2}\ket{JM\lambda_1\lambda_2}}_{N_J D_{M\lambda}^{J*}(\Omega)}\bra{JM\lambda_1\lambda_2}\mathcal{M}\ket{JM} \\
                                                             &\equiv N_J D_{M\lambda}^{J*}(\Omega) F^J_{\lambda_1\lambda_2}
   \label{eq:decay-amplitude}
 \end{align}
 
-where $w$ is the effective mass of the decaying particle, $\lambda = \lambda_1 - \lambda_2$, and we use the completeness relation $\sum_{JM\lambda_1\lambda_2}\dyad{JM\lambda_1\lambda_2}{JM\lambda_1\lambda_2} = 1$ along with \Cref{eq:angular-momentum-angle-coupling}. We call $F^J_{\lambda_1\lambda_2}$ the helicity decay amplitude.
+where $w$ is the effective mass of the decaying particle, $\lambda = \lambda_1 - \lambda_2$, and we use the completeness relation $\sum_{JM\lambda_1\lambda_2}\ket{JM\lambda_1\lambda_2}\bra{JM\lambda_1\lambda_2} = 1$ along with \Cref{eq:angular-momentum-angle-coupling}. We call $F^J_{\lambda_1\lambda_2}$ the helicity decay amplitude.
 
 If we wish to model $X \to K_S^0 K_S^0$, we first recognize that the kaon is a spin-$0$ particle, so the difference in helicity is $\lambda = 0$. Therefore,
 
@@ -359,6 +359,17 @@ We finally note that in the energy range of this reaction, we do not expect to m
 \end{align}
 
 where $\hat{T}^{J(\epsilon)}_{M;\eta}(m, s) \equiv \kappa^2(m,s) T^{J(\epsilon)}_{M;\eta}(m)$
+
+Finally, we can choose a parameterization for $\hat{T}^{J(\epsilon)}_{M;\eta}(m, s) \to \hat{T}^{J(\epsilon)}_{M;\eta}(\vec{\beta}; m, s)$. These $\vec{\beta} \in \mathbb{C}^d$ are free parameters in our models.
+
+This gives us a generalized intensity function for linearly polarized photoproduction,
+\begin{align}
+  \mathcal{I}(\vec{\beta}; m, s,\Omega,P_\gamma,\Phi) = 2 \sum_\eta \Bigg\{ &\abs{\sum_{JM}\hat{T}^{J(-)}_{M;\eta}(\vec{\beta}; m, s)\Re[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 + \abs{\sum_{JM}\hat{T}^{J(+)}_{M;\eta}(\vec{\beta}; m,s)\Im[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 \notag\\
+                                                                            &\abs{\sum_{JM}\hat{T}^{J(+)}_{M;\eta}(\vec{\beta}; m,s)\Re[Z_J^M(\Omega,P_\gamma,\Phi)]}^2 + \abs{\sum_{JM}\hat{T}^{J(-)}_{M;\eta}(\vec{\beta}; m,s)\Im[Z_J^M(\Omega,P_\gamma,\Phi)]}^2\Bigg\}
+                                                     \label{eq:generalized-polarized-intensity}
+\end{align}
+
+The simplest model we can parameterize is one in which we bin the data in mass $m$ and let $ T^{J(\epsilon)}_{M;\eta}(\vec{\beta}; m) = \beta_i $ for the $i$th mass bin. This is equivalent to modeling the mass dependence as a piecewise function where each segment is constant. We will discuss such parameterizations in \Cref{sec:mass-independent-fits}. In the next section, we will discuss a more complex mass-dependent parameterization.
 
 \section{The $K$-Matrix Parameterization}
 
@@ -547,7 +558,7 @@ The $T$-matrix given in \Cref{eq:t-matrix-from-k-matrix-invariant} describes $s$
 \end{equation}
 where
 \begin{equation}
-  \hat{P}_i(m) = \sum_\alpha \left(\frac{\beta_\alpha g_{\alpha i}}{m_\alpha^2 - m^2} + \sum_n c_{ni} m^{2n} \right)B_{\alpha i}^{\ell}(m)
+  \hat{P}_i(\vec{\beta}; m) = \sum_\alpha \left(\frac{\beta_\alpha g_{\alpha i}}{m_\alpha^2 - m^2} + \sum_n c_{ni} m^{2n} \right)B_{\alpha i}^{\ell}(m)
   \label{eq:p-vector}
 \end{equation}
 
@@ -570,6 +581,7 @@ and
 
 \begin{equation}
   \hat{F} = (I + \hat{K}C)^{-1}\hat{P}
+  \label{eq:k-matrix-production-amplitude-chew}
 \end{equation}
 
 The exact form of $A(m)$ is arbitrary, but we will be using
@@ -589,8 +601,8 @@ where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay chann
 \end{figure}
 
 
-The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We will later see that we do not have enough data to constrain the pole positions of every resonance in this channel, so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\beta$) to photoproduction. Additionally, using the results from these papers requires a Adler zero term in front of the $K$-matrix for the $f_0$ mesons of the form $\frac{(s - s_0)}{s_\text{norm}}$, where they use $s_0 = m^2_{\pi_0}/2$ and $s_\text{norm} = 1$.
+The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We do not have enough data to constrain the pole positions of every resonance in this channel (as we only have access to one of several channels used in those papers), so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\vec{\beta}$) to photoproduction. Additionally, using the results from these papers requires a Adler zero term in front of the $K$-matrix for the $f_0$ mesons of the form $\frac{(s - s_0)}{s_\text{norm}}$, where they use $s_0 = m^2_{\pi_0}/2$ and $s_\text{norm} = 1$.
+
+We can then combine \Cref{eq:k-matrix-production-amplitude-chew} with \Cref{eq:generalized-polarized-intensity}, choosing $T^{J(\epsilon)}_{M;\eta}(\vec{\beta}; m) = \hat{F}(\vec{\beta}; m)$, to form a mass-dependent model of polarized photoproduction for the $K_S^0K_S^0$ channel which will be further discussed in \Cref{sec:mass-dependent-fits}.
 
 \section{Waveset Selection}
-
-
