@@ -55,36 +55,50 @@ Both the signal and background distributions can be modeled in this way, giving 
 
 We can then use a mixture of exponential distributions with both signal and background slopes to fit the entire dataset:
 \begin{equation}
-  f(t_1, t_2; z, \lambda_S, \lambda_B) \equiv z f(t_1, t_2; \lambda_S) + (1-z) f(t_1, t_2; \lambda_B)
-  \label{eq:splot-mixture}
+  g(t_1, t_2; z, \lambda_S, \lambda_B) \equiv z f(t_1, t_2; \lambda_S) + (1-z) f(t_1, t_2; \lambda_B)
+  \label{eq:splot-mixture-exp}
 \end{equation}
 
 where $z$ is the signal fraction of the total number of events $N$. From its fit value, we can determine values of $N_S = z\cdot N$ and $N_B = (1-z)\cdot N$ to use in \Cref{eq:splot-weights} and complete the weighting procedure. We can perform this fit by minimizing the negative log-likelihood function,
 
 \begin{equation}
-  -2\ln\mathcal{L}(z, \lambda_S, \lambda_B) = -2\sum_i^N \tilde{w}_i \ln f(t_{1,i}, t_{2,i}; z, \lambda_S, \lambda_B)
-  \label{eq:splot-nll}
+  -2\ln\mathcal{L}(z, \lambda_S, \lambda_B) = -2\sum_i^N \tilde{w}_i \ln g(t_{1,i}, t_{2,i}; z, \lambda_S, \lambda_B)
+  \label{eq:splot-nll-exp}
 \end{equation}
 
 where again, we include any pre-existing weights $\tilde{w}$ in the fit.
 
-\subsection{Non-Factorizing sPlot}\label{sec:non-factorizing-splot}
-
-Over the course of the previous discussion, it was assumed that the discriminating variables, $t_1$ and $t_2$, were statistically independent from the control variables we wish to use in later analyses. The set of control variables must include all variables we use as inputs to the partial-wave analysis in \Cref{ch:partial-wave-analysis}, including the invariant mass $m$ of the $K_S^0K_S^0$ system and the helicity angles $\theta$ and $\varphi$ of the decay. We should now confirm that the rest-frame lifetimes are totally uncorrelated with these control variables (in other words, show that they are statistically independent). To test for statistical independence between $t_{1,2}$ and a given control variable, we first split our dataset into $M$ evenly-spaced quantiles in that control variable, which ensures each bin gets roughly the same number of events. Next, we calculate the likelihood of a null hypothesis which assumes the variables are statistically independent by fitting all datasets simultaneously with shared $\lambda_S$ and $\lambda_B$ parameters. We then calculate the likelihood of an alternative hypothesis, which assumes statistical dependence, by finding the joint likelihood of independent fits of $\lambda_S$ and $\lambda_B$ over each quantile. The result of these fits can be formulated as a likelihood ratio,
+Examining \Cref{fig:rfl-accmc}, we can see that the expected distribution from signal Monte Carlo is not quite exponential, while the expected contribution from background Monte Carlo in \Cref{fig:rfl-bkgmc} is, at least in the important region of low rest-frame lifetimes. Rather than model the signal distribution analytically, we will instead use the distribution from the Monte Carlo itself as the model by binning the simulated data (a bin width of $\SI{1}{\pico\second}$ seems to give a distribution that is decently smooth in practice). In the following discussions, we will use this binned distribution as the model for the signal component and the exponential distribution in \Cref{eq:splot-exponential_joint} for the background component. Because of this, the signal distribution does not have a slope parameter $\lambda_S$, so the true mixture equation looks like,
 
 \begin{equation}
-  \Lambda = -2\ln\frac{\sup \mathcal{L}_{H_0}}{\sup \mathcal{L}_{H_1}} = -2\ln\frac{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_S, \lambda_B)}{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_{S,i}, \lambda_{B,i})}
+  g(t_1, t_2; z, \lambda_B) \equiv z \tilde{f}(t_1, t_2) + (1-z) f(t_1, t_2; \lambda_B)
+  \label{eq:splot-mixture}
+\end{equation}
+
+where $\tilde{f}$ represents the binned distribution, and the equation for the likelihood is,
+
+\begin{equation}
+  -2\ln\mathcal{L}(z,  \lambda_B) = -2\sum_i^N \tilde{w}_i \ln g(t_{1,i}, t_{2,i}; z, \lambda_B)
+  \label{eq:splot-nll}
+\end{equation}
+
+\subsection{Non-Factorizing sPlot}\label{sec:non-factorizing-splot}
+
+Over the course of the previous discussion, it was assumed that the discriminating variables, $t_1$ and $t_2$, were statistically independent from the control variables we wish to use in later analyses. The set of control variables must include all variables we use as inputs to the partial-wave analysis in \Cref{ch:partial-wave-analysis}, including the invariant mass $m$ of the $K_S^0K_S^0$ system and the helicity angles $\theta$ and $\varphi$ of the decay. We should now confirm that the rest-frame lifetimes are totally uncorrelated with these control variables (in other words, show that they are statistically independent). To test for statistical independence between $t_{1,2}$ and a given control variable, we first split our dataset into $M$ evenly-spaced quantiles in that control variable, which ensures each bin gets roughly the same number of events. Next, we calculate the likelihood of a null hypothesis which assumes the variables are statistically independent by fitting all datasets simultaneously with a shared $\lambda_B$ parameter. We then calculate the likelihood of an alternative hypothesis, which assumes statistical dependence, by finding the joint likelihood of independent fits of $\lambda_B$ over each quantile. The result of these fits can be formulated as a likelihood ratio,
+
+\begin{equation}
+  \Lambda = -2\ln\frac{\sup \mathcal{L}_{H_0}}{\sup \mathcal{L}_{H_1}} = -2\ln\frac{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_B)}{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_{B,i})}
   \label{eq:independence-test}
 \end{equation}
 
-where $\mathcal{L}_{H_0}$ and $\mathcal{L}_{H_1}$ are the likelihoods of the null and alternative hypotheses respectively, the supremum indicates we are maximizing these likelihoods (in a maximum likelihood fit), the product $\prod_i^M$ iterates over each quantile of data in the given control variable, and $\mathcal{L}_i$ is the likelihood evaluated over data in the $i$th quantile. $\Lambda$ is $\chi^2$ distributed with $2M - 2$ degrees of freedom (the difference between $M + 2$ free parameters in the null hypothesis, a signal fraction $z_i$ for each quantile plus the two exponential slopes shared across all quantiles, and $3M$ in the alternative hypothesis, a signal fraction and two exponential slopes for each quantile). The factor of $2$ is required because $\ln\mathcal{L}(\theta_1,...,\theta_i) \sim -\frac{1}{2}\chi^2_i$ asymptotically with sample size, according to Wilks' theorem. We can obtain a $p$-value representing the likelihood of the null hypothesis being true by evaluating the $p$-value:
+where $\mathcal{L}_{H_0}$ and $\mathcal{L}_{H_1}$ are the likelihoods of the null and alternative hypotheses respectively, the supremum indicates we are maximizing these likelihoods (in a maximum likelihood fit), the product $\prod_i^M$ iterates over each quantile of data in the given control variable, and $\mathcal{L}_i$ is the likelihood evaluated over data in the $i$th quantile. $\Lambda$ is $\chi^2$ distributed with $M - 1$ degrees of freedom (the difference between $M + 1$ free parameters in the null hypothesis, a signal fraction $z_i$ for each quantile plus the exponential background slope shared across all quantiles, and $2M$ in the alternative hypothesis, a signal fraction and one exponential slope for each quantile). The factor of $2$ is required because $\ln\mathcal{L}(\theta_1,...,\theta_i) \sim -\frac{1}{2}\chi^2_i$ asymptotically with sample size, according to Wilks' theorem. We can obtain a $p$-value representing the likelihood of the null hypothesis being true by evaluating the $p$-value:
 
 \begin{equation}
-  p = 1 - F_{\chi^2_{2M-2}}(\Lambda)
+  p = 1 - F_{\chi^2_{M-1}}(\Lambda)
   \label{eq:significance-test}
 \end{equation}
 
-where $F_{\chi^2_{2M-2}}(\Lambda)$ is the cumulative distribution function of a $\chi^2$ distribution with $2M-2$ degrees of freedom. Following this procedure for the invariant mass of $K_S^0K_S^0$\footnote{No significant statistical dependence was found for the helicity angles.}, the $p$-values for each number of quantiles can be seen in the first row of \Cref{tab:factorization-results} and in \Cref{fig:data-factorization-fit}, which depicts the case with four quantiles. The calculated $p$-values tend to be very small, implying that we should reject the null hypothesis and accept that the discriminating (rest-frame lifetime) and control (invariant mass of $K_S^0K_S^0$) variables are not statistically independent. This means we cannot use a traditional sPlot to weight our data.
+where $F_{\chi^2_{M-1}}(\Lambda)$ is the cumulative distribution function of a $\chi^2$ distribution with $M-1$ degrees of freedom. Following this procedure for the invariant mass of $K_S^0K_S^0$\footnote{No significant statistical dependence was found for the helicity angles.}, the $p$-values for each number of quantiles can be seen in the first row of \Cref{tab:factorization-results} and in \Cref{fig:data-factorization-fit}, which depicts the case with four quantiles. The calculated $p$-values tend to be very small, implying that we should reject the null hypothesis and accept that the discriminating (rest-frame lifetime) and control (invariant mass of $K_S^0K_S^0$) variables are not statistically independent. This means we cannot use a traditional sPlot to weight our data.
 
 Fortunately, the process for obtaining the correct weights is straightforward, we simply allow for more than one signal and background component in the fit and sum over all signal components when we calculate the final weight values~\cite{dembinski_custom_2022}. Since the weights corresponding to each signal component in the sPlot can be added to each other to obtain a joint weight~\cite{pivk_splot_2005}, \Cref{eq:splot-weights} can be extended to allow multiple signal and background components:
 
@@ -95,14 +109,14 @@ Fortunately, the process for obtaining the correct weights is straightforward, w
 
 and $S_i$ are the indices of the signal components.
 
-We can further verify the need for non-factorizing sPlot by performing the factorization test described in \Cref{eq:independence-test,eq:significance-test} to the signal and background Monte Carlo, with a slight modification to the number of free parameters, since we only need to fit either a signal or background component rather than a mixture:
+We can further verify the need for non-factorizing sPlot by performing the factorization test described in \Cref{eq:independence-test,eq:significance-test} to the background Monte Carlo.
 
 \begin{equation}
   p = 1 - F_{\chi^2_{M-1}} \quad\text{where }\Lambda = -2\ln\frac{\sup\prod_i^M \mathcal{L}_i(\lambda)}{\sup\prod_i^M \mathcal{L}_i(\lambda_i)}
   \label{eq:independence-test-mc}
 \end{equation}
 
-The results of these tests over the signal and background Monte Carlo can also be found in the last two rows of \Cref{tab:factorization-results} and are visualized for four quantiles in \Cref{fig:mc-factorization-fits}. Again, the significantly small $p$-values justify the use of non-factorizing sPlot across both the signal and background components, meaning that we need at least two signal and two background components in the final sPlot weighting.
+The results of these tests over the background Monte Carlo can also be found in the last two rows of \Cref{tab:factorization-results} and are visualized for four quantiles in \Cref{fig:mc-factorization-fits}. Again, the significantly small $p$-values justify the use of non-factorizing sPlot across the background component, meaning that we need at least two background components in the final sPlot weighting\footnote{We found that a similar analysis of an exponential signal distribution also indicates a significant amount of non-factorization, but the difference in the slopes of each component are too small to give significantly different fits to the true data.}.
 
 \begin{table}
   \begin{center}
@@ -143,13 +157,13 @@ The results of these tests over the signal and background Monte Carlo can also b
 
 \subsection{Application of Weights}\label{sec:application-of-weights}
 
-The only thing left to do is determine how many signal and background components we should use in the weighting procedure. To this end, we now turn to the Monte Carlo simulations of the signal and $4\pi$-background. By choosing a number of quantiles in invariant mass corresponding to the number of components, we can fit single exponential distributions to each quantile in the simulated signal and background. For instance, if we chose to use two signal components and three background components, we would divide the signal Monte Carlo into two quantiles and the background Monte Carlo into three, and fit each quantile to an exponential distribution to obtain a set of two $\lambda_S$ and three $\lambda_B$ values. The resulting $\lambda_S$ and $\lambda_B$ values could then be used as a starting point for a multi-component fit to the data. Alternatively, both the signal and background or just the signal could be fixed to the values from the fits to simulations, and only the yields (or the yields and background $\lambda$s) would be allowed to float in the fit to data. We will refer to the first case, where the fit parameters from Monte Carlo are free, as $A$, the case where the signal $\lambda$s are fixed as $B$, and the case where all $\lambda$s are fixed (and the only floating parameters are the yields of each component) as $C$. To select a model, we can use the relative Akaike Information Criterion (AIC)~\cite{akaike_information_1998} and Bayesian Information Criterion (BIC)~\cite{schwarz_estimating_1978}:
+The only thing left to do is determine how many background components we should use in the weighting procedure. To this end, we now turn to the Monte Carlo simulations of the $4\pi$-background. By choosing a number of quantiles in invariant mass corresponding to the number of components, we can fit single exponential distributions to each quantile in the simulated background. For instance, if we chose to use three background components, we would divide the background Monte Carlo into three, and fit each quantile to an exponential distribution to obtain a set of three $\lambda_B$ values. The resulting  $\lambda_B$ values could then be used as a starting point for a multi-component fit to the data. Alternatively, the background slopes could be fixed to the values from the fits to simulations, and only the yields would be allowed to float in the fit to data. We will refer to the first case, where the fit parameters from Monte Carlo are free, as $A$, the case where they are fixed as $B$. To select a model, we can use the relative Akaike Information Criterion (AIC)~\cite{akaike_information_1998} and Bayesian Information Criterion (BIC)~\cite{schwarz_estimating_1978}:
 \begin{alignat}{2}
   r\text{AIC} &\equiv \text{AIC} - \text{AIC}_\text{min} \quad\text{where } \text{AIC} &&\equiv 2k - 2\ln\mathcal{L} \\
   r\text{BIC} &\equiv \text{BIC} - \text{BIC}_\text{min} \quad\text{where } \text{BIC} &&\equiv k\ln{N} - 2\ln\mathcal{L} \\
   \label{eq:information-criteria}
 \end{alignat}
-where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Excluding cases with only one signal or background component (restricting to models which have non-factorizing signal and background components), the minimizing values for most run periods tend to use two or three signal and two background components, and they both use method $B$, where the signal components are fixed to values obtained from Monte Carlo while the background components are initialized at Monte Carlo values but allowed to float in the fit. We will use the minimal non-factorizing model, method $B$ with two signal and two background components, denoted $B(2,2)$, as our weighting method. See \Cref{fig:splot-data-fit} for the result of this fit. The selection of method $B$ is also interesting as it could describe a case where another background which is not modeled in the background Monte Carlo is present and has a similar exponential slope. Since these slopes are free in the fit to the data, they may anticipate this unknown slope better than the fixed case (method $C$), and method $B$ also explicitly assumes the Monte Carlo for true signal kaons is correct and fixes their component slopes (unlike method $A$).
+where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Excluding cases with only one background component (restricting to models which have non-factorizing background components), {\color{red}[TODO]} the minimizing values for most run periods tend to use two or three signal and two background components, and they both use method $B$, where the signal components are fixed to values obtained from Monte Carlo while the background components are initialized at Monte Carlo values but allowed to float in the fit. We will use the minimal non-factorizing model, method $B$ with two signal and two background components, denoted $B(2,2)$, as our weighting method. See \Cref{fig:splot-data-fit} for the result of this fit. The selection of method $B$ is also interesting as it could describe a case where another background which is not modeled in the background Monte Carlo is present and has a similar exponential slope. Since these slopes are free in the fit to the data, they may anticipate this unknown slope better than the fixed case (method $C$), and method $B$ also explicitly assumes the Monte Carlo for true signal kaons is correct and fixes their component slopes (unlike method $A$).
 
 \begin{table}
   \begin{center}
