@@ -1,3 +1,5 @@
+default: build
+
 import:
   rsync -av nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/thesis_analysis/analysis/plots/ figures
 

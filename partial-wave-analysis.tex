@@ -1,7 +1,6 @@
 \section{Amplitude Formalism}
-{\color{red}TODO: cite http://scipp.ucsc.edu/\textasciitilde haber/ph218/ExperimentersGuideToTheHelicityFormalism.pdf and S.U. Chung spin formalisms}
 
-Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description.
+Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description. The majority of this section is a summary of the formalisms described in \cite{chung_spin_1971} and \cite{richman_experimenters_1984}.
 
 \subsection{Single-Particle Helicity States}
 
@@ -164,7 +163,7 @@ where we have used \Cref{eq:two-particle-helicity} to write the states with an i
   \label{eq:transition-amplitude}
 \end{equation}
 
-While we will not measure a cross-section exactly, we will roughly measure the number of events as a function of mass and helicity angles, which is proportional to the cross section. We refer to this as the ``intensity'' function (see Appendix B of {\color{red}Chung Spin Formalisms}),
+While we will not measure a cross-section exactly, we will roughly measure the number of events as a function of mass and helicity angles, which is proportional to the cross section. We refer to this as the ``intensity'' function (see Appendix B of \cite{chung_spin_1971}),
 
 \begin{equation}
   I(m, \Omega) \propto \pdv{\sigma}{m}{\Omega} \equiv \frac{p_f}{p_i}\abs{\frac{\mathcal{M}_{fi}}{8\pi\sqrt{s}}}^2
@@ -521,7 +520,7 @@ so we can define the Lorentz-invariant $K$-matrix, $\hat{K}$, as
 
 where we have absorbed some multiplicative factors into $c_{ij}$ to form the series expansion over powers of $m^2$ (since $\rho(m)$ and $B^\ell_{\alpha i}(m)$ only contain even powers of $m$) with coefficients $\bar{c}_{ij}$. Here, $\bar{K}$ replaces $K$ in \Cref{eq:t-matrix-from-k-matrix} as an intermediate step to defining a Lorentz-invariant formulation.
 
-According to Chung\footnote{\color{red}cite: S. U. Chung, Spin Formalisms, CERN Yellow Report, CERN (1971) 71-78}, the Lorentz-invariant form of the $T$-matrix, $\hat{T}$ can be written as
+According to Chung\cite{chung_spin_1971}, the Lorentz-invariant form of the $T$-matrix, $\hat{T}$ can be written as
 
 \begin{equation}
   T = \sqrt{\rho}\hat{T}\sqrt{\rho}
@@ -591,13 +590,13 @@ The exact form of $A(m)$ is arbitrary, but we will be using
   \label{eq:chew-mandelstam}
 \end{equation}
 
-where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \cite{oller_nd_1999}, \cite{basdevant_unitary_1977}, \cite{oller_chiral_2001}, and \cite{reid_generating_1984} for derivations and additional details of this expression. The motivation for this choice is that it is better behaved below threshold than $\rho(m)$, as can be seen in \Cref{fig:chew-mandelstam}.
+where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \cite{oller_nd_1999}, \cite{basdevant_unitary_1977}, \cite{oller_chiral_2001}, and \cite{reid_generating_1984} for derivations and additional details of this expression. The motivation for this choice is that it behaves better below threshold than $\rho(m)$, as can be seen in \Cref{fig:chew-mandelstam}.
 
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{figures/chew_mandelstam.png}
   \end{center}
-  \caption{A comparison of the normal phase-space function, $\rho(m)$ (left) and the Chew-Mandelstam matrix, $C(m)$ (right) on the $\pi^0\eta$ channel. Both functions have the same imaginary part above the threshold $m = m_1 + m_2$, but phase-space function has discontinuities and singularities below the threshold.}\label{fig:chew-mandelstam}
+  \caption{A comparison of the normal phase-space function, $\rho(m)$ (left) and the Chew-Mandelstam matrix, $C(m)$ (right) on the $\pi^0\eta$ channel. Both functions have the same imaginary part above the threshold $m = m_1 + m_2$, but phase-space function has a branch cut at $m^2 = \frac{(m_1^2 - m_2^2)^2}{m_1^2 + m_2^2}$ (the jump in the left plot between the red and blue lines) as well as a discontinuity at $m^2 = (m_1 - m_2)^2$ in both real and imaginary parts.}\label{fig:chew-mandelstam}
 \end{figure}
 
 

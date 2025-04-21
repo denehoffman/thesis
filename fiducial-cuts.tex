@@ -1,0 +1,80 @@
+To get a clearer picture of the data, we will first make a loose cut selecting only events with $\chi^2_\nu < 10$. We can then generate phase-space Monte Carlo for the $4\pi$ background reaction and search for potential ways to separate it from the signal by comparing the distributions of common kinematic variables.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_combined_chisqdof.png}
+  \end{center}
+  \caption{The normalized distributions of $\chi^2_\nu$ for the true data and phase-space signal and $4\pi$ background Monte Carlo.}\label{fig:data-combined-chisqdof}
+\end{figure}
+
+In \Cref{fig:data-combined-chisqdof}, we can see the various distributions of the data and each simulated channel. Unfortunately, the data distribution resembles the $4\pi$ background distribution much better than the signal Monte Carlo, but now we also know that the signal decays rapidly at higher values of $\chi^2_\nu$, so a tighter selection might improve the signal-to-background ratio, even if we cannot immediately see a peak in the data near unity. We can use the overall probability densities from the Monte Carlo simulations to inform our decision on where to place a cut. We begin by defining the true/false positive rates as
+
+\begin{align}
+  \text{TPR}(x_c) \equiv \epsilon_S(x_c) &= \int_0^{x_c} \dd{x} p_S(x) \\
+  \text{FPR}(x_c) \equiv \epsilon_B(x_c) &= \int_0^{x_c} \dd{x} p_B(x)
+\end{align}
+where $p_S(x)$ and $p_B(x)$ are the probability densities of the signal and background Monte Carlo, respectively, calculated from the normalized distributions over $\chi^2_\nu$ detailed in \Cref{fig:data-combined-chisqdof}. The Youden J-statistic\cite{peirce_numerical_1884,youden_index_1950} can be used as a criterion for finding the optimal cut value $x_c$\cite{schisterman_optimal_2005,powers_evaluation_2020}. It relates the sensitivity ($\epsilon_S$) and the specificity ($1-\epsilon_B$) as
+
+\begin{equation}
+  J(x_c) = \epsilon_S(x_c) - \epsilon_B(x_c)
+  \label{eq:youden-j}
+\end{equation}
+
+The Youden J-index is equivalent to the distance between the no-discrimination line and the receiver operating characteristic (ROC) curve shown in \Cref{fig:data-combined-chisqdof-roc}. The Youden J-index is shown in \Cref{fig:data-combined-chisqdof-youden-j}, and it is maximal at a value of $\chi^2_\nu = 3.4$. Therefore, we will use this value in our selection on $\chi^2_\nu$, although we will consider other values as well since we have other methods for separating the signal from the background (see \Cref{sec:splot}).
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_combined_chisqdof_roc.png}
+  \end{center}
+  \caption{The receiver operating characteristic (ROC) curve for selections on $\chi^2_\nu$ constructed from the signal and background Monte Carlo distributions.}\label{fig:data-combined-chisqdof-roc}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_combined_chisqdof_youden_j.png}
+  \end{center}
+  \caption{The Youden J-statistic for selections on $\chi^2_\nu$ constructed from the signal and background Monte Carlo distributions. The maximal value indicates a selection at $\chi^2_\nu = 3.4$ would be the maximally informed decision boundary.}\label{fig:data-combined-chisqdof-youden-j}
+\end{figure}
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_combined_mm2.png}
+  \end{center}
+  \caption{The normalized distributions of missing mass squared for the true data and phase-space signal and $4\pi$ background Monte Carlo.}\label{fig:data-combined-mm2}
+\end{figure}
+
+Another common selection which can be made is on the squared missing mass of an event, which is just the square of the difference between the initial- and final-state four-momenta. This variable, visualized in \Cref{fig:data-combined-mm2}, predictably peaks at zero for the data, signal Monte Carlo, and background Monte Carlo, and the overall distributions for the signal and backgound simulated events are nearly identical. This indicates that a selection on this variable would not be very useful at distinguishing the signal from the background.
+
+Recall that the main difference between the signal and background channels described here is the presence of decaying $K_S^0$ particles in the signal channel. These particles have a well-known lifetime around $\SI{89.54}{\pico\second}$ due to their decay into non-strange mesons requiring a weak interaction. While we might not know the exact process which creates the $4\pi$ background, we can assume a strong interaction produces the pions, which should happen several orders of magnitude faster than the $K_S^0$ decay. Due to the resolution of the detector, we still expect these events to appear to have some non-zero distribution in rest-frame lifetime when we mistakenly interpret pairs of pions as kaons, but it will be vastly different from that of the signal.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_combined_rfl.png}
+  \end{center}
+  \caption{The normalized distributions of the rest-frame lifetime of one of the $K_S^0$ candidates for the true data and phase-space signal and $4\pi$ background Monte Carlo.}\label{fig:data-combined-rfl}
+\end{figure}
+
+We can see the effect of this in \Cref{fig:data-combined-rfl}. The exponential slope of the signal Monte Carlo is distinct from that of the background Monte Carlo, but the data distribution unfortunately seems to be dominated by this background. While we could use the Youden J-statistic again to determine a cut, largest portion of the true signal appears in the same place as the largest portion of background, and we would have to remove many good events just to get rid of the majority of the background. Rather than performing a hard cut on rest-frame lifetime, we will instead use statistical weighting methods described in \Cref{sec:splot}.
+
+Before we do this, however, there is one more minor selection which we will perform, which is a selection on the $z$-vertex of the target proton. We know the exact location of the target with respect to the detector, and we really only want to deal with events which we know originated inside this target. The distribution of the $z$-vertex values can be seen in \Cref{fig:data-original-combined-protonz}. We will select events with $\SI{50}{\centi\meter} < z < \SI{80}{\centi\meter}$, as this is the known length and position of the target relative to the detector elements. While there is an indication of events in the signal Monte Carlo in the regions which are removed, we know that while these events originated from the target, their $z$-vertex has been misidentified, so we should remove them anyway.
+
+In total, we only have two main fiducial selections on the data, as illustrated in \Cref{tab:fiducial-cuts}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{cc}\toprule
+      Variable & Selected Values \\\midrule
+      $\chi^2_\nu$ & $\chi^2_\nu < 3.4$ \\
+      Target proton-$z$ & $\SI{50}{\centi\meter} < z < \SI{80}{\centi\meter}$ \\\bottomrule
+    \end{tabular}
+    \caption{Fiducial cuts performed after event reconstruction.}\label{tab:fiducial-cuts}
+  \end{center}
+\end{table}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/data_original_combined_protonz.png}
+  \end{center}
+  \caption{The normalized distributions of the target proton $z$-vertex for the true data and phase-space signal and $4\pi$ background Monte Carlo.}\label{fig:data-original-combined-protonz}
+\end{figure}

@@ -4,17 +4,17 @@ At this stage in the analysis, we have no more simple cuts which can improve the
 \begin{figure}
   \begin{center}
     \begin{subfigure}[b]{.7\columnwidth}
-      \includegraphics[width=1\linewidth]{rfl_data_chisqdof_3.0.png}
+      \includegraphics[width=1\linewidth]{figures/rfl_data_chisqdof_3.4.png}
       \caption{}
       \label{fig:rfl-data}
     \end{subfigure}
     \begin{subfigure}[b]{.7\columnwidth}
-      \includegraphics[width=1\linewidth]{rfl_accmc_chisqdof_3.0.png}
+      \includegraphics[width=1\linewidth]{figures/rfl_accmc_chisqdof_3.4.png}
       \caption{}
       \label{fig:rfl-accmc}
     \end{subfigure}
     \begin{subfigure}[b]{.7\columnwidth}
-      \includegraphics[width=1\linewidth]{rfl_bkgmc_chisqdof_3.0.png}
+      \includegraphics[width=1\linewidth]{figures/rfl_bkgmc_chisqdof_3.4.png}
       \caption{}
       \label{fig:rfl-bkgmc}
     \end{subfigure}
@@ -29,7 +29,7 @@ For all of the statistical weighting methods which will be mentioned here, we ne
   \label{eq:inplot-weights-mass}
 \end{equation}
 
-We might want to look at the ``signal'' inPlots for the decay angles $\theta$ and $\varphi$ (control variables) in the helicity system after calculating the inPlot weights from a fit to the mass distribution (discriminating variable). However, as shown by Pivk and Le Diberder\cite{pivk_splot_2005}, we can only use inPlot in cases where the control variables are totally correlated with the discriminating variable\footnote{In practice, more than one discriminating variable can be used.} $y$. In other words, our example would only be valid if $\theta = \theta(m)$ and $\phi = \phi(m)$. For the time being, let us assume that this is not the case, and that we wish to use the distribution of some variable which is totally uncorrelated with the variables we are plotting and analyzing\footnote{Total (un)correlation is a very strict requirement, but we will later see that small modifications to the sPlot method can permit amounts of correlation between the two extremes.}. A correction term can be applied to give us the sPlot version of \Cref{eq:inplot-weights-mass},
+We might want to look at the ``signal'' inPlots for the decay angles $\theta$ and $\varphi$ (control variables) in the helicity system after calculating the inPlot weights from a fit to the mass distribution (discriminating variable). However, as shown by Pivk and Le Diberder\cite{pivk_splot_2005}, we can only use inPlot in cases where the control variables are statistically dependent on the discriminating variable\footnote{In practice, more than one discriminating variable can be used.} $y$. In other words, our example would only be valid if $\theta = \theta(m)$ and $\phi = \phi(m)$. For the time being, let us assume that this is not the case, and that we wish to use the distribution of some variable which is statistically independent from the variables we are plotting and analyzing\footnote{Total statistical (in)dependence is a very strict requirement, but we will later see that small modifications to the sPlot method can permit amounts of dependence between the two extremes.}. A correction term can be applied to give us the sPlot version of \Cref{eq:inplot-weights-mass},
 
 \begin{equation}
   w(y) = \tilde{w}(y)\frac{V_{SS}f_S(y) + V_{SB}f_B(y)}{N_S f_S(y) + N_B f_B(y)},\quad \text{where } V^{-1}_{ij} = \sum_{y} \frac{\tilde{w}(y)f_i(y)f_j(y)}{\left(N_S f_S(y) + N_B f_B(y)\right)^2}
@@ -37,8 +37,8 @@ We might want to look at the ``signal'' inPlots for the decay angles $\theta$ an
 \end{equation}
 
 where $y$ represents any set of discriminating variables (not necessarily a mass), and $\tilde{w}(y)$ is any pre-existing weight associated with the event (weights from accidental subtraction, for instance). The $V^{-1}$ matrix can also be understood as the covariance matrix between the free parameters $N_S$ and $N_B$ in the fit of the signal-background mixture, $V^{-1}_{ij} = -N\pdv[2]{\ln\mathcal{L}}{N_i}{N_j}$, although there is reason to believe that direct calculation by inverting the Hessian matrix from the fit will lead to less accurate results than the manual calculation method given in \Cref{eq:splot-weights}\cite{dembinski_custom_2022}.
-
-Now that we have a method of assigning weights, we must pick the discriminating variables. As mentioned, these weighting methods work well on the classic ``bump-on-a-background'' distributions because it is easy to identify the signal and background PDFs, but because the mass of the kaons is constrained in the kinematic fit, the fitted mass of each kaon is just a $\delta$-function and combination of measured masses for each $\pi^+\pi^-$ pair will yield a Normal distribution with little to no apparent background (by construction), so we must be a bit more clever in selecting discriminating variables. By examining the BGGEN analysis done in {\color{red}[TODO: PREVIOUS SECTION]}, we can see that most likely sources of background arise when the intermediate kaons are absent from the reaction: $\gamma p \to 4\pi p$. This reaction has the $K_SK_S$ final state, so pairs of pions which reconstruct close enough to kaons will be almost indistinguishable in the data. However, they differ in one key way, namely that the $K_S$ intermediate contains a strange quark while the $\pi^+\pi^-$ decay state does not, so such a decay must occur via the weak interaction, which is notably slower than the strong interaction which would produce pion pairs with no intermediate kaon. In other words, while the signal's rest-frame lifetime distribution should have an exponential slope near the $K_S$ lifetime, the background would theoretically have nearly zero rest-frame lifetime for every event, or a much smaller exponential slope in practice\footnote{An exponential distribution is just what best fits the rest-frame lifetime distribution in the $4\pi$ Monte Carlo and has no physical implication.}.
+t
+Now that we have a method of assigning weights, we must pick the discriminating variables. As mentioned, these weighting methods work well on the classic ``bump-on-a-background'' distributions because it is easy to identify the signal and background PDFs, but because the mass of the kaons is constrained in the kinematic fit, the fitted mass of each kaon is just a $\delta$-function and combination of measured masses for each $\pi^+\pi^-$ pair will yield a Normal distribution with little to no apparent background (by construction), so we must be a bit more clever in selecting discriminating variables. By examining the \texttt{bggen} analysis done in \Cref{sec:data-selection}, we can see that most likely sources of background arise when the intermediate kaons are absent from the reaction: $\gamma p \to 4\pi p$. This reaction has the $K_SK_S$ final state, so pairs of pions which reconstruct close enough to kaons will be almost indistinguishable in the data. However, they differ in one key way, namely that the $K_S$ intermediate contains a strange quark while the $\pi^+\pi^-$ decay state does not, so such a decay must occur via the weak interaction, which is notably slower than the strong interaction which would produce pion pairs with no intermediate kaon. In other words, while the signal's rest-frame lifetime distribution should have an exponential slope near the $K_S$ lifetime, the background would theoretically have nearly zero rest-frame lifetime for every event, or a much smaller exponential slope in practice\footnote{An exponential distribution is just what best fits the rest-frame lifetime distribution in the $4\pi$ Monte Carlo and has no physical implication.}.
 
 Therefore, we will begin by generating both a signal and background dataset in Monte Carlo. We then interpret both datasets as if they were our desired channel by running them through the GlueX reconstruction and reaction filter, as well as all of our selections up to this point. We can then fit the rest-frame lifetime of each dataset to an exponential model,
 
@@ -84,7 +84,7 @@ where $\tilde{f}$ represents the binned distribution, and the equation for the l
 
 \subsection{Non-Factorizing sPlot}\label{sec:non-factorizing-splot}
 
-Over the course of the previous discussion, it was assumed that the discriminating variables, $t_1$ and $t_2$, were statistically independent from the control variables we wish to use in later analyses. The set of control variables must include all variables we use as inputs to the partial-wave analysis in \Cref{ch:partial-wave-analysis}, including the invariant mass $m$ of the $K_S^0K_S^0$ system and the helicity angles $\theta$ and $\varphi$ of the decay. We should now confirm that the rest-frame lifetimes are totally uncorrelated with these control variables (in other words, show that they are statistically independent). To test for statistical independence between $t_{1,2}$ and a given control variable, we first split our dataset into $M$ evenly-spaced quantiles in that control variable, which ensures each bin gets roughly the same number of events. Next, we calculate the likelihood of a null hypothesis which assumes the variables are statistically independent by fitting all datasets simultaneously with a shared $\lambda_B$ parameter. We then calculate the likelihood of an alternative hypothesis, which assumes statistical dependence, by finding the joint likelihood of independent fits of $\lambda_B$ over each quantile. The result of these fits can be formulated as a likelihood ratio,
+Over the course of the previous discussion, it was assumed that the discriminating variables, $t_1$ and $t_2$, were statistically independent from the control variables we wish to use in later analyses. The set of control variables must include all variables we use as inputs to the partial-wave analysis in \Cref{ch:partial-wave-analysis}, including the invariant mass $m$ of the $K_S^0K_S^0$ system and the helicity angles $\theta$ and $\varphi$ of the decay. We should now confirm that the rest-frame lifetimes are statistically independent from these control variables (in other words, show that they are statistically independent). To test for statistical independence between $t_{1,2}$ and a given control variable, we first split our dataset into $M$ evenly-spaced quantiles in that control variable, which ensures each bin gets roughly the same number of events. Next, we calculate the likelihood of a null hypothesis which assumes the variables are statistically independent by fitting all datasets simultaneously with a shared $\lambda_B$ parameter. We then calculate the likelihood of an alternative hypothesis, which assumes statistical dependence, by finding the joint likelihood of independent fits of $\lambda_B$ over each quantile. The result of these fits can be formulated as a likelihood ratio,
 
 \begin{equation}
   \Lambda = -2\ln\frac{\sup \mathcal{L}_{H_0}}{\sup \mathcal{L}_{H_1}} = -2\ln\frac{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_B)}{\sup \prod_i^M \mathcal{L}_i(z_i, \lambda_{B,i})}
@@ -98,32 +98,25 @@ where $\mathcal{L}_{H_0}$ and $\mathcal{L}_{H_1}$ are the likelihoods of the nul
   \label{eq:significance-test}
 \end{equation}
 
-where $F_{\chi^2_{M-1}}(\Lambda)$ is the cumulative distribution function of a $\chi^2$ distribution with $M-1$ degrees of freedom. Following this procedure for the invariant mass of $K_S^0K_S^0$\footnote{No significant statistical dependence was found for the helicity angles.}, the $p$-values for each number of quantiles can be seen in the first row of \Cref{tab:factorization-results} and in \Cref{fig:data-factorization-fit}, which depicts the case with four quantiles. The calculated $p$-values tend to be very small, implying that we should reject the null hypothesis and accept that the discriminating (rest-frame lifetime) and control (invariant mass of $K_S^0K_S^0$) variables are not statistically independent. This means we cannot use a traditional sPlot to weight our data.
+where $F_{\chi^2_{M-1}}(\Lambda)$ is the cumulative distribution function of a $\chi^2$ distribution with $M-1$ degrees of freedom. Following this procedure for the invariant mass of $K_S^0K_S^0$\footnote{No significant statistical dependence was found for the helicity angles.}, we obtain $p$-values of $<2.23\times10^{-308}$ with two, three, or four quantiles. The calculated $p$-values imply that we should reject the null hypothesis and accept that the discriminating (rest-frame lifetime) and control (invariant mass of $K_S^0K_S^0$) variables are not statistically independent. This means we cannot use a traditional sPlot to weight our data.
+                                                                                                                                                                                                                                                                                                                                                                                                                    h
+The results of these tests over the data consistently return $p$-values close to zero (below machine precision). While this may seem surprising, the results are visualized for four quantiles in \Cref{fig:factorization}, and we can see that there is a strong statistcal dependence between the control and discriminating variables which lead to this low $p$-value. Again, the significantly small $p$-values justify the use of non-factorizing sPlot across the background component, meaning that we need at least two background components in the final sPlot weighting\footnote{We found that a similar analysis an exponential signal distribution also indicates a significant amount of non-factorization, but the difference in the slopes of each component are too small to give significantly different fits to the true data. Additionally, we could choose to use the Monte Carlo distribution for the background as well, but that would assume that we have correctly modeled the entire background, while we really only modeled what we believe was the most prominent component.}.
 
-Fortunately, the process for obtaining the correct weights is straightforward, we simply allow for more than one signal and background component in the fit and sum over all signal components when we calculate the final weight values~\cite{dembinski_custom_2022}. Since the weights corresponding to each signal component in the sPlot can be added to each other to obtain a joint weight~\cite{pivk_splot_2005}, \Cref{eq:splot-weights} can be extended to allow multiple signal and background components:
+The process for obtaining the correct weights is straightforward, we simply allow for more than one signal and background component in the fit and sum over all signal components when we calculate the final weight values~\cite{dembinski_custom_2022}. Since the weights corresponding to each signal component in the sPlot can be added to each other to obtain a joint weight~\cite{pivk_splot_2005}, \Cref{eq:splot-weights} can be extended to allow multiple signal and background components:
 
 \begin{equation}
-  w(x) = \frac{\sum_{j} V_{S_0 j}f_j(x)}{\sum_{k}N_kf_k(x)} + ... + \frac{\sum_{j} V_{S_n j}f_j(x)}{\sum_{k}N_kf_k(x)},\quad \text{where } V_{ij}^{-1} = \sum_{x} \frac{f_i(x)f_j(x)}{\left(\sum_{k} N_kf_k(x)\right)^2}
+  w(x) = \frac{\sum_{j} V_{Sj}f_j(x)}{\sum_{k}N_kf_k(x)},\quad \text{where } V_{ij}^{-1} = \sum_{x} \frac{f_i(x)f_j(x)}{\left(\sum_{k} N_kf_k(x)\right)^2}
   \label{eq:splot-weights-factorizing}
 \end{equation}
 
-and $S_i$ are the indices of the signal components.
-
-We can further verify the need for non-factorizing sPlot by performing the factorization test described in \Cref{eq:independence-test,eq:significance-test} to the background Monte Carlo.
-
-\begin{equation}
-  p = 1 - F_{\chi^2_{M-1}} \quad\text{where }\Lambda = -2\ln\frac{\sup\prod_i^M \mathcal{L}_i(\lambda)}{\sup\prod_i^M \mathcal{L}_i(\lambda_i)}
-  \label{eq:independence-test-mc}
-\end{equation}
-
-The results of these tests over the background Monte Carlo can also be found in the last two rows of \Cref{tab:factorization-results} and are visualized for four quantiles in \Cref{fig:mc-factorization-fits}. Again, the significantly small $p$-values justify the use of non-factorizing sPlot across the background component, meaning that we need at least two background components in the final sPlot weighting\footnote{We found that a similar analysis of an exponential signal distribution also indicates a significant amount of non-factorization, but the difference in the slopes of each component are too small to give significantly different fits to the true data.}.
+and $S$ is the index of the signal component.
 
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/factorization_plot_data_chisqdof_4.0_4_quantiles.png}
+    \includegraphics[width=0.8\textwidth]{figures/factorization_plot_data_chisqdof_3.4_4_quantiles.png}
   \end{center}
-  \caption{Background exponential slopes from fits over four quantiles in $m(K_S^0K_S^0)$ ($x$-axis) of the rest-frame lifetime distributions of data. Both show a definite statistical dependence between rest-frame lifetime and the invariant mass of $K_S^0K_S^0$ with a p-value smaller than machine precision ($p < 2.23 \times 10^{-308}$). All values are calculated with a KinFit $\chi^2_\nu < 4.0$ selection on each type of data over each run period.}\label{fig:factorization}
+  \caption{Background exponential slopes from fits over four quantiles in $m(K_S^0K_S^0)$ ($x$-axis) of the rest-frame lifetime distributions of data. Both show a definite statistical dependence between rest-frame lifetime and the invariant mass of $K_S^0K_S^0$ with a p-value smaller than machine precision ($p < 2.23 \times 10^{-308}$).}\label{fig:factorization}
 \end{figure}
 
 \subsection{Application of Weights}\label{sec:application-of-weights}
@@ -134,22 +127,22 @@ The only thing left to do is determine how many background components we should 
   r\text{BIC} &\equiv \text{BIC} - \text{BIC}_\text{min} \quad\text{where } \text{BIC} &&\equiv k\ln{N} - 2\ln\mathcal{L} \\
   \label{eq:information-criteria}
 \end{alignat}
-where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Excluding cases with only one background component (restricting to models which have non-factorizing background components), {\color{red}[TODO]} the minimizing values for most run periods tend to use two or three signal and two background components, and they both use method $B$, where the signal components are fixed to values obtained from Monte Carlo while the background components are initialized at Monte Carlo values but allowed to float in the fit. We will use the minimal non-factorizing model, method $B$ with two signal and two background components, denoted $B(2,2)$, as our weighting method. See \Cref{fig:splot-data-fit} for the result of this fit. The selection of method $B$ is also interesting as it could describe a case where another background which is not modeled in the background Monte Carlo is present and has a similar exponential slope. Since these slopes are free in the fit to the data, they may anticipate this unknown slope better than the fixed case (method $C$), and method $B$ also explicitly assumes the Monte Carlo for true signal kaons is correct and fixes their component slopes (unlike method $A$).
+where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. In this table, the methods are labeled $A$ and $B$ as described above followed by the number of background components in the fit. Since the procedure requires us to minimize $r\text{AIC}$ and $r\text{BIC}$, we can see that either method $A2$ or $A3$ should be the selected model. We can see the fit results in \Cref{fig:splot-A2-A3}. The fit for $A3$ contains two background components with very similar slopes, so we will prefer $A2$ for simplicity and will use it in the rest of the analysis. It is interesting to note that method $B$, where the component slopes were fixed to values obtained from fits over background Monte Carlo, are generally much poorer fits overall, despite having fewer degrees of freedom. This possibly reflects the fact that we only modeled one source of background in the Monte Carlo, while many sources could be present in the data.
 
 \begin{table}
   \begin{center}
     \begin{tabular}{ccc}\toprule
       Method & $r\text{AIC}$ & $r\text{BIC}$\\\midrule
-      $A1$ & $11797.454$ & $11729.346$\\
-       $A2$ & $1069.773$ & $1024.367$\\
-       $A3$ & $170.511$ & $147.808$\\
-       $A4$ & \underline{$0.000$} & \underline{$0.000$}\\\midrule
-      $B1$ & $11836.574$ & $11757.115$\\
-       $B2$ & $11496.923$ & $11428.815$\\
-       $B3$ & $11243.791$ & $11187.034$\\
-       $B4$ & $11207.051$ & $11161.646$\\\bottomrule
+      $A1$ & $9544.558$ & $9515.780$\\
+      $A2$ & $6.616$ & \underline{$0.000$}\\
+      $A3$ & \underline{$0.000$} & $15.545$\\
+       $A4$ & $9.318$ & $47.024$\\\midrule
+      $B1$ & $9565.583$ & $9525.725$\\
+       $B2$ & $9240.874$ & $9212.096$\\
+       $B3$ & $9059.066$ & $9041.369$\\
+       $B4$ & $9036.816$ & $9030.199$\\\bottomrule
     \end{tabular}
-    \caption{Relative AIC and BIC values for each fitting method. The absolute minimum values in each column are underlined.}\label{tab:splot-model-results}
+    \caption{Relative AIC and BIC values for each fitting method. The absolute minimum values in each column are underlined. Methods are labeled by whether the background slopes are free ($A$) or fixed ($B$) and by the number of background components used.}\label{tab:splot-model-results}
   \end{center}
 \end{table}
 
@@ -157,24 +150,16 @@ where $k$ is the number of free parameters and $N$ is the number of events in th
   \begin{center}
     \begin{subfigure}[t]{\textwidth}
         \begin{center}
-          \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_4.0_splot_D_1s_3b.png}
-        \caption{The fit to data using method $A3$.}
+          \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_3.4_splot_D_1s_2b.png}
+        \caption{The fit to data using method $A2$.}
         \end{center}
         \end{subfigure}
         \begin{subfigure}[t]{\textwidth}
           \begin{center}
-            \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_4.0_splot_D_1s_4b.png}
-        \caption{The fit to data using method $A4$.}
+            \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_3.4_splot_D_1s_3b.png}
+        \caption{The fit to data using method $A3$.}
           \end{center}
         \end{subfigure}
-        \caption{Fits of \Cref{eq:splot-mixture} to data using method (a) $A3$ and (b) $A4$. While these fits have better AIC and BIC values, the third background component of $A3$ is extremely small and three out of four background components of $A4$ are nearly identical. For these reasons, we will treat these extra terms as nuisance parameters and use $A2$ instead (see \Cref{fig:splot-A2}).  All values are calculated with a KinFit $\chi^2_\nu < 4.0$ selection on each type of data over each run period.}\label{fig:splot-A3-A4}
+        \caption{Fits of \Cref{eq:splot-mixture} to data using method (a) $A2$ and (b) $A3$. The $A2$ configuration gives a better value for BIC, while $A3$ has a better AIC. We will use $A2$, since two of the background components of $A3$ are very similar and complicate the model unnecessarily.}\label{fig:splot-A2-A3}
 \end{center}
 \end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_4.0_splot_D_1s_2b.png}
-  \end{center}
-  \caption{Fit of \Cref{eq:splot-mixture} to data using method $A2$. True kaon events are prominent in the tail of the distribution, whereas background events peak strongly near zero. All values are calculated with a KinFit $\chi^2_\nu < 4.0$ selection on each type of data over each run period.}\label{fig:splot-A2}
-\end{figure}
-
