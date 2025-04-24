@@ -78,7 +78,7 @@ An additional scaling of the intensity with $\mathcal{I}(\vec{\beta}) \to \varep
   -2\ln\mathcal{L}(\vec{\beta}) = -2\left(\sum_{i=1}^N\left[w_i\ln\mathcal{I}_i(\vec{\beta})\right] - \frac{1}{N_a} \sum_{i=j}^{N_a}\left[w_j\mathcal{I}_j(\vec{\beta})\right]\right)
 \end{equation}
 
-We can now choose a minimization algorithm to fit our data to various models which will be described in detail in \Cref{sec:mass-independent-fits,sec:mass-dependent-fits}. For this analysis, fits were performed with \texttt{laddu}, an amplitude analysis engine I wrote, which uses the L-BFGS-B minimization algorithm, a memory-efficient variant of the Broyden-Fletcher-Goldfarb-Shanno algorithm which allows for box constraints on the parameter space~\cite{byrd_limited_1995}.
+We can now choose a minimization algorithm to fit our data to various models which will be described in detail in \Cref{sec:mass-independent-fits,sec:mass-dependent-fits}. For this analysis, fits were performed with \texttt{laddu}, an amplitude analysis engine I wrote, which uses the L-BFGS-B minimization algorithm, a memory-efficient variant of the Broyden-Fletcher-Goldfarb-Shanno algorithm which allows for box constraints on the parameter space~\cite{Byrd1995}.
 
 To obtain plots of the fitted model, we can weight each event in either the accepted or generated Monte Carlo (for results without and with efficiency correction, respectively) as follows,
 
@@ -94,14 +94,14 @@ Quasi-Newton minimization algorithms like L-BFGS-B\footnote{This also applies to
 
 The bootstrap method derives from the following reasoning. If we had some existing estimate of uncertainty, we could check the estimate by simply collecting more data, performing the analysis on this new data, and observing if our results fall within the estimated uncertainty. However, even if we were to obtain more data, we lack the original estimate of uncertainty. We can obtain such an estimate by ``pulling ourselves up by our bootstraps'' and resampling the data with replacement to obtain a slightly different ``bootstrapped'' dataset, which has the same number of events as the original, but contains some duplicate events and misses some of the original events. Assuming the original data is a representative sample of our population (in this case, assuming a new set of data would only effect the precision of our results), we can obtain several of these bootstrapped datasets and perform our fit. We must start each fit at the true minimum found from the original dataset, since we want to understand the uncertainty as it relates to our model, not to the path the minimizer takes, which may run into different local/false minima in each bootstrapped dataset. The distribution of a parameter over many bootstrapped analyses can then be associated with the uncertainty of that parameter.
 
-We begin by defining the statistic $\hat{\beta}_i(X) = \beta_i^*$ where $X$ represents the dataset and $\hat{\beta}_i$ is the maximum likelihood estimator of $\beta_i$ which maps the events in the dataset to a particular value $\beta_i^*$ via the fitting process we described in \Cref{sec:fitting-methods}. We then resample the data with replacement $B$ times to obtain bootstrapped datasets $\{X_1,\ldots,X_b\}$. The standard error on the parameter $\beta_i$ is then given by~\cite{efron_nonparametric_1981},
+We begin by defining the statistic $\hat{\beta}_i(X) = \beta_i^*$ where $X$ represents the dataset and $\hat{\beta}_i$ is the maximum likelihood estimator of $\beta_i$ which maps the events in the dataset to a particular value $\beta_i^*$ via the fitting process we described in \Cref{sec:fitting-methods}. We then resample the data with replacement $B$ times to obtain bootstrapped datasets $\{X_1,\ldots,X_b\}$. The standard error on the parameter $\beta_i$ is then given by~\cite{Efron1981},
 
 \begin{equation}
   \hat{\sigma}_{\beta_i}^{(B)} = \sqrt{\sum_{b=1}^{B}\frac{\left(\hat{\beta}_i(X_b) - \frac{1}{B}\sum_{b'=1}^{B} \hat{\beta}_i(X_{b'}) \right)^2}{B-1}}
   \label{eq:bootstrap-standard-error}
 \end{equation}
 
-We can also extract confidence intervals for each parameter using bootstrapping. These might be more useful than our standard error estimates, since the shape of the likelihood surface is not necessarily symmetric. First, we define the cumulative distribution function of the $\hat{\beta}_i$ statistic as~\cite{efron_nonparametric_1981},
+We can also extract confidence intervals for each parameter using bootstrapping. These might be more useful than our standard error estimates, since the shape of the likelihood surface is not necessarily symmetric. First, we define the cumulative distribution function of the $\hat{\beta}_i$ statistic as~\cite{Efron1981},
 
 \begin{equation}
   \hat{\text{CDF}}_i(t) = \Pr(\hat{\beta}_i < t) = \frac{\#\left\{\hat{\beta}_i(X_b) < t\right\}}{B}
@@ -112,7 +112,7 @@ where $\#\{\cdot\}$ represents the number of values satisfying the enclosed cond
   \hat{\theta}_i(\alpha) \equiv \hat{\text{CDF}}_i^{-1}(\alpha)
 \end{equation}
 
-We then define the $(1 - 2\alpha)\cdot 100\%$ central confidence interval for $\beta_i$ as $\beta_i \in [\hat{\theta}(\alpha),\hat{\theta}(1 - \alpha)]$. Furthermore, we can can define a bias-corrected confidence interval~\cite{efron_nonparametric_1981} which corrects for the fact that the mean of the bootstrap distribution is not necessarily the value obtained from the fit to the original data. First, we define a bias-correction factor,
+We then define the $(1 - 2\alpha)\cdot 100\%$ central confidence interval for $\beta_i$ as $\beta_i \in [\hat{\theta}(\alpha),\hat{\theta}(1 - \alpha)]$. Furthermore, we can can define a bias-corrected confidence interval~\cite{Efron1981} which corrects for the fact that the mean of the bootstrap distribution is not necessarily the value obtained from the fit to the original data. First, we define a bias-correction factor,
 
 \begin{equation}
   z_0 = \Phi^{-1}\left(\hat{\text{CDF}}_i(\hat{\beta}_i(X))\right)

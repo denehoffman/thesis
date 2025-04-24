@@ -3,12 +3,23 @@ default: build
 import:
   rsync -av nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/thesis_analysis/analysis/plots/ figures
 
-build:
-  # latexmk -verbose -synctex=1 -interaction=nonstopmode -shell-escape -pdf
-  pdflatex main
-  bibtex main
-  pdflatex main
-  pdflatex main
+bib:
+  biber --tool --configfile=format_bib.conf references.bib
+  mv references_bibertool.bib references.bib
+  ./unescape.py
+
+build: clean bib
+  latexmk -interaction=nonstopmode -halt-on-error -file-line-error -pdf -f main
+  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
+  # biber main
+  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
+  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
 
 open: build
-  sioyek main.pdf
+  zathura main.pdf
+
+clean:
+  latexmk -CA
+  rm -f *SAVE-ERROR
+  rm -f main.bbl
+  rm -f references.bib.blg

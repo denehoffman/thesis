@@ -1,6 +1,6 @@
 \section{Amplitude Formalism}
 
-Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description. The majority of this section is a summary of the formalisms described in \cite{chung_spin_1971} and \cite{richman_experimenters_1984}.
+Now we embark on the topic of amplitudes. We wish to describe the dynamics of our reaction in a way that allows us to extract quantum numbers like spin from our data. There are several difficulties in doing so: First, we are trying to determine the properties of many particles at once, and we know that many resonances in this channel overlap in mass space. This precludes the use of a simple Breit-Wigner description of most of these resonances, as overlapping Breit-Wigners do not preserve unitarity. Second, the GlueX experiment uses a linearly polarized photon beam, so it behooves us to use a formalism which can include this polarization. Finally, there are many resonances in this channel, and while we have the largest photoproduction dataset to date, we are still relatively data limited, which further complicates any dynamical description. The majority of this section is a summary of the formalisms described in~\cite{Chung1971} and~\cite{Richman1984}.
 
 \subsection{Single-Particle Helicity States}
 
@@ -163,7 +163,7 @@ where we have used \Cref{eq:two-particle-helicity} to write the states with an i
   \label{eq:transition-amplitude}
 \end{equation}
 
-While we will not measure a cross-section exactly, we will roughly measure the number of events as a function of mass and helicity angles, which is proportional to the cross section. We refer to this as the ``intensity'' function (see Appendix B of \cite{chung_spin_1971}),
+While we will not measure a cross-section exactly, we will roughly measure the number of events as a function of mass and helicity angles, which is proportional to the cross section. We refer to this as the ``intensity'' function (see Appendix B of~\cite{Chung1971}),
 
 \begin{equation}
   I(m, \Omega) \propto \pdv{\sigma}{m}{\Omega} \equiv \frac{p_f}{p_i}\abs{\frac{\mathcal{M}_{fi}}{8\pi\sqrt{s}}}^2
@@ -199,7 +199,7 @@ It is important to remember here that $\Omega$ has always been defined in terms 
 
 \subsection{Including Linear Photon Polarization}
 
-As the GlueX beam has a known polarization, we can take advantage of this extra information to explore the parity exchanged in our reaction. Mathieu et al.~\cite{mathieu_moments_2019} provide a derivation which begins with a slightly different representation of the scattering matrix, written in terms of spin-density matrix elements $\rho^\gamma_{\lambda\lambda'}$ describing the coupling of a polarized photon to the helicity of the proton target (and that of the recoiling proton product):
+As the GlueX beam has a known polarization, we can take advantage of this extra information to explore the parity exchanged in our reaction. Mathieu et al.~\cite{Mathieu2019} provide a derivation which begins with a slightly different representation of the scattering matrix, written in terms of spin-density matrix elements $\rho^\gamma_{\lambda\lambda'}$ describing the coupling of a polarized photon to the helicity of the proton target (and that of the recoiling proton product):
 
 \begin{equation}
   I(m,\Omega) \propto \frac{p_f}{p_i}\abs{\frac{\mathcal{M}_{fi}}{8\pi\sqrt{s}}}^2 = \kappa \sum_{\lambda\lambda'\lambda_p\lambda_{p'}} A_{\lambda;\lambda_p\lambda_{p'}}(m,\Omega)\rho^{\gamma}_{\lambda\lambda'}A^*_{\lambda';\lambda_1\lambda_2}(m,\Omega)
@@ -282,17 +282,18 @@ The next part of the derivation pertains to both how we formulate this amplitude
 
 We can rewrite the intensity function in \Cref{eq:polarized-intensity} in terms of exponentials. We will also expand out the sums over $\lambda = \pm$, the photon helicity, and temporarily suppress the indices of nucleon helicity for clarity (although I will keep the sum to remind us that these indices exist on each $A$).
 
-\begin{equation}
-  I(m,\Omega,P_\gamma,\Phi) = \frac{\kappa}{2}\sum_{\lambda_p\lambda_{p'}}  \left[A_-(m,\Omega)A^*_-(m,\Omega) + A_+(m,\Omega)A^*_+(m,\Omega) - P_\gamma e^{\imath 2\Phi}A_-(m,\Omega)A^*_+(m,\Omega) - P_\gamma e^{-\imath 2\Phi}A_+(m,\Omega)A^*_-(m,\Omega)\right]
+\begin{align}
+  I(m,\Omega,P_\gamma,\Phi) = \frac{\kappa}{2}\sum_{\lambda_p\lambda_{p'}}  &\left[A_-(m,\Omega)A^*_-(m,\Omega) + A_+(m,\Omega)A^*_+(m,\Omega)\right. \notag\\
+                                                                            & \left.- P_\gamma e^{\imath 2\Phi}A_-(m,\Omega)A^*_+(m,\Omega) - P_\gamma e^{-\imath 2\Phi}A_+(m,\Omega)A^*_-(m,\Omega)\right]
   \label{eq:intensity-equation-exp}
-\end{equation}
+\end{align}
 
 Next, we define polarized amplitudes,
 
-\begin{equation}
+\begin{equation}                                                                                          f
   \tilde{A}_\pm(m,\Omega,\Phi) \equiv e^{\mp\imath\Phi}A_\pm(m,\Omega),
-\end{equation}
-so that the intensity can be written as
+\end{equation}                                                                                                        e
+so that the intensity can be written as                                                                   l
 \begin{equation}
   \frac{\kappa}{4}\sum_{\lambda_p\lambda_{p'}}\left[(1-P_\gamma)\abs{\tilde{A}_+(m,\Omega,\Phi) + \tilde{A}_-(m,\Omega,\Phi)}^2 + (1+P_\gamma)\abs{\tilde{A}_+(m,\Omega,\Phi) - \tilde{A}_-(m,\Omega,\Phi)}^2\right]
   \label{eq:polarized-intensity-tilde}
@@ -372,7 +373,7 @@ The simplest model we can parameterize is one in which we bin the data in mass $
 
 \section{The $K$-Matrix Parameterization}
 
-If we wish to parameterize the amplitude $T(m)$ as a function of mass, there are several options. Perhaps the most ubiquitous is the resonant lineshape devised by Breit and Wigner in 1936~\cite{breit_capture_1936} whose amplitude can be written as a function of the invariant mass $m$,
+If we wish to parameterize the amplitude $T(m)$ as a function of mass, there are several options. Perhaps the most ubiquitous is the resonant lineshape devised by Breit and Wigner in 1936~\cite{Breit1936} whose amplitude can be written as a function of the invariant mass $m$,
 
 \begin{equation}
 T(m;M,\Gamma) = \frac{M\Gamma / \sqrt{\pi}}{(M^2 - m^2) - \imath M\Gamma}
@@ -387,7 +388,7 @@ which can be seen to be a Cauchy distribution.
 
 We could continue in this way and define the mass-dependent dynamics of our system as a sum of Breit-Wigner distributions. However, this is not the correct approach, as we will show that this does not preserve the unitarity of the $S$-matrix. Let us examine an alternate formulation, which we will call the $K$-matrix method. We will see that this $K$-matrix yields a Breit-Wigner for a single resonance in a single decay channel, but it can be extended to multiple resonances in multiple channels while preserving unitarity.
 
-Following the derivation by Chung et al.~\cite{chung_partial_1995}, we begin with our definition of the transition operator from \Cref{sub:production-amplitudes},
+Following the derivation by Chung et al.~\cite{Chung1995}, we begin with our definition of the transition operator from \Cref{sub:production-amplitudes},
 
 \begin{equation}
   S = I + 2 \imath T
@@ -455,7 +456,7 @@ Next, we must choose how to parameterize this $K$-matrix and write it in a Loren
 
 \subsection{Resonances as Poles of the $K$-matrix}
 
-Resonances can be parametrized either as constant elements in the $K$-matrix, which are usually interpreted as ``molecular'' resonances resulting from the exchange of force-carrying bosons, or from poles, which are thought of as the resonances describing decaying hadrons~\cite{au_meson_1987}. While we are more interested in the second case, we will include a linear combination of poles and constant terms in the parameterization, as follows:
+Resonances can be parametrized either as constant elements in the $K$-matrix, which are usually interpreted as ``molecular'' resonances resulting from the exchange of force-carrying bosons, or from poles, which are thought of as the resonances describing decaying hadrons~\cite{Au1987}. While we are more interested in the second case, we will include a linear combination of poles and constant terms in the parameterization, as follows:
 
 \begin{equation}
   K_{ij}(m) = \sum_{\alpha} \frac{g_{\alpha i}(m) g_{\alpha j}(m)}{m_\alpha^2 - m^2} + c_{ij}
@@ -490,7 +491,7 @@ where $\gamma^2_{\alpha i}$ is the fraction of the total width\footnote{However,
   \label{eq:rho}
 \end{equation}
 
-when the $i$th channel describes the decay $\alpha \to 1 + 2$ and $B^\ell_{\alpha i}(m)$ is the centrifugal barrier factor describing the suppression to the partial width when a resonance has angular momentum $\ell$. We typically parameterize this via form factors derived by Blatt and Weisskopf~\cite{blatt_theoretical_1979},
+when the $i$th channel describes the decay $\alpha \to 1 + 2$ and $B^\ell_{\alpha i}(m)$ is the centrifugal barrier factor describing the suppression to the partial width when a resonance has angular momentum $\ell$. We typically parameterize this via form factors derived by Blatt and Weisskopf~\cite{Blatt1979},
 
 \begin{align}
   B^\ell_{\alpha i}(m) &= \frac{F_\ell(z_i(m))}{F_\ell(z_i(m_\alpha))} \\
@@ -501,7 +502,7 @@ when the $i$th channel describes the decay $\alpha \to 1 + 2$ and $B^\ell_{\alph
   F_\ell(z) &= \sqrt{\frac{\abs{h_\ell^{(1)}(1)}^2}{z\abs{h_\ell^{(1)}(\sqrt{z})}^2}}
 \end{align}
 
-where $q_i(m) = m\rho_i(m)/2$ is the breakup momentum for the $i$th channel\footnote{i.e. the magnitude of the momentum either decay product will have in the rest frame of the decay}, $q_R$ is the impact parameter/interaction radius (we use $\SI{0.1973}{\giga\eV}$ in our calculations), and $h_\ell^{(1)}$ is a spherical Hankel function of the first kind (see Equation 2.4 of \cite{von_hippel_centrifugal-barrier_1972})
+where $q_i(m) = m\rho_i(m)/2$ is the breakup momentum for the $i$th channel\footnote{i.e. the magnitude of the momentum either decay product will have in the rest frame of the decay}, $q_R$ is the impact parameter/interaction radius (we use $\SI{0.1973}{\giga\eV}$ in our calculations), and $h_\ell^{(1)}$ is a spherical Hankel function of the first kind (see Equation 2.4 of~\cite{vonHippel1972})
 
 For clarity, we typically reparameterize these partial widths such that
 
@@ -520,7 +521,7 @@ so we can define the Lorentz-invariant $K$-matrix, $\hat{K}$, as
 
 where we have absorbed some multiplicative factors into $c_{ij}$ to form the series expansion over powers of $m^2$ (since $\rho(m)$ and $B^\ell_{\alpha i}(m)$ only contain even powers of $m$) with coefficients $\bar{c}_{ij}$. Here, $\bar{K}$ replaces $K$ in \Cref{eq:t-matrix-from-k-matrix} as an intermediate step to defining a Lorentz-invariant formulation.
 
-According to Chung\cite{chung_spin_1971}, the Lorentz-invariant form of the $T$-matrix, $\hat{T}$ can be written as
+According to Chung~\cite{Chung1971}, the Lorentz-invariant form of the $T$-matrix, $\hat{T}$ can be written as
 
 \begin{equation}
   T = \sqrt{\rho}\hat{T}\sqrt{\rho}
@@ -549,7 +550,7 @@ Following the previous derivation with these invariant forms, we find that
 
 \subsubsection{Production Amplitudes from a $K$-Matrix}
 
-The $T$-matrix given in \Cref{eq:t-matrix-from-k-matrix-invariant} describes $s$-channel resonances (as in $a + b \to X \to c + d$). We can transform this into a production amplitude following Aitchison~\cite{aitchison_k-matrix_1972}:
+The $T$-matrix given in \Cref{eq:t-matrix-from-k-matrix-invariant} describes $s$-channel resonances (as in $a + b \to X \to c + d$). We can transform this into a production amplitude following Aitchison~\cite{Aitchison1972}:
 
 \begin{equation}
   \hat{F} = (I - \imath\hat{K}\rho)^{-1}\hat{P}
@@ -570,7 +571,7 @@ For reasons which will become clear, we will define the diagonal matrix $C$, cal
 \begin{equation}
   \Im[C(m)] = -\rho(m)\quad\text{or}\quad C(m) = A(m) - \imath\rho(m)
 \end{equation}
-for some real function $A(m)$. It can be shown that we can replace $-\imath\rho$ in \Cref{eq:t-matrix-from-k-matrix-invariant} with such a matrix $C$ and still retain a valid $K$-matrix representation~\cite{wilson_resonances_2015},
+for some real function $A(m)$. It can be shown that we can replace $-\imath\rho$ in \Cref{eq:t-matrix-from-k-matrix-invariant} with such a matrix $C$ and still retain a valid $K$-matrix representation~\cite{Wilson2015},
 
 \begin{equation}
   \hat{T} = (I + \hat{K}C)^{-1}\hat{K}
@@ -590,7 +591,7 @@ The exact form of $A(m)$ is arbitrary, but we will be using
   \label{eq:chew-mandelstam}
 \end{equation}
 
-where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See \cite{oller_nd_1999}, \cite{basdevant_unitary_1977}, \cite{oller_chiral_2001}, and \cite{reid_generating_1984} for derivations and additional details of this expression. The motivation for this choice is that it behaves better below threshold than $\rho(m)$, as can be seen in \Cref{fig:chew-mandelstam}.
+where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay channel, and we can choose $C((m_1 + m_2)^2) = 0$ for normalization. See~\cite{Oller1999},~\cite{Basdevant1977},~\cite{Oller2001}, and~\cite{Reid1984} for derivations and additional details of this expression. The motivation for this choice is that it behaves better below threshold than $\rho(m)$, as can be seen in \Cref{fig:chew-mandelstam}.
 
 \begin{figure}
   \begin{center}
@@ -600,7 +601,7 @@ where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay chann
 \end{figure}
 
 
-The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in \cite{albrecht_coupled_2020} and \cite{kopf_investigation_2021}. We do not have enough data to constrain the pole positions of every resonance in this channel (as we only have access to one of several channels used in those papers), so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\vec{\beta}$) to photoproduction. Additionally, using the results from these papers requires a Adler zero term in front of the $K$-matrix for the $f_0$ mesons of the form $\frac{(s - s_0)}{s_\text{norm}}$, where they use $s_0 = m^2_{\pi_0}/2$ and $s_\text{norm} = 1$.
+The impetus of this complication is that this particular formulation of the Chew-Mandelstam matrix is used in~\cite{Albrecht2020} and~\cite{Kopf2021}. We do not have enough data to constrain the pole positions of every resonance in this channel (as we only have access to one of several channels used in those papers), so we will use the $K$-matrix coefficients ($g_{i\alpha}$ and $m_\alpha$) from their coupled-channel analysis of data from the Crystal Barrel and COMPASS experiments as fixed values in our analysis, fitting only the couplings ($\vec{\beta}$) to photoproduction. Additionally, using the results from these papers requires a Adler zero term in front of the $K$-matrix for the $f_0$ mesons of the form $\frac{(s - s_0)}{s_\text{norm}}$, where they use $s_0 = m^2_{\pi_0}/2$ and $s_\text{norm} = 1$.
 
 We can then combine \Cref{eq:k-matrix-production-amplitude-chew} with \Cref{eq:generalized-polarized-intensity}, choosing $T^{J(\epsilon)}_{M;\eta}(\vec{\beta}; m) = \hat{F}(\vec{\beta}; m)$, to form a mass-dependent model of polarized photoproduction for the $K_S^0K_S^0$ channel which will be further discussed in \Cref{sec:mass-dependent-fits}.
 
