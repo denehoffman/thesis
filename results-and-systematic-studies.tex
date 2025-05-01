@@ -295,7 +295,7 @@ The results of this method are interesting. \Cref{fig:guided-fit-chisqdof-3.4-Sp
   \begin{center}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     e
     \includegraphics[width=0.8\textwidth]{figures/binned_and_unbinned_fit_chisqdof_3.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
   \end{center}
-  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}\label{fig:unbinned-guided-fit-chisqdof-3.4-Sp-D2p}
+  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to the standard error on the intensity from $20$ bootstrap iterations.}\label{fig:unbinned-guided-fit-chisqdof-3.4-Sp-D2p}
 \end{figure}
 
 \begin{figure}
@@ -313,4 +313,356 @@ Both of these fits appear to be improvements over the local minima found in the 
 
 \section{Systematic Studies}\label{sec:systematic-studies}
 
-We now bring our attention back to the selections which were made in \Cref{sec:data-selection}, particularly the choice to cut on the $\chi^2_\nu$ value from the kinematic fit. This choice, while supported by the informa
+We now bring our attention back to the selections which were made in \Cref{sec:data-selection}, particularly the choice to cut on the $\chi^2_\nu$ value from the kinematic fit. The choice of $\chi^2_\nu = 3.4$ as the cut value was motivated by a maximally informed decision boundary. We will not investigate the effect this cut value has on our analysis.
+
+To do this, we will select four new cut values spaced by a unit of $\chi^2_\nu$, two on either side of the chosen value, i.e. $\chi^2_\nu \in \{1.4, 2.4, 3.4, 4.4, 5.4\}$. We are not extracting a quantitative value from this analysis, so we will just observe the fits done in the prior section under these different cut values. The $A2$ sPlot weighting method will still be used, but the distribution used for the signal and the slopes used to initialize the background in the fit will be sourced from Monte Carlo with these different cut values. The results of these fits can be seen in \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p,fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p,fig:unbinned-fit-all-Sp-D2p,fig:unbinned-fit-all-Spn-D2p,fig:guided-fit-all-Sp-D2p,fig:guided-fit-all-Spn-D2p,fig:unbinned-guided-fit-all-Sp-D2p,fig:unbinned-guided-fit-all-Spn-D2p}. From a cursory examination of these results, it seems like the selection on $\chi^2_\nu$ has very little effect on the overall shape of each wave. Examining \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p}, this selection does not seem to strengthen or diminish contributions from other $D$-wave projections. \Cref{fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p} also contain similar distributions at all cut values, but the relative height of the peak at $\SI{1.5}{\giga\electronvolt}$ and the enhancement near $\SI{1.15}{\giga\electronvolt}$ seems to change slightly with the cut value, favoring the lower-mass peak at higher values of $\chi^2_\nu$. This may indicate that some component of this bump is related to a background which has not been removed, since it shows up more at higher $\chi^2_\nu$, which correspond to lower confidence events.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves487_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves487_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves487_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves487_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves487_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Binned fit of $S_{0}^{(+)}$, and $D_{0}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:binned-fit-all-Sp-D0p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves489_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves489_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves489_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves489_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves489_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Binned fit of $S_{0}^{(+)}$, and $D_{1}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:binned-fit-all-Sp-D1p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Binned fit of $S_{0}^{(+)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:binned-fit-all-Sp-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-CI-BC.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Binned fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:binned-fit-all-Spn-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:unbinned-fit-all-Sp-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:unbinned-fit-all-Spn-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{The state of the guided fit to $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves after the guided step. Bars on each fit point correspond to the standard error on the intensity from $20$ bootstrap iterations.}
+    \label{fig:guided-fit-all-Sp-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_1.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_2.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_3.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_4.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/guided_fit_chisqdof_5.4_splot_D_1s_2b_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{The state of the guided fit to $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves after the guided step. Bars on each fit point correspond to the standard error on the intensity from $20$ bootstrap iterations.}
+    \label{fig:guided-fit-all-Spn-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_1.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_2.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_3.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_4.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_5.4_splot_D_1s_2b_guided_phase_factor_waves491_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:unbinned-guided-fit-all-Sp-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_1.4_splot_D_1s_2b_guided_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 1.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_2.4_splot_D_1s_2b_guided_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 2.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_3.4_splot_D_1s_2b_guided_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 3.4$}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_4.4_splot_D_1s_2b_guided_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 4.4$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{figures/binned_and_unbinned_fit_chisqdof_5.4_splot_D_1s_2b_guided_phase_factor_waves29099_uncertainty_bootstrap-SE.png}
+        \caption{$\chi^2_\nu < 5.4$}
+    \end{subfigure}
+
+    \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $20$ bootstrap iterations.}
+    \label{fig:unbinned-guided-fit-all-Spn-D2p}
+\end{figure}

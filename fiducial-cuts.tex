@@ -20,7 +20,7 @@ where $p_S(x)$ and $p_B(x)$ are the probability densities of the signal and back
   \label{eq:youden-j}
 \end{equation}
 
-The Youden J-index is equivalent to the distance between the no-discrimination line and the receiver operating characteristic (ROC) curve shown in \Cref{fig:data-combined-chisqdof-roc}. The Youden J-index is shown in \Cref{fig:data-combined-chisqdof-youden-j}, and it is maximal at a value of $\chi^2_\nu = 3.4$. Therefore, we will use this value in our selection on $\chi^2_\nu$, although we will consider other values as well since we have other methods for separating the signal from the background (see \Cref{sec:splot}).
+The Youden J-index is equivalent to the distance between the no-discrimination line and the receiver operating characteristic (ROC) curve shown in \Cref{fig:data-combined-chisqdof-roc}. The index itself as a function of cut value is shown in \Cref{fig:data-combined-chisqdof-youden-j}, and it is maximized at a cut value of $\chi^2_\nu = 3.4$. This indicates the boundary where we can make a maximally informed decision between labels of signal and background for each event. It is not equivalent to some measure of signal purity, since it makes no use of the relative proportion of signal to background in the data. Because our data is clearly background dominated, a requirement of high signal purity would lead to very low overall statistics, and we still have other methods of separating signa from background which we will employ later (see \Cref{sec:splot}). Therefore, we will use this value in our selection on $\chi^2_\nu$, although we will eventually analyze the effect of using a different value for this cut in \Cref{sec:systematic-studies}.
 
 \begin{figure}
   \begin{center}
