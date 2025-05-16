@@ -1,6 +1,6 @@
-Data collected from the GlueX detector mostly contains reaction topologies (the set of initial\-/, intermediate\-/, and final\-/state particles) which are not the channel of interest in this thesis, as the GlueX experiment uses a broad trigger to collect data with a wide range of final states. Additionally, due to the unavoidable finite resolution of each detector, the measured quantities such as the momentum of each particle might not exactly align with physical expectations (such as four-momentum conservation). For these reasons, we need to filter the detected data to just events which match our desired topology and kinematically fit the observables such as particle masses, decay vertices, and four-momenta with constraints that enforce conservation laws and other properties of interest.
+Data collected from the GlueX detector mostly contains reaction topologies (the set of initial\-/, intermediate\-/, and final\-/state particles) which are not the channel of interest in this thesis, as the GlueX experiment uses a broad trigger to collect data with a wide range of final states. The trigger used for these datasets is the combination of a pair spectrometer trigger, which requires a time coincidence in the PS detector, and a physics trigger which depends on energy deposited in the calorimeters, the condition being that $2E_{\text{FCAL}}+E_{\text{BCAL}} > \SI{1.0}{\giga\electronvolt}$, $E_{\text{FCAL}} > \SI{0.0}{\giga\electronvolt}$, and $E_{\text{BCAL}} > \SI{1.2}{\giga\electronvolt}$~\cite{Adhikari2021}. Additionally, due to the unavoidable finite resolution of each detector, the measured quantities such as the momentum of each particle might not exactly align with physical expectations (such as four-momentum conservation). For these reasons, we need to filter the detected data to just events which match our desired topology and kinematically fit the observables such as particle masses, decay vertices, and four-momenta with constraints that enforce conservation laws and other properties of interest.
 
-This process begins with particle reconstruction, where the raw detector data is transformed into charged particle tracks (from the drift chambers), electromagnetic showers (from the calorimeters), and timing data from the ST, TOF, and accelerator RF signal. Next, the charged tracks are matched up with their respective showers from the calorimeters, and the remaining showers are labeled as ``neutral showers'' originating from photons (or possibly neutral particles like neutrons). At this stage, no particle identification is assigned to the charged and neutral tracks. Track reconstruction is performed before data is ``skimmed'' (separated into final-state topologies) so that all GlueX datasets are processed in the same way. My own analysis and data selection happens after track reconstruction, particle identification cuts, and the kinematic fit, after which there are still many events which likely belong to backgrounds which make it through these steps.
+This process begins with particle reconstruction, where the raw detector data is transformed into charged particle tracks (from the drift chambers), electromagnetic showers (from the calorimeters), and timing data from the ST, TOF, and accelerator RF signal. Next, the charged tracks are matched up with their respective showers from the calorimeters, and the remaining showers are labeled as ``neutral showers'' originating from photons (or possibly neutral particles like neutrons). At this stage, no particle identification is assigned to the charged and neutral tracks. Track reconstruction is performed before data is ``skimmed'' (separated into final-state topologies) so that all GlueX datasets are processed in the same way. My own analysis and data selection happens after track reconstruction, loose particle identification cuts, and the kinematic fit, after which there are still many events which likely belong to backgrounds which make it through these steps.
 
 \subsubsection{Particle Identification Cuts}
 
@@ -31,24 +31,24 @@ The next stage involves filtering through reconstructed tracks to find candidate
               & $-1.0 \leq \text{MM}^2 \leq 2.0$ & $\si{(\giga\eV/c^2)^2}$ & N/A\\\midrule
       N/A & $-3.0 \leq \text{ME} \leq 3.0$ & $\si{\giga\eV}$ & N/A\\\bottomrule
     \end{tabular}
-    \caption{PID cuts used in event reconstruction. $\text{MM}^2$ corresponds to the missing mass squared, $\text{IM}$ corresponds to the invariant mass, and $ME$ corresponds to the total missing energy.}\label{tab:pid-cuts}
+    \caption{Standard PID cuts used by the GlueX collaboration during event reconstruction. $\text{MM}^2$ corresponds to the missing mass squared, $\text{IM}$ corresponds to the invariant mass, and $ME$ corresponds to the total missing energy.}\label{tab:pid-cuts}
   \end{center}
 \end{table}
 
 \subsubsection{Kinematic Fit}\label{subsub:kinematic-fit}
 
-The final stage of reconstruction invokes a kinematic fit (KinFit) over data which has passed all separate PID cuts. The general structure of the kinematic fit is underpinned by the following derivation from {\color{red}[?]\footnote{How to cite GlueX docdb 2112?}}. This kinematic fit minimizes the following objective function:
+The final stage of reconstruction invokes a kinematic fit (KinFit) over data which has passed all separate PID cuts. The general structure of the kinematic fit is underpinned by the following derivation from~\cite{Mattione2016}. This kinematic fit minimizes the following objective function:
 
 \begin{equation}
-  \chi^2(\vec{\eta},\vec{\xi}) = (\vec{y} - \vec{\eta})^\intercal \mathbf{V}_{\vec{y}}^{-1}(\vec{y} - \vec{\eta}) + 2 \vec{\lambda}^\intercal\vec{f}(\vec{\eta},\vec{\xi})
+  \chi^2(\vec{\eta},\vec{\xi}) = (\vec{y} - \vec{\eta})^\intercal \mathbf{V}_{\vec{y}}^{-1}(\vec{y} - \vec{\eta}) + 2 \vec{\lambda}^\intercal\vec{f}(\vec{\eta},\vec{\xi}),
   \label{eq:kinfit-chi}
 \end{equation}
 where $\vec{y}$ are the experimentally measured values of observables $\vec{\eta}$, $\mathbf{V}_{\vec{y}}$ is the covariance matrix of the measured $\vec{y}$, $\vec{f}(\vec{\eta},\vec{\xi}) = 0$ are constraints applied to the system with additional free parameters $\vec{\xi}$ (which do not correspond to measured observables), and $\lambda$ are unknown Lagrange multipliers for said constraints. For example, $\vec{y}$ could include the measured four-momenta of all initial- and final-state particles, and $\mathbf{V}_{\vec{y}}$ would describe the uncertainty (from the detector elements) of each measurement. One possible constraint function $\vec{f}$ might minimize the difference between the initial and final four-momentum, as in \Cref{eq:four-momentum-constraint}. Since we wish to minimize $\chi^2$, we first take derivatives with respect to each set of free parameters,
 
 \begin{align}
-  \pdv{\chi^2}{\vec{\eta}} &= \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}-\vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal\vec{\lambda} \label{eq:kinfit-dxdeta}\\
-  \pdv{\chi^2}{\vec{\lambda}} &= \vec{f}(\vec{\eta},\vec{\xi}) \label{eq:kinfit-dxdlambda}\\
-  \pdv{\chi^2}{\vec{\xi}} &= \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal\vec{\lambda} \label{eq:kinfit-dxdxi}
+  \pdv{\chi^2}{\vec{\eta}} &= \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}-\vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal\vec{\lambda} \label{eq:kinfit-dxdeta},\\
+  \pdv{\chi^2}{\vec{\lambda}} &= \vec{f}(\vec{\eta},\vec{\xi}), \label{eq:kinfit-dxdlambda}\\
+  \pdv{\chi^2}{\vec{\xi}} &= \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal\vec{\lambda}. \label{eq:kinfit-dxdxi}
 \end{align}
 
 To find an extremum, we set these each to $\vec{0}$ and solve. At GlueX, the KinFit uses the Newton-Raphson method. First, we Taylor expand the constraint equations to first order,
@@ -60,21 +60,20 @@ To find an extremum, we set these each to $\vec{0}$ and solve. At GlueX, the Kin
 Assuming $\vec{\eta}_0$ and $\vec{\xi}_0$ are near the true minimum, we can set up an iterative method of approach,
 
 \begin{equation}
-  \vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{\eta}_{i+1} - \vec{\eta}_i\right) + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) = \vec{0}
+  \vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{\eta}_{i+1} - \vec{\eta}_i\right) + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) = \vec{0},
   \label{eq:kinfit-iter}
 \end{equation}
-
 where $\vec{f}_i \equiv \vec{f}(\vec{\eta}_i,\vec{\xi}_i)$, $\left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\equiv \left(\pdv{\vec{f}}{\vec{\eta}}\right)\eval_{\vec{\eta}_i,\vec{\xi}_i}$, and $\left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\equiv \left(\pdv{\vec{f}}{\vec{\xi}}\right)\eval_{\vec{\eta}_i,\vec{\xi}_i}$. To carry out an iteration, we need to determine the next step in each of the free directions $\vec{\eta}_{i+1}$ and $\vec{\xi}_{i+1}$. We start by writing the iterative forms of \Cref{eq:kinfit-dxdeta,eq:kinfit-dxdxi} as
 
 \begin{align}
   \mathbf{V}_{\vec{y}}^{-1}(\vec{\eta}_{i+1} - \vec{y}) + \left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{eq:kinfit-dxdeta-iter} \\
-  \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0 \label{eq:kinfit-dxdxi-iter}
+  \left(\pdv{\vec{f}}{\vec{\xi}}\right)^\intercal_i \vec{\lambda}_{i+1} &= 0. \label{eq:kinfit-dxdxi-iter}
 \end{align}
 
 To obtain the next iterative estimate of $\vec{\eta}$ by rearranging \Cref{eq:kinfit-dxdeta-iter} as
 
 \begin{equation}
-  \vec{\eta}_{i+1} = \vec{y} - \mathbf{V}_{\vec{y}}\left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1} \label{eq:kinfit-eta-update}
+  \vec{\eta}_{i+1} = \vec{y} - \mathbf{V}_{\vec{y}}\left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \vec{\lambda}_{i+1}. \label{eq:kinfit-eta-update}
 \end{equation}
 
 Inserting this back into \Cref{eq:kinfit-iter}, we get
@@ -82,7 +81,7 @@ Inserting this back into \Cref{eq:kinfit-iter}, we get
 \begin{align}
   \vec{0} &= \underbrace{\vec{f}_i + \left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\left(\vec{y}- \vec{\eta}_i\right)}_{\vec{r}_i} -\underbrace{\left(\left(\pdv{\vec{f}}{\vec{\eta}}\right)_i\mathbf{V}_{\vec{y}}\left(\pdv{\vec{f}}{\vec{\eta}}\right)^\intercal_i \right)}_{\mathbf{S}_i} \vec{\lambda}_{i+1} + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \notag\\
   \vec{0} &= \vec{r}_i - \mathbf{S}_i \vec{\lambda}_{i+1} + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \notag\\
-  \vec{\lambda}_{i+1} &= \mathbf{S}_i^{-1}\left(\vec{r}_i + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \right) \label{eq:kinfit-lambda-update}
+  \vec{\lambda}_{i+1} &= \mathbf{S}_i^{-1}\left(\vec{r}_i + \left(\pdv{\vec{f}}{\vec{\xi}}\right)_i\left(\vec{\xi}_{i+1} - \vec{\xi}_i\right) \right). \label{eq:kinfit-lambda-update}
 \end{align}
 
 We can plug this definition of $\vec{\lambda}_{i+1}$ into \Cref{eq:kinfit-dxdxi-iter} to find the iterative update for $\vec{\xi}$:
@@ -114,17 +113,15 @@ To perform the kinematic fit, we use the available measured observables and thei
 The constraints $\vec{f}$ used in this channel include four-momentum conservation,
 
 \begin{equation}
-  \sum_{f\in\text{final}} p^\mu_{f} - \sum_{i\in\text{initial}} p^\mu_{i} = 0^\mu
+  \sum_{f\in\text{final}} p^\mu_{f} - \sum_{i\in\text{initial}} p^\mu_{i} = 0^\mu,
   \label{eq:four-momentum-constraint}
 \end{equation}
-
 where the sum over four-momenta of of the initial-state particles must match that of the final-state particles, and the masses of each intermediate $K_S^0$,
 
 \begin{equation}
-  p_{K_S^0}^2 - m_{K_S^0}^2 = 0
+  p_{K_S^0}^2 - m_{K_S^0}^2 = 0,
 \end{equation}
-
-where $m_{K_S^0}$ is the known mass of the $K_S^0$ and $p_{K_S^0}$ is the fitted estimate of the four-momentum reconstructed from the $\pi^+\pi^-$ four-momentum measured by the detectors. Additionally we constrain the initial and final positional vertices of each production step in the topology. For this channel, this means we constrain the initial production vertex and the point of closest approach of the $K_S^0$s and recoil proton, as well as the decay vertex of each $K_S^0$ with the closest approach of its constituent pions. It is important to note that this vertex constraint cannot be done in the case where a $K_S^0$ decays to $2\pi^0$, since the neutral pions will decay to $2\gamma$ which can only be detected without tracking in the calorimeters. Because there is not a second point of detection for these photons, their trajectory and therefore the point at which the original $\pi^0$ decayed is unknown, so there is no way to further reconstruct the kaon decay vertex because the point of closest approach is unknown\footnote{The best we could do would be to assume the kaon decayed at the initial reaction vertex inside the target, which is not only unrealistic given that kaons decay via the weak interaction, but also causes problems later when we try to calculate the kaon lifetime to use in event weighting in \Cref{sec:splot}.}. Therefore, when we specify channels where one or both kaons decay as $K_S^0\to 2\pi^0$, we do not include these $K_S^0$s in the kinematic fit at all, and must infer them by adding the $\pi^0$ four-momenta (see \Cref{sub:neutral-kaon-decay-channels}). For the main $\gamma p \to K_S^0K_S^0p \to 2\pi^+2\pi^-p$ channel, we have four constraints from four-momentum conservation, two mass constraints (one for each kaon), 14 vertex constraints (two for each constrained particle\footnote{This is because we independently constrain the distance of a particle to the unknown vertex along two planes, the ``bend'' plane and the ``non-bend'' plane, named for being equal/perpendicular to the plane in which the trajectory of the particle is bending due to the magnetic field at the vertex point.}, viz. four pions, two kaons, and a proton), and nine unknowns from the vertex constraints (the position of the vertex introduces three unknowns for each vertex, and there are three constrained vertices, viz. two kaon decays and the initial production vertex). This gives a total of 20 constraints with nine unknowns, or 11 degrees of freedom in the fit.
+where $m_{K_S^0}$ is the known mass of the $K_S^0$ and $p_{K_S^0}$ is the fitted estimate of the four-momentum reconstructed from the $\pi^+\pi^-$ four-momentum measured by the detectors. Additionally we constrain the initial and final positional vertices of each production step in the topology. For this channel, this means we constrain the initial production vertex and the point of closest approach of the $K_S^0$s and recoil proton, as well as the decay vertex of each $K_S^0$ with the closest approach of its constituent pions. It is important to note that this vertex constraint cannot be done in the case where a $K_S^0$ decays to $2\pi^0$, since the neutral pions will decay to $2\gamma$ which can only be detected without tracking in the calorimeters. Because there is not a second point of detection for these photons, their trajectory and therefore the point at which the $\pi^0$ was produced is unknown, so there is no way to further reconstruct the kaon decay vertex because the point of closest approach is unknown\footnote{The best we could do would be to assume the kaon decayed at the initial reaction vertex inside the target, which is not only unrealistic given that kaons decay via the weak interaction, but also causes problems later when we try to calculate the kaon lifetime to use in event weighting in \Cref{sec:splot}.}. Therefore, when we specify channels where one or both kaons decay as $K_S^0\to 2\pi^0$, we do not include these $K_S^0$s in the kinematic fit at all, and must infer them by adding the $\pi^0$ four-momenta (see \Cref{sub:neutral-kaon-decay-channels}). For the main $\gamma p \to K_S^0K_S^0p \to 2\pi^+2\pi^-p$ channel, we have four constraints from four-momentum conservation, two mass constraints (one for each kaon), 14 vertex constraints (two for each constrained particle\footnote{This is because we independently constrain the distance of a particle to the unknown vertex along two planes, the ``bend'' plane and the ``non-bend'' plane, named for being equal/perpendicular to the plane in which the trajectory of the particle is bending due to the magnetic field at the vertex point.}, viz. four pions, two kaons, and a proton), and nine unknowns from the vertex constraints (the position of the vertex introduces three unknowns for each vertex, and there are three constrained vertices, viz. two kaon decays and the initial production vertex). This gives a total of 20 constraints with nine unknowns, or 11 degrees of freedom in the fit.
 
 \subsubsection{Combos}\label{subsub:combos}
 
