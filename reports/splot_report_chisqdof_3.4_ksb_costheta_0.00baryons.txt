@@ -1,0 +1,17 @@
+\begin{table}
+  \begin{center}
+    \begin{tabular}{ccccc}\toprule
+    & \multicolumn{2}{c}{\# Components} & \\\cmidrule(lr){2-3}
+      Method & Signal & Background & $r\text{AIC}$ & $r\text{BIC}$\\\midrule
+      $D$ & $1$ & $1$ & $786.131$ & $768.417$\\
+       & $1$ & $2$ & \underline{$0.000$} & \underline{$0.000$}\\
+       & $1$ & $3$ & $0.919$ & $18.633$\\
+       & $1$ & $4$ & $39.370$ & $74.798$\\\midrule
+      $E$ & $1$ & $1$ & $1069.501$ & $1042.930$\\
+       & $1$ & $2$ & $795.375$ & $777.661$\\
+       & $1$ & $3$ & $740.300$ & $731.443$\\
+       & $1$ & $4$ & $620.341$ & $620.341$\\\bottomrule
+    \end{tabular}
+    \caption{Relative AIC and BIC values for each fitting method. The absolute minimum values in each column are underlined, and the minimums excluding models with only one signal or background component are boxed. Methods for which the fits did not converge or $V^{-1}$ was singular are omitted.}\label{tab:splot-model-results}
+  \end{center}
+\end{table}

@@ -2,6 +2,7 @@ default: build
 
 import:
   rsync -av nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/thesis_analysis/analysis/plots/ figures
+  rsync -av nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/thesis_analysis/analysis/reports/ reports
 
 bib:
   biber --tool --configfile=format_bib.conf references.bib

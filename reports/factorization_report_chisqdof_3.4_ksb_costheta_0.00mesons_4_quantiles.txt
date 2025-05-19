@@ -1,0 +1,13 @@
+\begin{table}
+  \begin{center}
+    \begin{tabular}{cccc}\toprule
+       & \multicolumn{3}{c}{\# quantiles} \\\cmidrule(lr){2-4}
+       & 2 & 3 & 4 \\
+       Data Type & $p$ & $p$ & $p$ \\\midrule
+      Data  & $<2.23\times 10^{-308}$ & $<2.23\times 10^{-308}$ & $<2.23\times 10^{-308}$\\
+      $K_S^0K_S^0$ MC  & $<2.23\times 10^{-308}$ & $<2.23\times 10^{-308}$ & $<2.23\times 10^{-308}$\\
+      $4\pi$ MC  & $4.39 \times 10^{-07}$ & $9.96 \times 10^{-08}$ & $6.25 \times 10^{-07}$\\\bottomrule
+    \end{tabular}
+    \caption{The probability of accepting the null hypothesis (that the rest-frame lifetime is statistically independent of the invariant mass of $K_S^0K_S^0$) for the tests described in \Cref{eq:independence-test} for data and \Cref{eq:independence-test-mc} for Monte Carlo with the given number of quantiles. All values are calculated with a $\chi^2_\nu < 3.0$ selection on each type of data over all run period combined. Values listed as $<2.23 \times 10^{-308}$ are nonzero but smaller than the smallest representable 64-bit floating point number}\label{tab:factorization-results}
+  \end{center}
+\end{table}

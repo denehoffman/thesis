@@ -1,0 +1,89 @@
+
+\begin{center}
+    \begin{longtable}{clrcclr}\toprule
+        Bin (GeV/$c^2$) & Parameter & Value & \hspace{1em} & Bin (GeV/$c^2$) & Parameter & Value \\\midrule
+        \endhead
+
+            1.000\textendash 1.025 & $\Re\left[S_{0}^{(+)}\right]$ & $(2.705 \pm 0.100) \times 10^{3}$ & & 1.025\textendash 1.050 & $\Re\left[S_{0}^{(+)}\right]$ & $(2.250 \pm 0.060) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-1.76 \pm 0.14) \times 10^{3}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-1.29 \pm 0.10) \times 10^{3}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.5 \pm 5.6) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(5.1 \pm 3.2) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-2.4 \pm 1.3) \times 10^{-3}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-1.42 \pm 0.16) \times 10^{-3}$ \\*\midrule
+            1.050\textendash 1.075 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.924 \pm 0.066) \times 10^{3}$ & & 1.075\textendash 1.100 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.871 \pm 0.056) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-1.330 \pm 0.084) \times 10^{3}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-9.4 \pm 1.2) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.8 \pm 3.5) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(2.3 \pm 3.7) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(1.46 \pm 0.47) \times 10^{-3}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(1.35 \pm 0.59) \times 10^{-2}$ \\*\midrule
+            1.100\textendash 1.125 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.541 \pm 0.073) \times 10^{3}$ & & 1.125\textendash 1.150 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.368 \pm 0.059) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-1.03 \pm 0.10) \times 10^{3}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-1.014 \pm 0.081) \times 10^{3}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(3.3 \pm 3.3) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.8 \pm 3.0) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.0 \pm 1.6) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.1 \pm 1.4) \times 10^{2}$ \\*\midrule
+            1.150\textendash 1.175 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.322 \pm 0.076) \times 10^{3}$ & & 1.175\textendash 1.200 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.202 \pm 0.059) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-8.7 \pm 1.1) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-7.84 \pm 0.95) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(8.7 \pm 4.1) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(9.7 \pm 3.6) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.8 \pm 1.0) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-5.49 \pm 0.76) \times 10^{2}$ \\*\midrule
+            1.200\textendash 1.225 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.180 \pm 0.040) \times 10^{3}$ & & 1.225\textendash 1.250 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.248 \pm 0.043) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-7.82 \pm 0.71) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-5.8 \pm 1.0) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.42 \pm 0.30) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.32 \pm 0.28) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.76 \pm 0.78) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.75 \pm 0.76) \times 10^{2}$ \\*\midrule
+            1.250\textendash 1.275 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.105 \pm 0.038) \times 10^{3}$ & & 1.275\textendash 1.300 & $\Re\left[S_{0}^{(+)}\right]$ & $(1.068 \pm 0.042) \times 10^{3}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-5.64 \pm 0.85) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.53 \pm 0.76) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.29 \pm 0.30) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(3.3 \pm 2.7) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-6.76 \pm 0.56) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-7.25 \pm 0.41) \times 10^{2}$ \\*\midrule
+            1.300\textendash 1.325 & $\Re\left[S_{0}^{(+)}\right]$ & $(9.95 \pm 0.48) \times 10^{2}$ & & 1.325\textendash 1.350 & $\Re\left[S_{0}^{(+)}\right]$ & $(8.30 \pm 0.56) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-5.87 \pm 0.86) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.15 \pm 0.49) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.43 \pm 0.29) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.04 \pm 0.37) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-6.98 \pm 0.55) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-7.01 \pm 0.43) \times 10^{2}$ \\*\midrule
+            1.350\textendash 1.375 & $\Re\left[S_{0}^{(+)}\right]$ & $(8.17 \pm 0.42) \times 10^{2}$ & & 1.375\textendash 1.400 & $\Re\left[S_{0}^{(+)}\right]$ & $(-7.39 \pm 0.58) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.07 \pm 0.56) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(5.60 \pm 0.61) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-5.2 \pm 3.3) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-6.1 \pm 3.7) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-5.35 \pm 0.45) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(5.49 \pm 0.44) \times 10^{2}$ \\*\midrule
+            1.400\textendash 1.425 & $\Re\left[S_{0}^{(+)}\right]$ & $(-8.34 \pm 0.45) \times 10^{2}$ & & 1.425\textendash 1.450 & $\Re\left[S_{0}^{(+)}\right]$ & $(8.03 \pm 0.40) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(5.60 \pm 0.63) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.00 \pm 0.58) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.00 \pm 0.22) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.56 \pm 0.21) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(3.99 \pm 0.48) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-3.88 \pm 0.53) \times 10^{2}$ \\*\midrule
+            1.450\textendash 1.475 & $\Re\left[S_{0}^{(+)}\right]$ & $(8.27 \pm 0.48) \times 10^{2}$ & & 1.475\textendash 1.500 & $\Re\left[S_{0}^{(+)}\right]$ & $(-7.55 \pm 0.44) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.21 \pm 0.62) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(6.49 \pm 0.65) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(1.15 \pm 0.20) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.82 \pm 0.25) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-3.52 \pm 0.54) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(4.92 \pm 0.45) \times 10^{2}$ \\*\midrule
+            1.500\textendash 1.525 & $\Re\left[S_{0}^{(+)}\right]$ & $(-6.14 \pm 0.57) \times 10^{2}$ & & 1.525\textendash 1.550 & $\Re\left[S_{0}^{(+)}\right]$ & $(7.12 \pm 0.54) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-7.90 \pm 0.43) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-6.26 \pm 0.61) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.61 \pm 0.33) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(9.4 \pm 2.5) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.20 \pm 0.65) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-3.84 \pm 0.69) \times 10^{2}$ \\*\midrule
+            1.550\textendash 1.575 & $\Re\left[S_{0}^{(+)}\right]$ & $(-6.37 \pm 0.40) \times 10^{2}$ & & 1.575\textendash 1.600 & $\Re\left[S_{0}^{(+)}\right]$ & $(-7.13 \pm 0.32) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(5.82 \pm 0.44) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(4.13 \pm 0.53) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(9 \pm 25) \times 10^{0}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.3 \pm 2.4) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(3.30 \pm 0.56) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(1.44 \pm 0.81) \times 10^{2}$ \\*\midrule
+            1.600\textendash 1.625 & $\Re\left[S_{0}^{(+)}\right]$ & $(-5.99 \pm 0.43) \times 10^{2}$ & & 1.625\textendash 1.650 & $\Re\left[S_{0}^{(+)}\right]$ & $(5.54 \pm 0.40) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(4.70 \pm 0.56) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-4.97 \pm 0.49) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.0 \pm 2.6) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(3.2 \pm 2.6) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(1.35 \pm 0.93) \times 10^{2}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-5.7 \pm 8.1) \times 10^{1}$ \\*\midrule
+            1.650\textendash 1.675 & $\Re\left[S_{0}^{(+)}\right]$ & $(5.55 \pm 0.37) \times 10^{2}$ & & 1.675\textendash 1.700 & $\Re\left[S_{0}^{(+)}\right]$ & $(6.09 \pm 0.32) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-4.98 \pm 0.39) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(-4.06 \pm 0.40) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(9.5 \pm 2.1) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(8.2 \pm 1.9) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-4.36 \pm 0.89) \times 10^{-4}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-5.0 \pm 2.1) \times 10^{-5}$ \\*\midrule
+            1.700\textendash 1.725 & $\Re\left[S_{0}^{(+)}\right]$ & $(5.74 \pm 0.36) \times 10^{2}$ & & 1.725\textendash 1.750 & $\Re\left[S_{0}^{(+)}\right]$ & $(-5.13 \pm 0.34) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(-4.13 \pm 0.55) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(4.77 \pm 0.44) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(3.5 \pm 1.9) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-5.1 \pm 2.1) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-2.8 \pm 1.1) \times 10^{-3}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(3.2 \pm 1.1) \times 10^{-5}$ \\*\midrule
+            1.750\textendash 1.775 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.82 \pm 0.38) \times 10^{2}$ & & 1.775\textendash 1.800 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.87 \pm 0.31) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(4.95 \pm 0.33) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(4.70 \pm 0.32) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-7.0 \pm 1.6) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-7.3 \pm 2.5) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(6.18 \pm 0.87) \times 10^{-3}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(4.2 \pm 1.0) \times 10^{-4}$ \\*\midrule
+            1.800\textendash 1.825 & $\Re\left[S_{0}^{(+)}\right]$ & $(-5.45 \pm 0.34) \times 10^{2}$ & & 1.825\textendash 1.850 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.37 \pm 0.28) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(2.60 \pm 0.83) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(4.46 \pm 0.24) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-9.0 \pm 1.8) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.39 \pm 0.16) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-1.77 \pm 0.22) \times 10^{-4}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(2.866 \pm 0.080) \times 10^{-3}$ \\*\midrule
+            1.850\textendash 1.875 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.57 \pm 0.30) \times 10^{2}$ & & 1.875\textendash 1.900 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.59 \pm 0.30) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(3.61 \pm 0.35) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(3.23 \pm 0.40) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-9.6 \pm 1.6) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-9.4 \pm 1.8) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-3.56 \pm 0.10) \times 10^{-7}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(3.26 \pm 0.22) \times 10^{-4}$ \\*\midrule
+            1.900\textendash 1.925 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.34 \pm 0.33) \times 10^{2}$ & & 1.925\textendash 1.950 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.09 \pm 0.23) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(3.11 \pm 0.38) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(3.42 \pm 0.30) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-9.0 \pm 2.0) \times 10^{1}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-9.8 \pm 2.3) \times 10^{1}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-6.17 \pm 0.44) \times 10^{-5}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-1.74 \pm 0.13) \times 10^{-4}$ \\*\midrule
+            1.950\textendash 1.975 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.11 \pm 0.30) \times 10^{2}$ & & 1.975\textendash 2.000 & $\Re\left[S_{0}^{(+)}\right]$ & $(-4.30 \pm 0.25) \times 10^{2}$ \\*
+               & $\Re\left[S_{0}^{(-)}\right]$ & $(2.92 \pm 0.46) \times 10^{2}$ & &    & $\Re\left[S_{0}^{(-)}\right]$ & $(2.42 \pm 0.43) \times 10^{2}$ \\*
+               & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.06 \pm 0.16) \times 10^{2}$ & &    & $\Re\left[D_{+2}^{(+)}\right]$ & $(-1.04 \pm 0.14) \times 10^{2}$ \\*
+& $\Im\left[D_{+2}^{(+)}\right]$ & $(-2.02 \pm 0.15) \times 10^{-4}$ & &    & $\Im\left[D_{+2}^{(+)}\right]$ & $(-3.98 \pm 0.55) \times 10^{-4}$ \\*\bottomrule
+    \caption{The parameter values and uncertainties for the binned fit of <?> waves to data with $\chi^2_\nu < 3.4$. Uncertainties are calculated from the standard error over $30$ bootstrap iterations.}\label{tab:binned-fit-chisqdof-3.4-<?>}
+    \end{longtable}
+\end{center}

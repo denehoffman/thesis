@@ -59,18 +59,6 @@ We can see the effect of this in \Cref{fig:data-combined-rfl}. The exponential s
 
 Before we do this, however, there is one more minor selection which we will perform, which is a selection on the $z$-vertex of the target proton. We know the exact location of the target with respect to the detector, and we only want to deal with events which we know originated inside this target. The distribution of the $z$-vertex values can be seen in \Cref{fig:data-original-combined-protonz}. We will select events with $\SI{50}{\centi\meter} < z < \SI{80}{\centi\meter}$, as this is the known length and position of the target relative to the detector elements. While there is an indication of events in the signal Monte Carlo in the regions which are removed, we know that while these events originated from the target, their $z$-vertex has been misidentified, so we should remove them anyway.
 
-In total, we only have two main fiducial selections on the data, as illustrated in \Cref{tab:fiducial-cuts}.
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{cc}\toprule
-      Variable & Selected Values \\\midrule
-      $\chi^2_\nu$ & $\chi^2_\nu < 3.4$ \\
-      Target proton-$z$ & $\SI{50}{\centi\meter} < z < \SI{80}{\centi\meter}$ \\\bottomrule
-    \end{tabular}
-    \caption{Fiducial cuts performed after event reconstruction.}\label{tab:fiducial-cuts}
-  \end{center}
-\end{table}
 
 \begin{figure}
   \begin{center}
@@ -80,3 +68,21 @@ In total, we only have two main fiducial selections on the data, as illustrated 
 \end{figure}
 
 {\color{red}TODO: dE/dx plots in CDC, FDC for $p$/$\pi$ separation (appendix?)}
+
+The impetus for studying this channel was originally a search for excited hyperons\textemdash baryons with strange quark content. In particular, $\Sigma^+$ resonances should form in the invariant mass distribution of $K_S^0 p$, where the other kaon is required to conserve strangeness in the strong production of this baryon. After the cuts mentioned above, the spectrum of these $\Sigma^+$ resonances is shown in {\color{red}TODO FIGURE}. However, there is a symmetry between the identical kaons which must be accounted for. We could pair either kaon with the proton to form the $\Sigma^+$, but there is a more likely pairing which can be found by first assuming that the heavier hyperon will generally move more backwards in the center-of-momentum frame than the lighter bachelor $K_S^0$. Therefore, the kaon which is moving in a further backward direction is more likely to correspond with the hyperon decay candidate. We can sort the kaons by their $\cos\theta$ in the center-of-momentum frame and call the more backward-going kaon $K_{S,B}^0$. The invariant mass spectrum of $K_{S,B}^0 p$ can be seen in {\color{red}TODO FIGURE}. The enhancement around $\SI{1.7}{\giga\electronvolt}$ likely corresponds to some combination of the $\Sigma^+(1660)$, $\Sigma^+(1670)$, $\Sigma^+(1750)$, and $\Sigma^+(1775)$ resonances. We do not see much indication of states above $\SI{2}{\giga\electronvolt}$.
+
+This angle also gives us a handle on separating baryonic and mesonic topologies. If we plot the $\cos\theta$ of $K_{S,B}^0$ against the invariant mass of $K_{S,B}^0 p$, as in {\color{red}TODO FIGURE}, we find a strong and somewhat expected dependence. The majority of the baryonic contribution occurs at angles with $\cos\theta < 0$. Likewise, the mesonic contribution is mostly confined to angles of $\cos\theta > 0$, as seen in figures {\color{red}TODO ksks mass and mass vs angle}. While it may not be obvious that there even are meson resonances here, we will see their contributions much more clearly after the statistical weighting procedures defined in \Cref{sec:splot} have been applied, after which we will revisit these plots. We will also conduct our analysis without this selection in \Cref{sec:systematic-studies} for completeness.
+
+In total, we only have three main fiducial selections on the data, as illustrated in \Cref{tab:fiducial-cuts}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{cc}\toprule
+      Variable & Selected Values \\\midrule
+      $\chi^2_\nu$ & $\chi^2_\nu < 3.4$ \\
+      Target proton-$z$ & $\SI{50}{\centi\meter} < z < \SI{80}{\centi\meter}$ \\\bottomrule
+      $\cos\theta_{\text{CM}}$ of $K_{S,B}^0$ & $ \cos\theta_{\text{CM}} > 0.0 $
+    \end{tabular}
+    \caption{Fiducial cuts performed after event reconstruction.}\label{tab:fiducial-cuts}
+  \end{center}
+\end{table}

@@ -1,6 +1,5 @@
 At this stage in the analysis, we have no more simple cuts which can improve the signal-to-background ratio in the dataset, but we know there must still be background remaining, as is indicated by the excess events with small kaon rest-frame lifetimes seen in \Cref{fig:rfl-pre-splot}. In this figure, we see that one of the intrinsic properties of a $K_S^0$, its well-known lifetime, is not distinct in the data. Rather, we seem to have at least two exponential slopes in the rest-frame lifetime distribution of each kaon, one which is close to what we see in signal Monte Carlo, and another which is similar to the $4\pi$ background Monte Carlo. We must now turn to more elaborate methods of separating the signal from this potential background influence. The primary method we will use to do this is sPlot~\cite{Pivk2005}\footnote{This is stylized as ${}_s\mathcal{P}lot$ in the original paper, but I find this tedious to type and to read.}, a weighting scheme which corrects the na\"ive probabilistic weights one might first think to construct (dubbed ``inPlot''). We begin by giving a basic explanation of inPlot before describing the sPlot correction.
 
-% TODO: these figures need sizing adjustments (to text as well)
 \begin{figure}
   \begin{center}
     \begin{subfigure}{.8\columnwidth}
@@ -143,4 +142,5 @@ where $k$ is the number of free parameters and $N$ is the number of events in th
         \caption{Fits of \Cref{eq:splot-mixture} to data using method (a) $A2$ and (b) $A3$. The $A2$ configuration gives a better value for BIC, while $A3$ has a better AIC. We will use $A2$, since two of the background components of $A3$ are very similar and complicate the model unnecessarily.}\label{fig:splot-A2-A3}
 \end{center}
 \end{figure}
-{\color{red}TODO: Plots of $E_\gamma$, invariant mass, $\cos\theta_{HX}$ and $\phi_{HX}$ vs invariant mass.}
+
+{\color{red}TODO: Plots of $E_\gamma$, invariant mass with/without baryon cut, baryon mass, $\cos\theta_{HX}$ and $\phi_{HX}$ vs invariant mass with and without baryon cut.}

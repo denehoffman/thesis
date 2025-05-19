@@ -1,0 +1,21 @@
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{llrrr}\toprule
+            Wave & Resonance & Real & Imaginary & Total ($\abs{F}^2$) \\\midrule
+$S_{0}^{(+)}$ & $f_{0}(980)$ & $(-5.8029 \pm 0.0036) \times 10^{3}$ & $0.0$ (fixed) & $(3.3673 \pm 0.0042) \times 10^{7}$ \\
+ & $f_{0}(1370)$ & $(-9.2219 \pm 0.0040) \times 10^{3}$ & $(7.5979 \pm 0.0095) \times 10^{3}$ & $(1.4277 \pm 0.0020) \times 10^{8}$ \\
+ & $f_{0}(1500)$ & $(1.452 \pm 0.013) \times 10^{2}$ & $(2.0123 \pm 0.0013) \times 10^{3}$ & $(4.0704 \pm 0.0055) \times 10^{6}$ \\
+ & $f_{0}(1710)$ & $(-5.2252 \pm 0.0025) \times 10^{3}$ & $(-5.5495 \pm 0.0022) \times 10^{3}$ & $(5.8100 \pm 0.0044) \times 10^{7}$ \\
+ & $a_{0}(980)$ & $(-9.129 \pm 0.056) \times 10^{2}$ & $(7.2663 \pm 0.0097) \times 10^{3}$ & $(5.363 \pm 0.015) \times 10^{7}$ \\
+ & $a_{0}(1450)$ & $(3.89 \pm 0.15) \times 10^{2}$ & $(5.89 \pm 0.16) \times 10^{2}$ & $(4.99 \pm 0.21) \times 10^{5}$ \\
+$D_{+2}^{(+)}$ & $f_{2}(1270)$ & $(2.2794 \pm 0.0058) \times 10^{3}$ & $(2.823 \pm 0.029) \times 10^{2}$ & $(5.275 \pm 0.026) \times 10^{6}$ \\
+ & $f_{2}'(1525)$ & $(-9.725 \pm 0.076) \times 10^{2}$ & $(-7.14 \pm 0.92) \times 10^{1}$ & $(9.51 \pm 0.14) \times 10^{5}$ \\
+ & $f_{2}(1810)$ & $(1.053 \pm 0.083) \times 10^{2}$ & $(5.37 \pm 0.61) \times 10^{1}$ & $(1.40 \pm 0.17) \times 10^{4}$ \\
+ & $f_{2}(1950)$ & $(6.45 \pm 0.33) \times 10^{1}$ & $(-8.20 \pm 0.33) \times 10^{1}$ & $(1.088 \pm 0.037) \times 10^{4}$ \\
+ & $a_{2}(1320)$ & $(-2.556 \pm 0.013) \times 10^{3}$ & $(1.080 \pm 0.026) \times 10^{3}$ & $(7.701 \pm 0.066) \times 10^{6}$ \\
+ & $a_{2}(1700)$ & $(-1.4450 \pm 0.0015) \times 10^{3}$ & $(2.296 \pm 0.053) \times 10^{2}$ & $(2.1408 \pm 0.0041) \times 10^{6}$ \\\bottomrule
+        \end{tabular}
+    \caption{The parameter values and uncertainties for the unbinned (guided) fit of <?> waves to data with $\chi^2_\nu < 3.4$. Uncertainties are calculated from the standard error over $30$ bootstrap iterations.}\label{tab:unbinned-fit-chisqdof-3.4-guided-<?>}
+    \end{center}
+\end{table}
