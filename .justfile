@@ -10,7 +10,7 @@ bib:
   ./unescape.py
 
 build: clean bib
-  latexmk -interaction=nonstopmode -halt-on-error -file-line-error -pdf -f main
+  latexmk -interaction=nonstopmode -halt-on-error --shell-escape -file-line-error -pdf -f main
   # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
   # biber main
   # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
