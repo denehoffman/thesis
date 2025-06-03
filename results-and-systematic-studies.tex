@@ -189,7 +189,7 @@ While we could imagine that interference effects between waves could cause the n
   \caption{Binned fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Spn-D2p}
 \end{figure}
 
-Since we have split the $S$-wave into reflectivity components, the next obvious step would be to also split the $D$-wave. We can see the result in \Cref{fig:binned-fit-chisqdof-3.0-Spn-D2pn}. The results are no longer as unambiguous, as there is a large amount of bin-to-bin fluctuations in the $D$-wave projections, but there is still some indication of two spin-$2$ peaks in the positive reflectivity component. However, the peak around $\SI{1.5}{\giga\electronvolt}$ does not appear to have as strong of a negative reflectivity component.
+Since we have split the $S$-wave into reflectivity components, the next obvious step would be to also split the $D$-wave. We can see the result in \Cref{fig:binned-fit-chisqdof-3.0-Spn-D2pn}. The results are no longer as unambiguous, as there is a large amount of bin-to-bin fluctuation in the $D$-wave projections, but there is still some indication of two spin-$2$ peaks in the positive reflectivity component, and the peak around $\SI{1.5}{\giga\electronvolt}$ does not appear to have as strong of a negative reflectivity component.
 
 \begin{figure}
   \begin{center}
@@ -215,7 +215,7 @@ As mentioned in \Cref{sec:past-analyses}, the most recent analysis of this chann
   \caption{Binned fit of $S_0^{(+)}$ and $D_2^{(+)}$ waves from this analysis alongside projections from the CLAS analysis~\cite{Chandavar2018} over their sideband region. Uncertainties are from $68\%$ bias-corrected confidence intervals and from reported error propagation respectively.}\label{fig:clas-comparison-sideband}
 \end{figure}
 
-The interpretation of these results is not straightforward, since the CLAS analysis does not report the estimated size of the background in their $S+B$ region, so any interpretation of the sideband is problematic. However, we can say with confidence that their results are not consistent with ours across any region in $K_S^0K_S^0$ invariant mass aside from some bins in which we both find almost zero contribution from any $D$-wave. The lack of signal from any of the $f_2(1270)$, $a_2(1320)$, $f_2'(1525)$, or $f_2(1565)$ resonances is partially due to the limited acceptance of the CLAS detector, which makes it difficult to distinguish $S$-waves from $D$-waves.
+The interpretation of these results is not straightforward, since the CLAS analysis does not report the estimated size of the background in their $S+B$ region, so any interpretation of the sideband is problematic. However, we can say with confidence that their results are not consistent with ours across any region in $K_S^0K_S^0$ invariant mass aside from some bins in which we both find almost zero contribution from any $D$-wave. The lack of signal from any of the $f_2(1270)$, $a_2(1320)$, $f_2'(1525)$, or $f_2(1565)$ resonances is likely due to the limited acceptance of the CLAS detector, which makes it difficult to distinguish $S$-waves from $D$-waves.
 
 
 \section{Mass-Dependent Fits}\label{sec:mass-dependent-fits}
@@ -234,6 +234,7 @@ We again begin with a fit to only positive-reflectivity waves ($S_0^{(+)}$ and $
 As in the previous section, this fit may be extended to a waveset with a negative-reflectivity $S$-wave. The result of this fit can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-Spn-D2p}. While the spin-$2$ components are still underrepresented, we see generally good agreement between the mass-independent and mass-dependent fits. Some notable discrepancies occur near threshold and around $\SI{1.3}{\giga\electronvolt}$, where the negative-reflectivity $S$-wave is larger than the binned fit would indicate.
 
 Adding additional waves becomes unmanageable, as the number of free parameters grows quickly and the model becomes prone to overfitting. Because there is no ability to distinguish isospin, there are many ways for even the limited parameters we use to converge on similar fits while the underlying projections of each individual resonance may vary greatly. This can unfortunately not be resolved without a coupled channel fit with channels that only contain a single isospin, such as $\pi\pi$, $\eta\pi$, or $\eta'\pi$, and this is beyond the scope of this thesis. However we can improve these results slightly by being more careful about the initialization of the fit, as will be shown in the following section.
+% TODO: correct the isospin statement
 
 \begin{figure}
   \begin{center}
@@ -338,7 +339,7 @@ We now bring our attention back to the selections which were made in \Cref{sec:d
 To do this, we will select four new cut values spaced by a unit of $\chi^2_\nu$, two on either side of the chosen value, i.e. $\chi^2_\nu \in \{2.0, 3.0, 4.0, 5.0\}$. We are not extracting a quantitative value from this analysis, so we will just observe the fits done in the prior section under these different cut values. The sPlot weighting method with two free-floating background slopes will still be used, but the distribution used for the signal and the slopes used to initialize the background in the fit will be sourced from Monte Carlo with these different cut values. The results of these fits can be seen in \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p,fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p,fig:binned-fit-all-Spn-D2pn,fig:unbinned-fit-all-Sp-D2p,fig:unbinned-fit-all-Spn-D2p,fig:guided-fit-all-Sp-D2p,fig:guided-fit-all-Spn-D2p,fig:unbinned-guided-fit-all-Sp-D2p,fig:unbinned-guided-fit-all-Spn-D2p}. From a qualitative examination of these results, it seems like the selection on $\chi^2_\nu$ has very little effect on the overall shape of each wave. Examining \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p}, this selection does not seem to strengthen or diminish contributions from other $D$-wave projections. \Cref{fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p} also contain similar distributions at all cut values, but the relative height of the peak at $\SI{1.5}{\giga\electronvolt}$ and the enhancement near $\SI{1.15}{\giga\electronvolt}$ seems to change slightly with the cut value, favoring the lower-mass peak at higher values of $\chi^2_\nu$. This may indicate that some component of this bump is related to a background which has not been removed, since it shows up more at higher $\chi^2_\nu$, which correspond to lower confidence events.
 
 
-We can also examine the effect of the baryon rejection cut on the angle of the backward-going kaon. We will use the nominal selection of $\chi^2_\nu < 3.0$ and remove this baryon rejection cut, leaving the rest of the analysis the same. The result of this is minimal, as can be seen in the fits in {\color{red} TODO}. The baryon contribution mostly enters in the higher mass region (see \Cref{fig:ksb-costheta-v-meson-mass-data-pz-masscut-chisqdof-3.0}) and it tends to appear in the extreme forward and backward angles, as can be seen in \Cref{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}
+We can also examine the effect of the baryon rejection cut on the angle of the backward-going kaon. We will use the nominal selection of $\chi^2_\nu < 3.0$ and remove this baryon rejection cut, leaving the rest of the analysis the same. The result of this is minimal, as can be seen in the fits in \Cref{fig:binned-fit-all-no-baryon-rejection,fig:unbinned-fit-all-no-baryon-rejection,fig:guided-fit-all-no-baryon-rejection,fig:unbinned-guided-fit-all-no-baryon-rejection}. The baryon contribution mostly enters in the higher mass region (see \Cref{fig:ksb-costheta-v-meson-mass-data-pz-masscut-chisqdof-3.0}) and it tends to appear in the extreme forward and backward angles, as can be seen in \Cref{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}.
 
 \begin{figure}
   \begin{center}
@@ -633,4 +634,69 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 
     \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
     \label{fig:unbinned-guided-fit-all-Spn-D2p}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_487_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_489_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_1862378_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+
+    \caption{All binned fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
+    \label{fig:binned-fit-all-no-baryon-rejection}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \caption{All mass-independent (binned) and mass-dependent (unbinned) fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
+    \label{fig:unbinned-fit-all-no-baryon-rejection}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+    \end{subfigure}
+    \caption{The state of all guided fits performed in the analysis after the guided step with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
+    \label{fig:guided-fit-all-no-baryon-rejection}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_guided_CI-BC.svg}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_guided_CI-BC.svg}
+    \end{subfigure}
+    \caption{All mass-independent (binned) and mass-dependent (unbinned, guided) fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
+    \label{fig:unbinned-guided-fit-all-no-baryon-rejection}
 \end{figure}
