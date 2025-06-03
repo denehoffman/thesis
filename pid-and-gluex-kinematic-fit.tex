@@ -1,10 +1,10 @@
-Data collected from the GlueX detector mostly contains reaction topologies (the set of initial\-/, intermediate\-/, and final\-/state particles) which are not the channel of interest in this thesis, as the GlueX experiment uses a broad trigger to collect data with a wide range of final states. The trigger used for these datasets is the combination of a pair spectrometer trigger, which requires a time coincidence in the PS detector, and a physics trigger which depends on energy deposited in the calorimeters, the condition being that $2E_{\text{FCAL}}+E_{\text{BCAL}} > \SI{1.0}{\giga\electronvolt}$, $E_{\text{FCAL}} > \SI{0.0}{\giga\electronvolt}$, and $E_{\text{BCAL}} > \SI{1.2}{\giga\electronvolt}$~\cite{Adhikari2021}. Additionally, due to the unavoidable finite resolution of each detector, the measured quantities such as the momentum of each particle might not exactly align with physical expectations (such as four-momentum conservation). For these reasons, we need to filter the detected data to just events which match our desired topology and kinematically fit the observables such as particle masses, decay vertices, and four-momenta with constraints that enforce conservation laws and other properties of interest.
+Data collected from the GlueX detector mostly contains reaction topologies (the set of initial\-/, intermediate\-/, and final\-/state particles) which are not the channel of interest in this thesis, as the GlueX experiment uses a broad trigger to collect data with a wide range of final states. The main GlueX physics trigger depends on energy deposited in the calorimeters, the condition being that $2E_{\text{FCAL}}+E_{\text{BCAL}} > \SI{1.0}{\giga\electronvolt}$, $E_{\text{FCAL}} > \SI{0.0}{\giga\electronvolt}$, and $E_{\text{BCAL}} > \SI{1.2}{\giga\electronvolt}$~\cite{Adhikari2021}. Additionally, due to the unavoidable finite resolution of each detector, the measured quantities such as the momentum of each particle might not exactly align with physical expectations (such as four-momentum conservation). For these reasons, we need to filter the detected data to just events which match our desired topology and kinematically fit the observables such as particle masses, decay vertices, and four-momenta with constraints that enforce conservation laws and other properties of interest.
 
 This process begins with particle reconstruction, where the raw detector data is transformed into charged particle tracks (from the drift chambers), electromagnetic showers (from the calorimeters), and timing data from the ST, TOF, and accelerator RF signal. Next, the charged tracks are matched up with their respective showers from the calorimeters, and the remaining showers are labeled as ``neutral showers'' originating from photons (or possibly neutral particles like neutrons). At this stage, no particle identification is assigned to the charged and neutral tracks. Track reconstruction is performed before data is ``skimmed'' (separated into final-state topologies) so that all GlueX datasets are processed in the same way. My own analysis and data selection happens after track reconstruction, loose particle identification cuts, and the kinematic fit, after which there are still many events which likely belong to backgrounds which make it through these steps.
 
 \subsubsection{Particle Identification Cuts}
 
-The next stage involves filtering through reconstructed tracks to find candidate events which match our topology. Timing cuts are applied to whichever detector gives the best timing information (the order being BCAL, TOF, FCAL, ST). By timing, we mean the difference between the time measured in the detector and the time of the RF beam bunch measured in the TAGH/TAGM. Each set of charged tracks is identified with each charged particle in the topology (events with too many or too few charged tracks are excluded). Each hypothetical identification is then subjected to cuts on the energy lost in the drift chambers or deposited in the calorimeters. Since there are no ``missing'' final-state particles (such as a neutron) in our reaction, an additional cut is made on the missing energy (the difference between the initial energy from the beam photon and the summed energy of the detected final-state particles). Finally, cuts are made on the invariant mass of some particles, as well as the missing mass (squared) of each step in the reaction topology (the squared difference in invariant mass between the initial and final state). A summary of these particle identification (PID) cuts can be seen in \Cref{tab:pid-cuts}.
+The next stage involves filtering reconstructed tracks to find candidate events which match our topology. Timing cuts are applied to whichever detector gives the best timing information (the order being BCAL, TOF, FCAL, ST). By timing, we mean the difference between the time measured in the detector and the time of the RF beam bunch measured in the TAGH/TAGM. Each set of charged tracks is identified with each charged particle in the topology (events with too many or too few charged tracks are excluded). Each hypothetical identification is then subjected to cuts on the energy lost in the drift chambers or deposited in the calorimeters. Since there are no ``missing'' final-state particles (such as a neutron) in our reaction, an additional cut is made on the missing energy (the difference between the initial energy from the beam photon and the summed energy of the detected final-state particles). Finally, cuts are made on the invariant mass of some particles, as well as the missing mass (squared) of each step in the reaction topology (the squared difference in invariant mass between the initial and final state). A summary of these particle identification (PID) cuts can be seen in \Cref{tab:pid-cuts}.
 
 \begin{table}
   \begin{center}
@@ -34,6 +34,7 @@ The next stage involves filtering through reconstructed tracks to find candidate
     \caption{Standard PID cuts used by the GlueX collaboration during event reconstruction. $\text{MM}^2$ corresponds to the missing mass squared, $\text{IM}$ corresponds to the invariant mass, and $ME$ corresponds to the total missing energy.}\label{tab:pid-cuts}
   \end{center}
 \end{table}
+% TODO: Citation for this table
 
 \subsubsection{Kinematic Fit}\label{subsub:kinematic-fit}
 
@@ -95,18 +96,9 @@ To perform the kinematic fit, we use the available measured observables and thei
 
 \begin{figure}
   \begin{center}
-    \begin{subfigure}[b]{.8\columnwidth}
-      \includegraphics[width=1\linewidth]{figures/chisqdof_data_accpol.png}
-      \caption{}
-      \label{fig:chisqdof-data}
-    \end{subfigure}
-    \begin{subfigure}[b]{.8\columnwidth}
-      \includegraphics[width=1\linewidth]{figures/chisqdof_accmc_accpol.png}
-      \caption{}
-      \label{fig:chisqdof-mc}
-    \end{subfigure}
+      \includesvg[width=1\linewidth]{ext/analysis/plots/chisqdof_data_None_None_None.svg}
   \end{center}
-  \caption{Distributions of $\chi^2_\nu$ (the $\chi^2$ per degree of freedom of the GlueX kinematic fit) for (a) data and (b) signal Monte Carlo after reconstruction cuts but before any fiducial selections from \Cref{sub:fiducial-cuts}. Note that the data extends past $\chi^2_\nu > 10$, but the plot was truncated for legibility. Both datasets have had accidental subtraction applied and combos flattened (see \Cref{subsub:combos,sec:data-selection,sub:accidental-subtraction}).}\label{fig:chisqdof-initial}
+  \caption{Distributions of $\chi^2_\nu$ (the $\chi^2$ per degree of freedom of the GlueX kinematic fit) for all data after reconstruction cuts but before any fiducial selections from \Cref{sub:fiducial-cuts}. Note that the data extends past $\chi^2_\nu > 10$, but the plot was truncated for legibility. All datasets have had accidental subtraction applied and combos flattened (see \Cref{subsub:combos,sec:data-selection,sub:accidental-subtraction}).}\label{fig:chisqdof-initial}
 \end{figure}
 
 

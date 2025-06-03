@@ -1,24 +1,10 @@
-At this stage in the analysis, we have no more simple cuts which can improve the signal-to-background ratio in the dataset, but we know there must still be background remaining, as is indicated by the excess events with small kaon rest-frame lifetimes seen in \Cref{fig:rfl-pre-splot}. In this figure, we see that one of the intrinsic properties of a $K_S^0$, its well-known lifetime, is not distinct in the data. Rather, we seem to have at least two exponential slopes in the rest-frame lifetime distribution of each kaon, one which is close to what we see in signal Monte Carlo, and another which is similar to the $4\pi$ background Monte Carlo. We must now turn to more elaborate methods of separating the signal from this potential background influence. The primary method we will use to do this is sPlot~\cite{Pivk2005}\footnote{This is stylized as ${}_s\mathcal{P}lot$ in the original paper, but I find this tedious to type and to read.}, a weighting scheme which corrects the na\"ive probabilistic weights one might first think to construct (dubbed ``inPlot''). We begin by giving a basic explanation of inPlot before describing the sPlot correction.
+At this stage in the analysis, we have no more simple cuts which can improve the signal-to-background ratio in the dataset, but we know there must still be background remaining, as is indicated by the excess events with small kaon rest-frame lifetimes seen in \Cref{fig:rfl-pre-splot}. In this figure, we see that one of the intrinsic properties of a $K_S^0$, its well-known lifetime around $\SI{89.54}{\pico\second}$, is not present in the data. Rather, we seem to have at least two exponential slopes in the rest-frame lifetime distribution of each kaon, one which is close to what we see in signal Monte Carlo, and another which is similar to the $4\pi$ background Monte Carlo. The $K_S^0$ lifetime comes from the fact that it contains a strange quark but decays to two non-strange mesons, and a weak interaction is required for this to occur. While we might not know the exact process which creates the $4\pi$ background, we can assume a strong interaction produces the pions, which should happen several orders of magnitude faster than the $K_S^0$ decay. Due to the resolution of the detector, we still expect these events to appear to have some non-zero distribution in rest-frame lifetime when we mistakenly interpret pairs of pions as kaons, but it will be vastly different from that of the signal. Rather than cut out the low-lifetime events (greatly reducing the $K_S^0$ signal which also peaks at zero), we now turn to a more elaborate method of separating the signal from this potential background influence called sPlot~\cite{Pivk2005}\footnote{This is stylized as ${}_s\mathcal{P}lot$ in the original paper, but I find this tedious to type and to read.}, a weighting scheme which roughly weights each event by the probability of it coming from the signal or background distribution. However, na\"ively weighting by probability (a method dubbed ``inPlot'') can cause issues which can fortunately be easily corrected. We begin by giving a basic explanation of inPlot before describing the sPlot correction.
 
 \begin{figure}
   \begin{center}
-    \begin{subfigure}{.8\columnwidth}
-      \includegraphics[width=\linewidth]{figures/rfl_data_chisqdof_3.4.png}
-      \caption{Data}
-      \label{fig:rfl-data}
-    \end{subfigure}
-    \begin{subfigure}{.45\columnwidth}
-      \includegraphics[width=\linewidth]{figures/rfl_accmc_chisqdof_3.4.png}
-      \caption{Signal Monte Carlo}
-      \label{fig:rfl-accmc}
-    \end{subfigure}
-    \begin{subfigure}{.45\columnwidth}
-      \includegraphics[width=\linewidth]{figures/rfl_bkgmc_chisqdof_3.4.png}
-      \caption{$4\pi$ Background Monte Carlo}
-      \label{fig:rfl-bkgmc}
-    \end{subfigure}
+      \includesvg[width=0.8\linewidth]{ext/analysis/plots/rfl_combined_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
   \end{center}
-  \caption{The rest-frame lifetime of kaons in (a) data, (b) signal Monte Carlo, and (c) background Monte Carlo. The data distribution clearly contains two exponential slopes: a peak which resembles the $4\pi$ Monte Carlo distribution, and a tail of true $K_S^0$s which resembles the signal Monte Carlo.}\label{fig:rfl-pre-splot}
+  \caption{The rest-frame lifetime of kaons in data, signal Monte Carlo, and background Monte Carlo. The data distribution clearly contains two exponential slopes: a peak which resembles the $4\pi$ Monte Carlo distribution, and a tail of true $K_S^0$s which resembles the signal Monte Carlo.}\label{fig:rfl-pre-splot}
 \end{figure}
 
 For all of the statistical weighting methods which will be mentioned here, we need some model for the signal and background probability distribution functions (PDFs) for some ``discriminating'' variable. This variable is called ``discriminating'' because it the variable for which we know the shape of these distributions beforehand. The usual example is a ``bump-on-a-background'', in which the discriminating variable may be a mass distribution ($m$) where signal events show up as a peaking structure while background events are more uniformly distributed. In such situations, it is common to use the extremes of the mass distribution (sidebands) as estimates of the background everywhere, weighting these events negatively while the events in the peak are weighted positively (a sideband subtraction). Rather than specifying peak and sideband regions, we can fit the mass distribution to some mixture of a signal (peak) PDF $f_S(m)$ and a background (flat) PDF $f_B(m)$. From such a fit, we obtain estimated number of signal ($N_S$) and background ($N_B$) events in our dataset (and possibly some shape parameters for the signal and background PDFs). We could then assign weights to each event as in \Cref{eq:inplot-weights-mass},
@@ -38,7 +24,7 @@ where $y$ represents any set of discriminating variables (not necessarily a mass
 
 Now that we have a method of assigning weights, we must pick the discriminating variables. As mentioned, these weighting methods work well on the classic ``bump-on-a-background'' distributions because it is easy to identify the signal and background PDFs, but because the mass of the kaons is constrained in the kinematic fit, the fitted mass of each kaon is just a $\delta$-function and combination of measured masses for each $\pi^+\pi^-$ pair will yield a Normal distribution with little to no apparent background (by construction), so we must be a bit more clever in selecting discriminating variables. By examining the \texttt{bggen} analysis done in \Cref{sec:data-selection}, we can see that most likely sources of background arise when the intermediate kaons are absent from the reaction: $\gamma p \to 4\pi p$. This reaction has the $K_SK_S$ final state, so pairs of pions which reconstruct close enough to kaons will be almost indistinguishable in the data. However, they differ in one key way, namely that the $K_S$ intermediate contains a strange quark while the $\pi^+\pi^-$ decay state does not, so such a decay must occur via the weak interaction, which is notably slower than the strong interaction which would produce pion pairs with no intermediate kaon. In other words, while the signal's rest-frame lifetime distribution should have an exponential slope near the $K_S$ lifetime, the background would theoretically have nearly zero rest-frame lifetime for every event, or a much smaller exponential slope in practice\footnote{An exponential distribution is just what fits the rest-frame lifetime distribution in the $4\pi$ Monte Carlo best and has no other physical implication.}.
 
-Therefore, we will begin by generating both a signal and background dataset in Monte Carlo. We then interpret both datasets as if they were our desired channel by running them through the GlueX reconstruction and reaction filter, as well as all of our selections up to this point. The signal Monte Carlo distribution in \Cref{fig:rfl-accmc} mostly follows an exponential distribution, but it flattens out near zero. Rather than use an exponential model, we will use the shape of this distribution itself, as it includes acceptance effects from the detector. The background distribution is roughly exponential, so we will fit the background Monte Carlo to an exponential distribution,
+Therefore, we will begin by generating both a signal and background dataset in Monte Carlo. We then interpret both datasets as if they were our desired channel by running them through the GlueX reconstruction and reaction filter, as well as all of our selections up to this point. The signal Monte Carlo distribution in \Cref{fig:rfl-pre-splot} mostly follows an exponential distribution, but it flattens out near zero. Rather than use an exponential model, we will use the shape of this distribution itself, as it includes acceptance effects from the detector. The background distribution is roughly exponential, so we will fit the background Monte Carlo to an exponential distribution,
 
 \begin{equation}
   f(t; \lambda) = \lambda \exp{-\lambda t},
@@ -93,54 +79,68 @@ and $S$ is the index of the signal component.
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/factorization_plot_data_chisqdof_3.4_4_quantiles.png}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/factorization_fit_pz_masscut_chisqdof_3.0_mesons_10.svg}
   \end{center}
   \caption{Background exponential slopes from fits over four quantiles in $m(K_S^0K_S^0)$ ($x$-axis) of the rest-frame lifetime distributions of data. Both show a definite statistical dependence between rest-frame lifetime and the invariant mass of $K_S^0K_S^0$ with a p-value smaller than machine precision ($p < 2.23 \times 10^{-308}$).}\label{fig:factorization}
 \end{figure}
 
 \subsection{Application of Weights}\label{sec:application-of-weights}
 
-The only thing left to do is determine how many background components we should use in the weighting procedure. To this end, we now turn to the Monte Carlo simulations of the $4\pi$-background. By choosing a number of quantiles in invariant mass corresponding to the number of components, we can fit single exponential distributions to each quantile in the simulated background. For instance, if we chose to use three background components, we would divide the background Monte Carlo into three, and fit each quantile to an exponential distribution to obtain a set of three $\lambda_B$ values. The resulting  $\lambda_B$ values could then be used as a starting point for a multi-component fit to the data. Alternatively, the background slopes could be fixed to the values from the fits to simulations, and only the yields would be allowed to float in the fit to data. We will refer to the first case, where the fit parameters ($\lambda_B$) from Monte Carlo are free, as $A$, the case where they are fixed as $B$ (the fit fraction $z$ is free in both cases). To select a model, we can use the relative Akaike Information Criterion (AIC)~\cite{Akaike1998} and the relative Bayesian Information Criterion (BIC)~\cite{Schwarz1978}:
+The only thing left to do is determine how many background components we should use in the weighting procedure. To this end, we now turn to the Monte Carlo simulations of the $4\pi$-background. By choosing a number of quantiles in invariant mass corresponding to the number of components, we can fit single exponential distributions to each quantile in the simulated background. For instance, if we chose to use three background components, we would divide the background Monte Carlo into three, and fit each quantile to an exponential distribution to obtain a set of three $\lambda_B$ values. The resulting  $\lambda_B$ values could then be used as a starting point for a multi-component fit to the data. Alternatively, the background slopes could be fixed to the values from the fits to simulations, and only the yields would be allowed to float in the fit to data. We will examine two types of models, one where the fit parameters ($\lambda_B$) from Monte Carlo are free and one where they are fixed to values found in fits to the background Monte Carlo (the fit fraction $z$ is free in both cases). To select a model, we can use the relative Akaike Information Criterion (AIC)~\cite{Akaike1998} and the relative Bayesian Information Criterion (BIC)~\cite{Schwarz1978}:
 \begin{alignat}{2}
   r\text{AIC} &\equiv \text{AIC} - \text{AIC}_\text{min} \quad\text{where } \text{AIC} &&\equiv 2k - 2\ln\mathcal{L} \\
   r\text{BIC} &\equiv \text{BIC} - \text{BIC}_\text{min} \quad\text{where } \text{BIC} &&\equiv k\ln{N} - 2\ln\mathcal{L},
   \label{eq:information-criteria}
 \end{alignat}
-where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. In this table, the methods are labeled $A$ and $B$ as described above followed by the number of background components in the fit. Since the procedure requires us to minimize $r\text{AIC}$ and $r\text{BIC}$, we can see that either method $A2$ or $A3$ should be the selected model. We can see the fit results in \Cref{fig:splot-A2-A3}. The fit for $A3$ contains two background components with very similar slopes, so we will prefer $A2$ for simplicity and will use it in the rest of the analysis. It is interesting to note that method $B$, where the component slopes were fixed to values obtained from fits over background Monte Carlo, are generally much poorer fits overall, despite having fewer degrees of freedom. This possibly reflects the fact that we only modeled one source of background in the Monte Carlo, while many sources could be present in the data.
+where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Since the procedure requires us to minimize $r\text{AIC}$ and $r\text{BIC}$, we find that the model with eight free-floating background slopes should be selected. However, upon plotting the fit result in \Cref{fig:splot-fits}, it is clear that eight slopes are not needed to properly describe the data, despite having the best information criteria. Instead, we will use a model with two free-floating background slopes. It is interesting to note that all of the models where the background slopes were fixed to values obtained from fits over background Monte Carlo are generally much poorer fits overall, despite having fewer degrees of freedom. This possibly reflects the fact that we only modeled one source of background in the Monte Carlo, while many sources could be present in the data.
 
-\begin{table}
-  \begin{center}
-    \begin{tabular}{ccc}\toprule
-      Method & $r\text{AIC}$ & $r\text{BIC}$\\\midrule
-      $A1$ & $9544.558$ & $9515.780$\\
-      $A2$ & $6.616$ & \underline{$0.000$}\\
-      $A3$ & \underline{$0.000$} & $15.545$\\
-       $A4$ & $9.318$ & $47.024$\\\midrule
-      $B1$ & $9565.583$ & $9525.725$\\
-       $B2$ & $9240.874$ & $9212.096$\\
-       $B3$ & $9059.066$ & $9041.369$\\
-       $B4$ & $9036.816$ & $9030.199$\\\bottomrule
-    \end{tabular}
-    \caption{Relative AIC and BIC values for each fitting method. The absolute minimum values in each column are underlined. Methods are labeled by whether the background slopes are free ($A$) or fixed ($B$) and by the number of background components used.}\label{tab:splot-model-results}
-  \end{center}
-\end{table}
+\input{ext/analysis/reports/splot_report_pz_masscut_chisqdof_3.0_mesons_max_nspec_10.tex}
+
+\input{ext/analysis/reports/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_2.tex}
+\input{ext/analysis/reports/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_8.tex}
+% TODO: use num2words on the caption here and add a label
 
 \begin{figure}
   \begin{center}
     \begin{subfigure}[t]{\textwidth}
         \begin{center}
-          \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_3.4_splot_D_1s_2b.png}
-        \caption{The fit to data using method $A2$.}
+          \includesvg[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_8.svg}
+        \caption{The fit to data using a model with eight free-floating background slopes.}
         \end{center}
         \end{subfigure}
         \begin{subfigure}[t]{\textwidth}
           \begin{center}
-            \includegraphics[width=.8\columnwidth]{figures/splot_fit_data_chisqdof_3.4_splot_D_1s_3b.png}
-        \caption{The fit to data using method $A3$.}
+            \includesvg[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+        \caption{The fit to data using a model with two free-floating background slopes.}
           \end{center}
         \end{subfigure}
-        \caption{Fits of \Cref{eq:splot-mixture} to data using method (a) $A2$ and (b) $A3$. The $A2$ configuration gives a better value for BIC, while $A3$ has a better AIC. We will use $A2$, since two of the background components of $A3$ are very similar and complicate the model unnecessarily.}\label{fig:splot-A2-A3}
+        \caption{Fits of \Cref{eq:splot-mixture} to data using (a) eight and (b) two free-floating background slopes. While the model with eight slopes is better according to information criteria, most of the background slopes are nearly identical to each other, and only two main slopes are present. Because of this, we will use the simpler two-slope model.}\label{fig:splot-fits}
 \end{center}
 \end{figure}
 
-{\color{red}TODO: Plots of $E_\gamma$, invariant mass with/without baryon cut, baryon mass, $\cos\theta_{HX}$ and $\phi_{HX}$ vs invariant mass with and without baryon cut.}
+Before we perform a partial-wave analysis, we will take inventory of the dataset after this weighting proceedure is applied. The current state of the data after all fiducial selections and sPlot weights can be see in ....
+
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+  \end{center}
+  \caption{The invariant mass of $K_S^0K_S^0$ after all selections and weights are applied.}\label{fig:meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
+\end{figure}
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/beam_energy_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+  \end{center}
+  \caption{The beam energy distribution all selections and weights are applied. The large discontinuities at $\SI{8.2}{\giga\electronvolt}$ and $\SI{8.6}{\giga\electronvolt}$ are due to the difference in the coherent peak range between the Phase-I and Phase-II datasets (see \Cref{tab:run-info}).}\label{fig:beam-energy-data-pz-masscut-chisqdof-3.0-mesons-free-2}
+\end{figure}
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+  \end{center}
+  \caption{The distribution of the azimuthal decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections and weights are applied.}\label{fig:costheta-hx-v-meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
+\end{figure}
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/phi_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+  \end{center}
+  \caption{The distribution of the polar decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections and weights are applied.}\label{fig:phi-hx-v-meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
+\end{figure}

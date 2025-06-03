@@ -206,7 +206,7 @@ where
 \begin{equation}
   \kappa(m, s) = \frac{1}{(2\pi)^3}\frac{1}{4\pi}\frac{1}{2\pi}\frac{1}{2}\frac{\sqrt{\lambda\left(m^2,m^2_{K_S^0},m^2_{K_S^0}\right)}}{16 m(s-m_p^2)^2},
 \end{equation}
-where $\lambda(a,b,c) \equiv$\footnote{This is also called the K\"all\'en function or triangle function. It is unfortunate that the notation for this function is typically written with a $\lambda$, and we will attempt to ensure the distinction from helicity is clear when we use it.}$a^2 + b^2 + c^2 - 2(ab + bc + ca)$ and we define the reaction as $\gamma p \to X p'$ with $X \to K_S^0 K_S^0$. Here, the indices $\lambda$ and $\lambda'$ couple the helicity of the incident photon to the amplitude $A$, while $\lambda_p$ and $\lambda_{p'}$ correspond to the helicity of the target and recoiling proton, respectively. Note that these nucleon helicities are not measured at GlueX, but we will keep them in our model for the sake of completeness. Additionally, since the Mandelstam variable $s$ only shows up in this $\kappa$ term, we will suppress its notation for now, but will bring it back at the end of the derivation.
+where $\lambda(a,b,c) \equiv a^2 + b^2 + c^2 - 2(ab + bc + ca)$ is the K\"all\'en function\footnote{It is unfortunate that the notation for this function is typically written with a $\lambda$, and we will attempt to ensure the distinction from helicity is clear when we use it.}, and we define the reaction as $\gamma p \to X p'$ with $X \to K_S^0 K_S^0$. Here, the indices $\lambda$ and $\lambda'$ couple the helicity of the incident photon to the amplitude $A$, while $\lambda_p$ and $\lambda_{p'}$ correspond to the helicity of the target and recoiling proton, respectively. Note that these nucleon helicities are not measured at GlueX, but we will keep them in our model for the sake of completeness. Additionally, since the Mandelstam variable $s$ only shows up in this $\kappa$ term, we will suppress its notation for now, but will bring it back at the end of the derivation.
 
 The spin-density matrix for the photon, $\rho^\gamma_{\lambda\lambda'}$, can be written in terms of the polarization vector,
 
@@ -438,7 +438,7 @@ Next, we must choose how to parameterize this $K$-matrix and write it in a Loren
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/argand_diagram.png}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/argand_diagram.svg}
   \end{center}
   \caption{An Argand diagram depicting two fictitious resonances with masses of $\SI{1.2}{\giga\eV}/c^2$ and $\SI{1.4}{\giga\eV}/c^2$ and widths of $\SI{200}{\mega\eV}/c^2$ and $\SI{100}{\mega\eV}/c^2$ respectively using both the $K$-matrix formalism and interfering Breit-Wigners. The $T$-matrix formed from Breit-Wigners exceeds the unitary circle, implying that this construction breaks unitarity, while the $K$-matrix does not.}\label{fig:argand-diagram}
 \end{figure}
@@ -576,7 +576,7 @@ where $m_1$ and $m_2$ are the masses of the final state of the $i$th decay chann
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/chew_mandelstam.png}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/chew_mandelstam.svg}
   \end{center}
   \caption{A comparison of the normal phase-space function, $\rho(m)$ (left) and the Chew-Mandelstam matrix, $C(m)$ (right) on the $\pi^0\eta$ channel. Both functions have the same imaginary part above the threshold $m = m_1 + m_2$, but the phase-space function has a branch cut at $m^2 = \frac{(m_1^2 - m_2^2)^2}{m_1^2 + m_2^2}$ (the jump in the left plot between the red and blue lines) as well as a discontinuity at $m^2 = (m_1 - m_2)^2$ in both real and imaginary parts.}\label{fig:chew-mandelstam}
 \end{figure}

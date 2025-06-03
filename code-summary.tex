@@ -1,5 +1,17 @@
 \section{Code Availability}
-All of the code used in this thesis is available at \url{https://github.com/denehoffman/thesis-analysis}. Running it requires some level of access to the raw GlueX data, particularly the skim of reconstructed data for this channel (mass constrained kaons with four extra RF beam bunches on either side of the in-time peak, as mentioned in the main text). The repository of code contains methods to extract these files from the Carnegie Mellon University Medium Energy Group computing cluster, although it can be modified to source local paths.
+The source code for this document is available at:
+
+\begin{center}
+\fbox{\url{https://github.com/denehoffman/thesis}}
+\end{center}
+
+Additionally, all of the code used in the analysis can be found at:
+
+\begin{center}
+\fbox{\url{https://github.com/denehoffman/gluex-ksks}}
+\end{center}
+
+Running it requires some level of access to the raw GlueX data, particularly the skim of reconstructed data for this channel (mass constrained kaons with four extra RF beam bunches on either side of the in-time peak, as mentioned in the main text). The repository of code contains methods to extract these files from the Carnegie Mellon University Medium Energy Group computing cluster, although it can be modified to source local paths.
 
 Once the files are obtained, the code executes a pipeline which outlines the various steps of the analysis described in this thesis, starting with fiducial cuts, moving to sPlot weighting, and finally performing fits over the selected, weighted data. This code is designed to be run in a container (one is provided in the repository) to ensure reproducibility of the results.
 

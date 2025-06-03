@@ -10,3 +10,21 @@ These reconstruction steps all take place before we interact with the data. The 
 We will first look at the performance of the GlueX kinematic fit on \texttt{bggen} data in \Cref{fig:bggen-chisqdof}. In this plot, we see the signal, which predictably peaks at $\chi^2_\nu \sim 1$, as well as several background topologies. These topologies are labeled by their final state along with any intermediate decaying resonances in square brackets. The top five potential backgrounds, in order of the size of their contribution after reconstruction, are as follows. First, $2\pi^+2\pi^- p$ shares the final state of the signal channel but does not contain any $K_S^0$ intermediate decays. Second, $2\gamma 2\pi^+ 2\pi^- p [\pi^0, \omega]$ contains an $\omega$ which decays to $\pi^+\pi^-\pi^0$, followed by the $\pi^0$ decaying to $2\gamma$. The addition of extra photons is common in these backgrounds, since missing the photon detections makes the final state identical to the signal. The next two reactions, $2\gamma 2\pi^+ 2\pi^- p [\pi^0]$ and $4\gamma 2\pi^+ 2\pi^- p [2\pi^0, \omega]$ both include an undetected $\pi^0$. Finally, $2\pi^+\pi^- K^- p[K_S^0]$ contains a $K^-$ which is mistakenly identified as a $\pi^-$.
 
 It seems sensible to make a cut on the $\chi^2_\nu$ of the kinematic fit, since the signal is clearly favored at lower values. Below $\chi^2_\nu < 10$, the background topologies are dominated by the $4\pi$ channel which does not contain kaons. As such, this source of background will be our primary focus for removal.
+
+Most of the prominent background channels contain at least two photons. Since our reconstructed final state does not contain any photons, we should expect to see events with extra energy in the final state, or $E_i - E_f > 0$ where $E_i$ and $E_f$ are the measured energy of the initial and final state respectively (see \Cref{fig:me-bggen}).
+
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/me_bggen_None.svg}
+  \end{center}
+  \caption{Missing energy ($E_i - E_f$) of events in the \texttt{bggen} simulation. The stacked histogram contains the signal channel, $K_S^0K_S^0$ as well as the five most prominent background components.}\label{fig:me-bggen}
+\end{figure}
+
+This asymmetry is reflected in the data, as seen in \Cref{fig:me-combined}. In the next section, we will see that a selection on $\chi^2_\nu$ greatly reduces the contribution from these backgrounds.
+
+\begin{figure}
+  \begin{center}
+    \includesvg[width=0.8\textwidth]{ext/analysis/plots/me_combined_None_None_None.svg}
+  \end{center}
+  \caption{Normalized distributions of the missing energy ($E_i - E_f$) for data, phase-space signal Monte Carlo, and $4\pi$ background Monte Carlo. The data contain backgrounds which have missing photons in their final state, which contribute to the large asymmetry seen here.}\label{fig:me-combined}
+\end{figure}
