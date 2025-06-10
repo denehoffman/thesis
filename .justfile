@@ -9,12 +9,17 @@ bib:
   mv references_bibertool.bib references.bib
   ./unescape.py
 
-build: clean bib
-  latexmk -interaction=nonstopmode -halt-on-error --shell-escape -file-line-error -pdf -f main
-  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
-  # biber main
-  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
-  # pdflatex main -interaction=nonstopmode -halt-on-error -file-line-error
+build: clean
+  #!/usr/bin/env bash
+  set -x
+  pdflatex -draftmode -interaction=batchmode -shell-escape main
+  biber main
+  pdflatex -draftmode -interaction=batchmode -shell-escape main
+  pdflatex -interaction=batchmode -shell-escape main
+  exit 0
+
+update:
+  pdflatex -interaction=batchmode -shell-escape main
 
 open: build
   zathura main.pdf

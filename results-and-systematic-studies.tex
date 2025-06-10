@@ -98,7 +98,7 @@ We begin by isolating the positive reflectivity waves. If we look at the potenti
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/meson_pdg_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/meson_pdg_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
   \caption{The invariant mass of $K_S^0K_S^0$ plotted alongside expected resonances from the PDG~\cite{Zyla2020}. Each rectangle represents a resonance, and the position and width of the rectangle corresponds to the mass and width of the resonance in the PDG. Unfilled rectangles represent particles which have not been firmly established by experiment. There is no meaning to the vertical positioning of the rectangles other than the grouping of spin-$0$ and spin-$2$ resonances on either side of the dotted line.}\label{fig:mass-with-pdg}
 \end{figure}
@@ -107,14 +107,14 @@ To get an idea of what we might expect to see in these fits, we can examine the 
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
-  \caption{A plot of the distribution of $\cos\theta_\text{HX}$ with respect to the invariant mass after all analysis selections and weightings have been applied.}\label{fig:costheta-vs-mass}
+  \caption{A plot of the distribution of $\cos\theta_\text{HX}$ with respect to the invariant mass after all analysis selections and weightings have been applied. This figure is a repeat of \Cref{fig:costheta-hx-v-meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2} included here for convenience.}\label{fig:costheta-vs-mass}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/spherical_harmonics.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/spherical_harmonics.png}
   \end{center}
   \caption{The expected normalized projections of several spherical harmonics which may be present in the data, integrated over $\varphi$, the polar angle.}\label{fig:spherical-harmonics}
 \end{figure}
@@ -161,30 +161,30 @@ Additionally, the binned fit for this wave exhibits two clear peaks, one at arou
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_487_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_487_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_{0}^{(+)}$ and $D_{0}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Sp-D0p}
 \end{figure}
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_489_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_489_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_{0}^{(+)}$ and $D_{+1}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Sp-D1p}
 \end{figure}
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Sp-D2p}
 \end{figure}
 
-We can also sum the negative log-likelihoods from each bin in each fit to get a total likelihood for each fit. Since each fit has the same number of free parameters, we can directly compare the negative log-likelihoods, which are {\color{red}TODO} $?$, $?$, and $-449203.72$ (smaller is better) for the fits involving $D_0^{(+)}$, $D_1^{(+)}$, and $D_2^{(+)}$ waves respectively. We can conclude that the $D_2^{(+)}$ wave model is the most likely to describe the data, since it has the lowest negative log-likelihood.
+We can also sum the negative log-likelihoods from each bin in each fit to get a total likelihood for each fit. Since each fit has the same number of free parameters, we can directly compare the negative log-likelihoods, which are $-448,423.33$, $-447,961.96$, and $-449,203.72$ (smaller is better) for the fits involving $D_0^{(+)}$, $D_1^{(+)}$, and $D_2^{(+)}$ waves respectively. We can conclude that the $D_2^{(+)}$ wave model is the most likely to describe the data, since it has the lowest negative log-likelihood.
 
 While we could imagine that interference effects between waves could cause the non-$D_2$ waves to have a non-negligible projection onto the data, we must focus on the minimal set of waves required to fit the data. The next wave we will add to this model will be a negative-reflectivity $S$-wave. In the model, waves only interfere with waves of the same reflectivity, so we should expect the $D$-wave to be largely unaffected by this additional wave. However, since the existing $S_0^{(+)}$ wave will be reduced non-trivially in each bin, it is possible that the $D_2^{(+)}$ wave projection may change slightly in regions where the $S_0^{(-)}$ component is large. We can see the result of this fit in \Cref{fig:binned-fit-chisqdof-3.0-Spn-D2p}. The notable difference between this fit and the previous fit without the $S_0^{(-)}$ wave is that the $S_0^{(+)}$ wave no longer has the large bump around $\SI{1.5}{\giga\electronvolt}$ which was likely due to a combination of the $a_0(1450)$ and $f_0(1500)$. Instead, we still see a slight enhancement in the positive-reflectivity $S$-wave, but there is a much more noticeable peak in the negative-reflectivity $S$-wave right at $\SI{1.5}{\giga\electronvolt}$. Referencing \Cref{tab:pdg-resonances}, there is only one narrow spin-$0$ resonance around this mass, viz. the $f_0(1500)$. Since positive/negative reflectivity corresponds to natural/unnatural parity exchange in this $t$-channel interaction, the fit may suggest that $f_0(1500)$ production is mostly produced by some unnatural parity exchange process, or at least some percentage of the resonant production follows a different production process.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Spn-D2p}
 \end{figure}
@@ -193,7 +193,7 @@ Since we have split the $S$-wave into reflectivity components, the next obvious 
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_1862378_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_1862378_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, $D_{+2}^{(+)}$, and $D_{+2}^{(-)}$ waves. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:binned-fit-chisqdof-3.0-Spn-D2pn}
 \end{figure}
@@ -203,14 +203,14 @@ As mentioned in \Cref{sec:past-analyses}, the most recent analysis of this chann
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/CLAS_peak_binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_20_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/CLAS_peak_binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_20_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_0^{(+)}$ and $D_2^{(+)}$ waves from this analysis alongside projections from the CLAS analysis~\cite{Chandavar2018} over their $S+B$ region. Uncertainties are from $68\%$ bias-corrected confidence intervals and from reported error propagation respectively.}\label{fig:clas-comparison-SB}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/CLAS_sideband_binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_20_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/CLAS_sideband_binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_20_boot_30_CI-BC.png}
   \end{center}
   \caption{Binned fit of $S_0^{(+)}$ and $D_2^{(+)}$ waves from this analysis alongside projections from the CLAS analysis~\cite{Chandavar2018} over their sideband region. Uncertainties are from $68\%$ bias-corrected confidence intervals and from reported error propagation respectively.}\label{fig:clas-comparison-sideband}
 \end{figure}
@@ -226,19 +226,18 @@ We again begin with a fit to only positive-reflectivity waves ($S_0^{(+)}$ and $
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:unbinned-fit-chisqdof-3.0-Sp-D2p}
 \end{figure}
 
 As in the previous section, this fit may be extended to a waveset with a negative-reflectivity $S$-wave. The result of this fit can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-Spn-D2p}. While the spin-$2$ components are still underrepresented, we see generally good agreement between the mass-independent and mass-dependent fits. Some notable discrepancies occur near threshold and around $\SI{1.3}{\giga\electronvolt}$, where the negative-reflectivity $S$-wave is larger than the binned fit would indicate.
 
-Adding additional waves becomes unmanageable, as the number of free parameters grows quickly and the model becomes prone to overfitting. Because there is no ability to distinguish isospin, there are many ways for even the limited parameters we use to converge on similar fits while the underlying projections of each individual resonance may vary greatly. This can unfortunately not be resolved without a coupled channel fit with channels that only contain a single isospin, such as $\pi\pi$, $\eta\pi$, or $\eta'\pi$, and this is beyond the scope of this thesis. However we can improve these results slightly by being more careful about the initialization of the fit, as will be shown in the following section.
-% TODO: correct the isospin statement
+Adding additional waves becomes unmanageable, as the number of free parameters grows quickly and the model becomes prone to overfitting. Because there is no ability to distinguish isospin, there are many ways for even the limited parameters we use to converge on similar fits while the underlying projections of each individual resonance may vary greatly. This can unfortunately not be resolved without a coupled channel fit with channels that only contain a single isospin, such as $\pi^0\pi^0$ ($I=0$), $\eta\eta$ ($I=0$), $\eta\pi$, ($I=1$), or $\eta'\pi$ ($I=1$), and this is beyond the scope of this thesis. However we can improve these results slightly by being more careful about the initialization of the fit, as will be shown in the following section.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
   \end{center}
   \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:unbinned-fit-chisqdof-3.0-Spn-D2p}
 \end{figure}
@@ -264,33 +263,33 @@ The results of this method are interesting. \Cref{fig:guided-fit-chisqdof-3.0-Sp
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
   \end{center}
   \caption{The state of the guided fit to $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves after the guided step and before the final fit. Bars on the fit points correspond to the standard error on the intensity from $ 30 $ bootstrap samples.}\label{fig:guided-fit-chisqdof-3.0-Sp-D2p}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
   \end{center}
   \caption{The state of the guided fit to $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves after the guided step and before the final fit. Bars on the fit points correspond to the standard error on the intensity from $ 30 $ bootstrap samples.}\label{fig:guided-fit-chisqdof-3.0-Spn-D2p}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_guided_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_guided_CI-BC.png}
   \end{center}
   \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to the standard error on the intensity from $ 30 $ bootstrap iterations.}\label{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.png}
   \end{center}
   \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Bars on each binned fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}\label{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}
 \end{figure}
 
-Using these states as the initial position of the formal minimization, we obtain the results shown in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p,fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. Both of these fits appear to be improvements over the local minima found in the previous section, although there are still deviations from the binned fits. The $D$-wave is much closer to that of the binned fit in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p}, and the region at threshold is more consistent in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. However, this second fit with three waves is still lacking in the total $D$-wave contribution, and the region at $\SI{1.25}{\giga\electronvolt}$ in the $S$-wave still shows a negative-reflectivity contribution where none exists in the binned fit, as well as a missing positive-reflectivity peak in the same mass range. This region is more faithfully modeled in the guided step, but the minimizer drifts from this solution when the guided objective is no longer present. This could possibly be due to the unmodeled $D$-wave contribution in this part of the spectrum, or it could simply be a local minimum of the parameter space. Nonetheless, these guided fits provide the best and final model of the data which can be presented in this thesis.
+Using these states as the initial position of the formal minimization, we obtain the results shown in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p,fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. Both of these fits appear to be improvements over the local minima found in the previous section, although there are still deviations from the binned fits. The $D$-wave is much closer to that of the binned fit in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p}, and the region at threshold is more consistent in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. However, this second fit with three waves is still lacking in the total $D$-wave contribution, and the region at $\SI{1.25}{\giga\electronvolt}$ in the $S$-wave still shows a negative-reflectivity contribution where none exists in the binned fit, as well as a missing positive-reflectivity peak in the same mass range. This region is more faithfully modeled in the guided step, but the minimizer drifts from this solution when the guided objective is no longer present. This could possibly be due to the unmodeled $D$-wave contribution in this part of the spectrum, or it could simply be a local minimum of the parameter space. Nonetheless, these guided fits often provide better fit results, although the convergence of the guided step is not performant. As such, we have limited the number of guided steps to $250$ and the number of random starts to $3$, and this means that some of the guided steps may not converge, as can be seen in the $\chi^2_\nu < 5.0$ guided step result in \Cref{fig:guided-fit-all-Spn-D2p} (this may explain the discrepancy in the corresponding plot of \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}). It is also not guaranteed that the fit stay near the guided step when the likelihood is summarily maximized, but this may be more of an issue that the underlying waves are not fully constrained.
 
 \subsection{Uncertainty Estimation}
 
@@ -339,11 +338,11 @@ We now bring our attention back to the selections which were made in \Cref{sec:d
 To do this, we will select four new cut values spaced by a unit of $\chi^2_\nu$, two on either side of the chosen value, i.e. $\chi^2_\nu \in \{2.0, 3.0, 4.0, 5.0\}$. We are not extracting a quantitative value from this analysis, so we will just observe the fits done in the prior section under these different cut values. The sPlot weighting method with two free-floating background slopes will still be used, but the distribution used for the signal and the slopes used to initialize the background in the fit will be sourced from Monte Carlo with these different cut values. The results of these fits can be seen in \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p,fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p,fig:binned-fit-all-Spn-D2pn,fig:unbinned-fit-all-Sp-D2p,fig:unbinned-fit-all-Spn-D2p,fig:guided-fit-all-Sp-D2p,fig:guided-fit-all-Spn-D2p,fig:unbinned-guided-fit-all-Sp-D2p,fig:unbinned-guided-fit-all-Spn-D2p}. From a qualitative examination of these results, it seems like the selection on $\chi^2_\nu$ has very little effect on the overall shape of each wave. Examining \Cref{fig:binned-fit-all-Sp-D0p,fig:binned-fit-all-Sp-D1p}, this selection does not seem to strengthen or diminish contributions from other $D$-wave projections. \Cref{fig:binned-fit-all-Sp-D2p,fig:binned-fit-all-Spn-D2p} also contain similar distributions at all cut values, but the relative height of the peak at $\SI{1.5}{\giga\electronvolt}$ and the enhancement near $\SI{1.15}{\giga\electronvolt}$ seems to change slightly with the cut value, favoring the lower-mass peak at higher values of $\chi^2_\nu$. This may indicate that some component of this bump is related to a background which has not been removed, since it shows up more at higher $\chi^2_\nu$, which correspond to lower confidence events.
 
 
-We can also examine the effect of the baryon rejection cut on the angle of the backward-going kaon. We will use the nominal selection of $\chi^2_\nu < 3.0$ and remove this baryon rejection cut, leaving the rest of the analysis the same. The result of this is minimal, as can be seen in the fits in \Cref{fig:binned-fit-all-no-baryon-rejection,fig:unbinned-fit-all-no-baryon-rejection,fig:guided-fit-all-no-baryon-rejection,fig:unbinned-guided-fit-all-no-baryon-rejection}. The baryon contribution mostly enters in the higher mass region (see \Cref{fig:ksb-costheta-v-meson-mass-data-pz-masscut-chisqdof-3.0}) and it tends to appear in the extreme forward and backward angles, as can be seen in \Cref{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}.
+We can also examine the effect of the baryon rejection cut on the angle of the backward-going kaon. We will use the nominal selection of $\chi^2_\nu < 3.0$ and remove this baryon rejection cut, leaving the rest of the analysis the same. The result of this is minimal, as can be seen in the fits in \Cref{fig:binned-fit-all-no-baryon-rejection,fig:unbinned-fit-all-no-baryon-rejection,fig:guided-fit-all-no-baryon-rejection,fig:unbinned-guided-fit-all-no-baryon-rejection}. The baryon contribution mostly enters in the higher mass region (see \Cref{fig:ksb-costheta-v-meson-mass-data-pz-chisqdof-3.0}) and it tends to appear in the extreme forward and backward angles, as can be seen in \Cref{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_baryons_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_baryons_None_None.png}
   \end{center}
   \caption{The distribution of the azimuthal decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections, but with the baryon rejection cut reversed to select baryons rather than reject them (no sPlot).}\label{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}
 \end{figure}
@@ -352,22 +351,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_487_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_487_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_487_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_487_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_487_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_487_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_487_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_487_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -378,22 +377,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_489_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_489_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_489_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_489_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_489_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_489_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_489_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_489_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -404,22 +403,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -430,22 +429,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -456,22 +455,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_1862378_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_1862378_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_1862378_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_1862378_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_1862378_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_1862378_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_1862378_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_1862378_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -483,22 +482,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -509,22 +508,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -535,22 +534,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -561,22 +560,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -587,22 +586,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_491_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_491_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_491_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_491_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -613,22 +612,22 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_2.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 2.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 3.0$}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_4.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 4.0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_5.0_mesons_free_2_29099_50_boot_30_guided_CI-BC.png}
         \caption{$\chi^2_\nu < 5.0$}
     \end{subfigure}
 
@@ -639,23 +638,23 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_487_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_487_50_boot_30_CI-BC.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_489_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_489_50_boot_30_CI-BC.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_1862378_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_fit_pz_masscut_chisqdof_3.0_None_free_2_1862378_50_boot_30_CI-BC.png}
     \end{subfigure}
 
     \caption{All binned fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
@@ -665,11 +664,11 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.png}
     \end{subfigure}
     \caption{All mass-independent (binned) and mass-dependent (unbinned) fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
     \label{fig:unbinned-fit-all-no-baryon-rejection}
@@ -678,11 +677,11 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_CI-BC.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/guided_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_CI-BC.png}
     \end{subfigure}
     \caption{The state of all guided fits performed in the analysis after the guided step with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
     \label{fig:guided-fit-all-no-baryon-rejection}
@@ -691,11 +690,11 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_491_50_boot_30_guided_CI-BC.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_guided_CI-BC.svg}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/binned_and_unbinned_fit_pz_masscut_chisqdof_3.0_None_free_2_29099_50_boot_30_guided_CI-BC.png}
     \end{subfigure}
     \caption{All mass-independent (binned) and mass-dependent (unbinned, guided) fits performed in the analysis with all fiducial selections except for the baryon rejection cut. Bars on each fit point correspond to $68\%$ bias-corrected confidence intervals over $ 30 $ bootstrap iterations.}
     \label{fig:unbinned-guided-fit-all-no-baryon-rejection}

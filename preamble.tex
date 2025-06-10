@@ -6,13 +6,11 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{titling}
-\usepackage[svgnames]{xcolor}
 \usepackage{enumitem}
 \usepackage{tocloft}
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{svg}
 \usepackage{multicol}
 
 \usepackage[centering, margin=1in]{geometry}
@@ -49,7 +47,7 @@
 \usepackage[arrowdel]{physics}
 
 \usepackage{tensor}
-\usepackage[force]{feynmp-auto}
+\usepackage[force, batch]{feynmp-auto}
 \usepackage{esint}
 
 \usepackage{printlen}
@@ -58,7 +56,6 @@
 \usepackage{tablefootnote}
 \usepackage[noabbrev, nameinlink]{cleveref}
 \definecolor{navyblue}{rgb}{0.0, 0.0, 0.5}
-% this isn't working???
 \hypersetup{
   colorlinks=true,
   linkcolor={red!50!black},
@@ -70,3 +67,4 @@
 \epigraphfontsize{\small\itshape}
 \setlength\epigraphwidth{8cm}
 \setlength\epigraphrule{0pt}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}

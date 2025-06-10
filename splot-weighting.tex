@@ -2,7 +2,7 @@ At this stage in the analysis, we have no more simple cuts which can improve the
 
 \begin{figure}
   \begin{center}
-      \includesvg[width=0.8\linewidth]{ext/analysis/plots/rfl_combined_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
+      \includegraphics[width=0.8\linewidth]{ext/analysis/plots/rfl_combined_pz_masscut_chisqdof_3.0_mesons_None_None.png}
   \end{center}
   \caption{The rest-frame lifetime of kaons in data, signal Monte Carlo, and background Monte Carlo. The data distribution clearly contains two exponential slopes: a peak which resembles the $4\pi$ Monte Carlo distribution, and a tail of true $K_S^0$s which resembles the signal Monte Carlo.}\label{fig:rfl-pre-splot}
 \end{figure}
@@ -79,7 +79,7 @@ and $S$ is the index of the signal component.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/factorization_fit_pz_masscut_chisqdof_3.0_mesons_10.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/factorization_fit_pz_masscut_chisqdof_3.0_mesons_10.png}
   \end{center}
   \caption{Background exponential slopes from fits over ten quantiles in $m(K_S^0K_S^0)$ ($x$-axis) of the rest-frame lifetime distributions of data. This statistical dependence between rest-frame lifetime and the invariant mass of $K_S^0K_S^0$ is significant with $p < 9.37\times 10^{-123}$.}\label{fig:factorization}
 \end{figure}
@@ -94,25 +94,24 @@ The only thing left to do is determine how many background components we should 
   r\text{BIC} &\equiv \text{BIC} - \text{BIC}_\text{min} \quad\text{where } \text{BIC} &&\equiv k\ln{N} - 2\ln\mathcal{L},
   \label{eq:information-criteria}
 \end{alignat}
-where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Since the procedure requires us to minimize $r\text{AIC}$ and $r\text{BIC}$, we find that the model with eight free-floating background slopes should be selected. However, upon plotting the fit result in \Cref{fig:splot-fits}, it is clear that eight slopes are not needed to properly describe the data, despite having the best information criteria. Instead, we will use a model with two free-floating background slopes. It is interesting to note that all of the models where the background slopes were fixed to values obtained from fits over background Monte Carlo are generally much poorer fits overall, despite having fewer degrees of freedom. This possibly reflects the fact that we only modeled one source of background in the Monte Carlo, while many sources could be present in the data.
+where $k$ is the number of free parameters and $N$ is the number of events in the dataset. The optimal model will minimize these criteria. In \Cref{tab:splot-model-results}, all of the relative AIC and BIC values are shown. Since the procedure requires us to minimize $r\text{AIC}$ and $r\text{BIC}$, we find that the model with eight free-floating background slopes should be selected. However, upon plotting the fit result in \Cref{fig:splot-fits}, it is clear that eight slopes are not needed to properly describe the data, despite having the best information criteria, and only two slopes are significantly different in the fit (see \Cref{tab:splot-fit-results-chisqdof-3.00-free-8}). Instead, we will use a model with two free-floating background slopes (see \Cref{tab:splot-fit-results-chisqdof-3.00-free-2}). It is interesting to note that all of the models where the background slopes were fixed to values obtained from fits over background Monte Carlo are generally much poorer fits overall, despite having fewer degrees of freedom. This possibly reflects the fact that we only modeled one source of background in the Monte Carlo, while many sources could be present in the data.
 
 \input{ext/analysis/reports/splot_report_pz_masscut_chisqdof_3.0_mesons_max_nspec_10.tex}
 
 \input{ext/analysis/reports/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_2.tex}
 \input{ext/analysis/reports/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_8.tex}
-% TODO: add a label
 
 \begin{figure}
   \begin{center}
     \begin{subfigure}[t]{\textwidth}
         \begin{center}
-          \includesvg[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_8.svg}
+          \includegraphics[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_8.png}
         \caption{The fit to data using a model with eight free-floating background slopes.}
         \end{center}
         \end{subfigure}
         \begin{subfigure}[t]{\textwidth}
           \begin{center}
-            \includesvg[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+            \includegraphics[width=.8\columnwidth]{ext/analysis/plots/splot_fit_pz_masscut_chisqdof_3.0_mesons_free_2.png}
         \caption{The fit to data using a model with two free-floating background slopes.}
           \end{center}
         \end{subfigure}
@@ -124,48 +123,25 @@ Before we perform a partial-wave analysis, we will take inventory of the dataset
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
   \caption{The invariant mass of $K_S^0K_S^0$ after all selections and weights are applied.}\label{fig:meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
 \end{figure}
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/beam_energy_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/beam_energy_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
   \caption{The beam energy distribution all selections and weights are applied. The large discontinuities at $\SI{8.2}{\giga\electronvolt}$ and $\SI{8.6}{\giga\electronvolt}$ are due to the difference in the coherent peak range between the Phase-I and Phase-II datasets (see \Cref{tab:run-info}).}\label{fig:beam-energy-data-pz-masscut-chisqdof-3.0-mesons-free-2}
 \end{figure}
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
   \caption{The distribution of the azimuthal decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections and weights are applied.}\label{fig:costheta-hx-v-meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
 \end{figure}
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/phi_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/phi_hx_v_meson_mass_data_pz_masscut_chisqdof_3.0_mesons_free_2.png}
   \end{center}
   \caption{The distribution of the polar decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections and weights are applied.}\label{fig:phi-hx-v-meson-mass-data-pz-masscut-chisqdof-3.0-mesons-free-2}
 \end{figure}
-
-Furthermore, it is interesting to note the effect of sPlot on any combinatorial background we may have from incorrect associations of final-state pions. Since each event may contain multiple reconstructed topologies (combos), we may have events where combining the incorrect pion pair yields a topology which passes through reconstruction. Since we select the combo with the best $\chi^2_\nu$ for each event, we bias the resulting events towards ones which contain the correct pion combinations. However, we still may have a background from events where the wrong combination happens to have a better $\chi^2_\nu$ as well as events where only one or neither combination comes from a real kaon. In \Cref{fig:hypo-ks12-v-ks21-data-pz-masscut-chisqdof-3.0-mesons} we plot the invariant masses of the incorrect combinations against each other. By examining the signal Monte Carlo in \Cref{fig:hypo-ks12-v-ks21-sigmc-pz-masscut-chisqdof-3.0-mesons}, we expect to see some peak at the kaon mass in both distributions, but we do not expect the additional structure of \Cref{fig:hypo-ks12-v-ks21-data-pz-masscut-chisqdof-3.0-mesons}. However, after sPlot weights are applied (see \Cref{fig:hypo-ks12-v-ks21-data-pz-masscut-chisqdof-3.0-mesons-free-2}), this structure vanishes, and the distribution matches that of the signal Monte Carlo.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.45\textwidth}
-      \includesvg[width=\linewidth]{ext/analysis/plots/hypo_ks12_v_ks21_data_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
-      \caption{Plot of the invariant mass of miscombined pions in data with all fiducial selections applied but no sPlot weights.}\label{fig:hypo-ks12-v-ks21-data-pz-masscut-chisqdof-3.0-mesons}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-      \includesvg[width=\linewidth]{ext/analysis/plots/hypo_ks12_v_ks21_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
-      \caption{Plot of the invariant mass of miscombined pions in data with all fiducial selections applied.}\label{fig:hypo-ks12-v-ks21-sigmc-pz-masscut-chisqdof-3.0-mesons}
-    \end{subfigure}
-    \vspace{1em}
-    \begin{subfigure}{0.8\textwidth}
-      \includesvg[width=\linewidth]{ext/analysis/plots/hypo_ks12_v_ks21_data_pz_masscut_chisqdof_3.0_mesons_free_2.svg}
-      \caption{Plot of the invariant mass of miscombined pions in data with all fiducial selections and sPlot weights applied.}\label{fig:hypo-ks12-v-ks21-data-pz-masscut-chisqdof-3.0-mesons-free-2}
-    \end{subfigure}
-
-  \caption{Caption}\label{fig:hypo-ks12-v-ks21}
-\end{figure}
-

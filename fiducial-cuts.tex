@@ -2,7 +2,7 @@ To get a clearer picture of the data, we will first make a loose cut selecting o
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/chisqdof_combined_None_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/chisqdof_combined_None_None_None.png}
   \end{center}
   \caption{The normalized distributions of $\chi^2_\nu$ for the true data and phase-space signal and $4\pi$ background Monte Carlo.}\label{fig:data-combined-chisqdof}
 \end{figure}
@@ -13,17 +13,17 @@ As mentioned in \Cref{sec:data-selection}, the asymmetry in missing energy in \C
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/me_combined_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/me_combined_chisqdof_3.0_None_None_None.png}
   \end{center}
-  \caption{Normalized distributions of the missing energy ($E_i - E_f$) for data, phase-space signal Monte Carlo, and $4\pi$ background Monte Carlo after a selection of $\chi^2_\nu < 3.0$ is applied. {\color{red}TODO: get plot without other fiducial cuts}}\label{fig:me-combined-chisqdof-3.0}
+  \caption{Normalized distributions of the missing energy ($E_i - E_f$) for data, phase-space signal Monte Carlo, and $4\pi$ background Monte Carlo after a selection of $\chi^2_\nu < 3.0$ is applied.}\label{fig:me-combined-chisqdof-3.0}
 \end{figure}
 
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/mm2_combined_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/mm2_combined_chisqdof_3.0_None_None_None.png}
   \end{center}
-  \caption{The normalized distributions of missing mass squared for the true data and phase-space signal and $4\pi$ background Monte Carlo after a selection of $\chi^2_\nu < 3.0$ is applied. {\color{red}TODO: get plot without other fiducial cuts, make this a log-plot or change bounds}}\label{fig:mm2-combined-chisqdof-3.0}
+  \caption{The normalized distributions of missing mass squared for the true data and phase-space signal and $4\pi$ background Monte Carlo after a selection of $\chi^2_\nu < 3.0$ is applied.}\label{fig:mm2-combined-chisqdof-3.0}
 \end{figure}
 
 Another common selection which can be made is on the squared missing mass of an event, which is just the square of the difference between the initial- and final-state four-momenta. This variable, visualized in \Cref{fig:mm2-combined-chisqdof-3.0}, predictably peaks at zero for the data, signal Monte Carlo, and background Monte Carlo, and the overall distributions for the signal and backgound simulated events are nearly identical. This indicates that a selection on this variable would not be very useful at distinguishing the signal from the background.
@@ -33,50 +33,115 @@ There are two more minor selections which we will perform on the data. The first
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/protonz_combined_None_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/protonz_combined_None_None_None.png}
   \end{center}
   \caption{The normalized distributions of the target proton $z$-vertex for the true data and phase-space signal and $4\pi$ background Monte Carlo (no cuts applied).}\label{fig:protonz-combined}
 \end{figure}
 
-An impetus for studying this channel was originally a search for excited hyperons\textemdash baryons with strange quark content. In particular, $\Sigma^+$ resonances should form in the invariant mass distribution of $K_S^0 p$, where the other kaon is required to conserve strangeness in the strong production of this baryon. There is a symmetry between the identical kaons which must first be accounted for. We could pair either kaon with the proton to form the $\Sigma^+$, but there is a more likely pairing which can be found by first recognizing that the heavier hyperon will generally move more backwards in the center-of-momentum frame than the lighter bachelor $K_S^0$. Therefore, the kaon which is moving in a further backward direction is more likely to correspond with the hyperon decay candidate. We can sort the kaons by their $\cos\theta$ in the center-of-momentum frame and call the more backward-going kaon $K_{S,B}^0$. The invariant mass spectrum of $K_{S,B}^0 p$ can be seen in \Cref{fig:baryon-mass-data-pz-masscut-chisqdof-3.0}. The enhancement around $\SI{1.7}{\giga\electronvolt}$ likely corresponds to some combination of the $\Sigma^+(1660)$, $\Sigma^+(1670)$, $\Sigma^+(1750)$, and $\Sigma^+(1775)$ resonances. We do not see much indication of states above $\SI{2}{\giga\electronvolt}$.
+An impetus for studying this channel was originally a search for excited hyperons\textemdash baryons with strange quark content. In particular, $\Sigma^+$ resonances should form in the invariant mass distribution of $K_S^0 p$, where the other kaon is required to conserve strangeness in the strong production of this baryon. There is a symmetry between the identical kaons which must first be accounted for. We could pair either kaon with the proton to form the $\Sigma^+$, but there is a more likely pairing which can be found by first recognizing that the heavier hyperon will generally move more backwards in the center-of-momentum frame than the lighter bachelor $K_S^0$. Therefore, the kaon which is moving in a further backward direction is more likely to correspond with the hyperon decay candidate. We can sort the kaons by their $\cos\theta$ in the center-of-momentum frame and call the more backward-going kaon $K_{S,B}^0$. The invariant mass spectrum of $K_{S,B}^0 p$ can be seen in \Cref{fig:baryon-mass-data-pz-chisqdof-3.0}. The enhancement around $\SI{1.7}{\giga\electronvolt}$ likely corresponds to some combination of the $\Sigma^+(1660)$, $\Sigma^+(1670)$, $\Sigma^+(1750)$, and $\Sigma^+(1775)$ resonances. We do not see much indication of states above $\SI{2}{\giga\electronvolt}$.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/baryon_mass_data_pz_masscut_None_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/baryon_mass_data_pz_chisqdof_3.0_None_None_None.png}
   \end{center}
-  \caption{The mass distribution of the backward-going $K_S^0$ combined with the proton. {\color{red}TODO: get the proper cuts}}\label{fig:baryon-mass-data-pz-masscut-chisqdof-3.0}
+  \caption{The mass distribution of the backward-going $K_S^0$ combined with the proton. Only the proton $z$-vertex and $\chi^2_\nu$ cuts are applied, as the cut on invariant mass reduces much of the visible baryon contribution which tends to show up at higher $K_S^0K_S^0$ invariant mass.}\label{fig:baryon-mass-data-pz-chisqdof-3.0}
 \end{figure}
 
 
-This angle also gives us a handle on separating baryonic and mesonic topologies. If we plot the $\cos\theta$ of $K_{S,B}^0$ against the invariant mass of $K_{S,B}^0 p$, as in \Cref{fig:ksb-costheta-v-baryon-mass-data-pz-masscut-chisqdof-3.0}, we find a strong and somewhat expected dependence. The majority of the baryonic contribution occurs at angles with $\cos\theta < 0$. Likewise, the mesonic contribution is mostly confined to angles of $\cos\theta > 0$, as seen in figures \Cref{fig:ksb-costheta-v-meson-mass-data-pz-masscut-chisqdof-3.0,fig:meson-mass-data-pz-masscut-chisqdof-3.0-mesons}. While it may not be obvious that there even are meson resonances here, we will see their contributions much more clearly after the statistical weighting procedures defined in \Cref{sec:splot} have been applied, after which we will revisit these plots. We will also conduct our analysis without this selection in \Cref{sec:systematic-studies} for completeness. We can also isolate the baryon contributions by reversing this selection, and the result of this is seen in \Cref{fig:baryon-mass-data-pz-masscut-chisqdof-3.0-baryons}.
+This angle also gives us a handle on separating baryonic and mesonic topologies. If we plot the $\cos\theta$ of $K_{S,B}^0$ against the invariant mass of $K_{S,B}^0 p$, as in \Cref{fig:ksb-costheta-v-baryon-mass-data-pz-chisqdof-3.0}, we find a strong and somewhat expected dependence. The majority of the baryonic contribution occurs at angles with $\cos\theta < 0$. Likewise, the mesonic contribution is mostly confined to angles of $\cos\theta > 0$, as seen in figures \Cref{fig:ksb-costheta-v-meson-mass-data-pz-chisqdof-3.0,fig:meson-mass-data-pz-masscut-chisqdof-3.0-mesons}. While it may not be obvious that there even are meson resonances here, we will see their contributions much more clearly after the statistical weighting procedures defined in \Cref{sec:splot} have been applied, after which we will revisit these plots. We will also conduct our analysis without this selection in \Cref{sec:systematic-studies} for completeness. We can also isolate the baryon contributions by reversing this selection, and the result of this is seen in \Cref{fig:baryon-mass-data-pz-masscut-chisqdof-3.0-baryons}.
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/ksb_costheta_v_baryon_mass_data_masscut_None_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/ksb_costheta_v_baryon_mass_data_pz_chisqdof_3.0_None_None_None.png}
   \end{center}
-  \caption{The center-of-momentum azimuthal angle of $K_{S,B}^0$ plotted against the invariant mass of $K_{S,B}^0 p$. The baryonic contribution occurs mostly at far backward angles, while mesons appear at the far forward angles. {\color{red}TODO: get the proper cuts}}\label{fig:ksb-costheta-v-baryon-mass-data-pz-masscut-chisqdof-3.0}
-\end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/ksb_costheta_v_meson_mass_data_masscut_None_None_None.svg}
-  \end{center}
-  \caption{The center-of-momentum azimuthal angle of $K_{S,B}^0$ plotted against the invariant mass of $K_S^0K_S^0$. The baryonic contribution occurs mostly at far backward angles, while mesons appear at the far forward angles. {\color{red}TODO: get the proper cuts}}\label{fig:ksb-costheta-v-meson-mass-data-pz-masscut-chisqdof-3.0}
+  \caption{The center-of-momentum azimuthal angle of $K_{S,B}^0$ plotted against the invariant mass of $K_{S,B}^0 p$. The baryonic contribution occurs mostly at far backward angles, while mesons appear at the far forward angles. Only the proton $z$-vertex and $\chi^2_\nu$ cuts are applied, as the cut on invariant mass reduces much of the visible baryon contribution which tends to show up at higher $K_S^0K_S^0$ invariant mass.}\label{fig:ksb-costheta-v-baryon-mass-data-pz-chisqdof-3.0}
 \end{figure}
 
 \begin{figure}
   \begin{center}
-    \includesvg[width=0.8\textwidth]{ext/analysis/plots/meson_mass_data_pz_masscut_chisqdof_3.0_mesons_None_None.svg}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/ksb_costheta_v_meson_mass_data_pz_chisqdof_3.0_None_None_None.png}
+  \end{center}
+  \caption{The center-of-momentum azimuthal angle of $K_{S,B}^0$ plotted against the invariant mass of $K_S^0K_S^0$. The baryonic contribution occurs mostly at far backward angles, while mesons appear at the far forward angles. Only the proton $z$-vertex and $\chi^2_\nu$ cuts are applied, as the cut on invariant mass reduces much of the visible baryon contribution which tends to show up at higher $K_S^0K_S^0$ invariant mass.}\label{fig:ksb-costheta-v-meson-mass-data-pz-chisqdof-3.0}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/meson_mass_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
   \end{center}
   \caption{The invariant mass of $K_S^0K_S^0$ across all datasets after all fiducial selections are applied.}\label{fig:meson-mass-data-pz-masscut-chisqdof-3.0-mesons}
 \end{figure}
 
-% \begin{figure}
-%   \begin{center}
-%     \includesvg[width=0.8\textwidth]{ext/analysis/plots/baryon_mass_data_pz_masscut_chisqdof_3.0_baryons_None_None.svg}
-%   \end{center}
-%   \caption{The invariant mass of $K_S^0K_S^0$ across all datasets after all fiducial selections are applied, but with the baryon rejection cut reversed to select baryons.}\label{fig:baryon-mass-data-pz-masscut-chisqdof-3.0-baryons}
-% \end{figure}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{ext/analysis/plots/baryon_mass_data_pz_masscut_chisqdof_3.0_baryons_None_None.png}
+  \end{center}
+  \caption{The invariant mass of $K_S^0K_S^0$ across all datasets after all fiducial selections are applied, but with the baryon rejection cut reversed to select baryons.}\label{fig:baryon-mass-data-pz-masscut-chisqdof-3.0-baryons}
+\end{figure}
+
+Finally, we can examine some of the typical detector plots which are used to separate and identify charged particles, namely the energy loss from these charged tracks as measured by the FDC and CDC. As we can see in \Cref{fig:dedx-v-p-cdc-proton-pz-masscut-chisqdof-3.0-mesons,fig:dedx-v-p-cdc-pions-pz-masscut-chisqdof-3.0-mesons}, the data recorded in the CDC after the previous fiducial selections is in agreement with that of the signal Monte Carlo. Next, in the FDC, we do not retain a significant number of proton tracks due to the baryon rejection cut, but enough pions are recorded in the FDC to reveal a discrepancy between data and Monte Carlo, as seen in \Cref{fig:dedx-v-p-fdc-pions-pz-masscut-chisqdof-3.0-mesons}. The signal Monte Carlo here tells us that out of the two horizontal bands, the upper band coincides with real pions, while the other band is likely some background. While the total number of pions which end up in the FDC is small, it is still important to remove these background events, and we will do so with a selection on the energy loss {\color{red}Note to committee, this is a work-in-progress which we do not expect will significantly effect the rest of the thesis}.
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_proton_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Signal Monte Carlo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_proton_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Data}
+    \end{subfigure}
+    \caption{The energy loss in the CDC for protons after all fiducial cuts are applied.}\label{fig:dedx-v-p-cdc-proton-pz-masscut-chisqdof-3.0-mesons}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_piplus1_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Signal Monte Carlo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_piplus1_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Data}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_piminus1_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Signal Monte Carlo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_cdc_piminus1_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Data}
+    \end{subfigure}
+    \caption{The energy loss in the CDC for pions after all fiducial cuts are applied.}\label{fig:dedx-v-p-cdc-pions-pz-masscut-chisqdof-3.0-mesons}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_fdc_piplus1_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Signal Monte Carlo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_fdc_piplus1_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Data}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_fdc_piminus1_sigmc_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Signal Monte Carlo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/dedx_v_p_fdc_piminus1_data_pz_masscut_chisqdof_3.0_mesons_None_None.png}
+        \caption{Data}
+    \end{subfigure}
+    \caption{The energy loss in the FDC for pions after all fiducial cuts are applied. {\color{red}Note to committee: The extra structure here will be addressed with a cut, but it will have minimial impact on this thesis and take several days to reprocess data. Expect an update to this section.}}\label{fig:dedx-v-p-fdc-pions-pz-masscut-chisqdof-3.0-mesons}
+\end{figure}
 
 In total, we have the fiducial selections on the data illustrated in \Cref{tab:fiducial-cuts}.
 
@@ -92,5 +157,3 @@ In total, we have the fiducial selections on the data illustrated in \Cref{tab:f
     \caption{Fiducial cuts performed after event reconstruction.}\label{tab:fiducial-cuts}
   \end{center}
 \end{table}
-
-{\color{red}TODO: dE/dx plots in CDC, FDC for $p$/$\pi$ separation (appendix?)}

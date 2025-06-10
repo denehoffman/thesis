@@ -96,7 +96,7 @@ To perform the kinematic fit, we use the available measured observables and thei
 
 \begin{figure}
   \begin{center}
-      \includesvg[width=1\linewidth]{ext/analysis/plots/chisqdof_data_None_None_None.svg}
+      \includegraphics[width=0.8\linewidth]{ext/analysis/plots/chisqdof_data_None_None_None.png}
   \end{center}
   \caption{Distributions of $\chi^2_\nu$ (the $\chi^2$ per degree of freedom of the GlueX kinematic fit) for all data after reconstruction cuts but before any fiducial selections from \Cref{sub:fiducial-cuts}. Note that the data extends past $\chi^2_\nu > 10$, but the plot was truncated for legibility. All datasets have had accidental subtraction applied and combos flattened (see \Cref{subsub:combos,sec:data-selection,sub:accidental-subtraction}).}\label{fig:chisqdof-initial}
 \end{figure}
@@ -118,3 +118,20 @@ where $m_{K_S^0}$ is the known mass of the $K_S^0$ and $p_{K_S^0}$ is the fitted
 \subsubsection{Combos}\label{subsub:combos}
 
 While the initial interaction vertex in theory contains a single photon, in practice, the incident beam contains multiple tagged photons, any of which might provide the requisite energy needed to kinematically generate a given set of final-state tracks. Additionally, there could be multiple ways to recombine or identify final-state particles to arrive at the same event topology. The GlueX reconstruction process considers all valid combinations of tagged photons and sets of reconstructed final-state particles and saves each one in a sub-event called a ``combo''. Each event has at least one of these combos, and some events may have many due to there being many candidate beam photons with similar energies. Since only one combo can be the true event, we need to flatten the data in a way that avoids double counting events. The method for doing so is discussed in \Cref{sub:accidental-subtraction}.
+
+When discussing these combos, it is important to also consider the true number of photons which interact with the target. As mentioned in \Cref{sec:the-gluex-experiment}, measurements of the total flux and luminosity are made by a combination of readings from the pair spectrometer and the tagger hodoscope/microscope. The combination of the total flux and the density and dimensions of the hydrogen target give us the tagged luminosity. The tagged flux and luminosity are shown in \Cref{fig:tagged-flux,fig:tagged-luminosity}.
+
+\begin{figure}
+  \begin{center}
+      \includegraphics[width=0.8\linewidth]{ext/analysis/plots/psflux_tagged_flux.png}
+  \end{center}
+  \caption{The tagged flux over all polarized runs for all run periods used in this analysis (only including photons in the coherent peak energy range). Note that the error bars are included but are too small to be visualized.}\label{fig:tagged-flux}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+      \includegraphics[width=0.8\linewidth]{ext/analysis/plots/psflux_tagged_lumi.png}
+  \end{center}
+  \caption{The tagged luminosity over all polarized runs for all run periods used in this analysis (only including photons in the coherent peak energy range). See \Cref{tab:run-info} for the total integrated luminosity.}\label{fig:tagged-luminosity}
+\end{figure}
+
