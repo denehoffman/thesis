@@ -4,8 +4,8 @@
 \begin{document}
 \frontmatter
 \thispagestyle{empty}
-\pagecolor{navyblue}\afterpage{\nopagecolor}
-\color{white}
+% \pagecolor{navyblue}\afterpage{\nopagecolor}
+% \color{white}
 \vspace*{10pt}
 \begin{center}
 \Huge\bfseries\scshape
@@ -26,17 +26,25 @@ Photoproduction of $K_S^0$ Pairs at GlueX
     \fmflabel{$K_S^0$}{o2}
     \fmflabel{$K_S^0$}{o3}
     \fmflabel{$p$}{o1}
-    \fmf{plain,foreground=white}{i1,t1}
-    \fmf{photon,foreground=white}{i2,t2}
-    \fmf{plain,foreground=white}{t1,t2}
-    \fmf{plain,foreground=white}{t1,v1}
-    \fmf{plain,foreground=white}{v1,o1}
+    % \fmf{plain,foreground=white}{i1,t1}
+    % \fmf{photon,foreground=white}{i2,t2}
+    % \fmf{plain,foreground=white}{t1,t2}
+    % \fmf{plain,foreground=white}{t1,v1}
+    % \fmf{plain,foreground=white}{v1,o1}
+    \fmf{plain,foreground=black}{i1,t1}
+    \fmf{photon,foreground=black}{i2,t2}
+    \fmf{plain,foreground=black}{t1,t2}
+    \fmf{plain,foreground=black}{t1,v1}
+    \fmf{plain,foreground=black}{v1,o1}
     \fmf{phantom}{t2,v2}
     \fmf{phantom}{v2,o3}
     \fmffreeze
-    \fmf{plain,label=$X$,foreground=white}{t2,v3}
-    \fmf{plain,foreground=white}{v3,o3}
-    \fmf{plain,foreground=white}{v3,o2}
+    % \fmf{plain,label=$X$,foreground=white}{t2,v3}
+    % \fmf{plain,foreground=white}{v3,o3}
+    % \fmf{plain,foreground=white}{v3,o2}
+    \fmf{plain,label=$X$,foreground=black}{t2,v3}
+    \fmf{plain,foreground=black}{v3,o3}
+    \fmf{plain,foreground=black}{v3,o2}
     \fmflabel{$p$}{i1}
 \end{fmfgraph*}
 \end{fmffile}
