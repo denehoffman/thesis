@@ -116,7 +116,7 @@ To get an idea of what we might expect to see in these fits, we can examine the 
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/spherical_harmonics.png}
   \end{center}
-  \caption{The expected normalized projections of several spherical harmonics which may be present in the data, integrated over $\varphi$, the polar angle.}\label{fig:spherical-harmonics}
+  \caption{The expected normalized projections of several spherical harmonics which may be present in the data, integrated over $\varphi$, the azimuthal angle.}\label{fig:spherical-harmonics}
 \end{figure}
 
 Examining the angular distribution is a good first step, but it is more prudent to perform fits with each wave to see how well they represent the data. The fitting procedure begins with dividing the data into bins of invariant $K_S^0K_S^0$ mass. In each bin, we fit \Cref{eq:generalized-polarized-intensity} via the method described in \Cref{sec:fitting-methods}. We let each $\hat{T}_{M;\eta}^{J(\epsilon)}$ be a free complex parameter in each bin\footnote{We ignore the sum over the nucleon spin-flip index, $\eta$, since it is not measurable by this experiment.}. The $S$-wave amplitude is just given by a real scalar parameter, since the total form of the intensity is invariant up to a total phase in each coherent sum\footnote{Similarly, when negative reflectivity waves are included, the $S_0^{(-)}$ wave will also be purely real.}. Each bin in mass is fit independently, and the results can be seen in \Cref{fig:binned-fit-chisqdof-3.0-Sp-D0p,fig:binned-fit-chisqdof-3.0-Sp-D1p,fig:binned-fit-chisqdof-3.0-Sp-D2p}. It appears our visual examination of \Cref{fig:costheta-vs-mass} was indeed descriptive, since only the $D_2^{(+)}$ wave has a significant projection onto the data.
@@ -344,7 +344,7 @@ We can also examine the effect of the baryon rejection cut on the angle of the b
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/costheta_hx_v_meson_mass_data_pz_masscut_baryons_None_None.png}
   \end{center}
-  \caption{The distribution of the azimuthal decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections, but with the baryon rejection cut reversed to select baryons rather than reject them (no sPlot).}\label{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}
+  \caption{The distribution of the polar decay angle of $X \to K_S^0K_S^0$ in the helicity frame after all selections, but with the baryon rejection cut reversed to select baryons rather than reject them (no sPlot).}\label{fig:costheta-hx-v-meson-mass-data-pz-masscut-baryons}
 \end{figure}
 
 
