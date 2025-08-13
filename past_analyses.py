@@ -8,24 +8,24 @@ import numpy as np
 
 
 class ExperimentType(Enum):
-    PION_BEAM = r"$\pi$ beam"
-    KAON_BEAM = r"$K^-$ beam"
-    PHOTON_FUSION = r"$\gamma\gamma$ fusion"
-    PROTON_BEAM = "$p$ beam"
-    PHOTOPRODUCTION = "photoproduction"
+    PION_BEAM = r'$\pi$ beam'
+    KAON_BEAM = r'$K^-$ beam'
+    PHOTON_FUSION = r'$\gamma\gamma$ fusion'
+    PROTON_BEAM = '$p$ beam'
+    PHOTOPRODUCTION = 'photoproduction'
 
 
 class Collaboration(Enum):
-    CERN = "CERN"
-    BNL = "BNL"
-    LRL = "LRL"
-    ANL = "ANL"
-    DESY = "DESY"
-    ITEP = "ITEP"
-    SLAC = "SLAC"
-    LEP = "LEP"
-    FNAL = "FNAL"
-    JLAB = "JLAB"
+    CERN = 'CERN'
+    BNL = 'BNL'
+    LRL = 'LRL'
+    ANL = 'ANL'
+    DESY = 'DESY'
+    ITEP = 'ITEP'
+    SLAC = 'SLAC'
+    LEP = 'LEP'
+    FNAL = 'FNAL'
+    JLAB = 'JLAB'
 
 
 @dataclass
@@ -61,6 +61,7 @@ experiments = [
     Experiment(1995, 62, ExperimentType.PHOTON_FUSION, Collaboration.LEP),
     Experiment(1998, 11182, ExperimentType.PROTON_BEAM, Collaboration.FNAL),
     Experiment(1999, 1000, ExperimentType.PION_BEAM, Collaboration.ITEP),
+    Experiment(1999, 2712, ExperimentType.PHOTON_FUSION, Collaboration.CERN),
     Experiment(2001, 802, ExperimentType.PHOTON_FUSION, Collaboration.LEP),
     Experiment(2003, 553, ExperimentType.PION_BEAM, Collaboration.ITEP),
     Experiment(2006, 870, ExperimentType.PHOTON_FUSION, Collaboration.LEP),
@@ -70,24 +71,24 @@ experiments = [
 ]
 
 markers = {
-    ExperimentType.PION_BEAM: "o",
-    ExperimentType.KAON_BEAM: "v",
-    ExperimentType.PHOTON_FUSION: "D",
-    ExperimentType.PROTON_BEAM: "P",
-    ExperimentType.PHOTOPRODUCTION: "*",
+    ExperimentType.PION_BEAM: 'o',
+    ExperimentType.KAON_BEAM: 'v',
+    ExperimentType.PHOTON_FUSION: 'D',
+    ExperimentType.PROTON_BEAM: 'P',
+    ExperimentType.PHOTOPRODUCTION: '*',
 }
 
 colors = {
-    Collaboration.CERN: "tab:blue",
-    Collaboration.BNL: "tab:orange",
-    Collaboration.LRL: "tab:green",
-    Collaboration.ANL: "tab:red",
-    Collaboration.DESY: "tab:purple",
-    Collaboration.ITEP: "tab:brown",
-    Collaboration.SLAC: "tab:pink",
-    Collaboration.LEP: "tab:gray",
-    Collaboration.FNAL: "tab:olive",
-    Collaboration.JLAB: "tab:cyan",
+    Collaboration.CERN: 'tab:blue',
+    Collaboration.BNL: 'tab:orange',
+    Collaboration.LRL: 'tab:green',
+    Collaboration.ANL: 'tab:red',
+    Collaboration.DESY: 'tab:purple',
+    Collaboration.ITEP: 'tab:brown',
+    Collaboration.SLAC: 'tab:pink',
+    Collaboration.LEP: 'tab:gray',
+    Collaboration.FNAL: 'tab:olive',
+    Collaboration.JLAB: 'tab:cyan',
 }
 
 type_labels_used = set()
@@ -163,8 +164,8 @@ def plot_frame(frame_number, loom):
                     [],
                     [],
                     marker=markers[experiment.experiment_type],
-                    color="black",
-                    linestyle="None",
+                    color='black',
+                    linestyle='None',
                     markersize=8,
                     label=experiment.experiment_type.value,
                 )
@@ -175,7 +176,7 @@ def plot_frame(frame_number, loom):
             collab_legend.append(
                 Patch(
                     facecolor=colors[experiment.collaboration],
-                    edgecolor="black",
+                    edgecolor='black',
                     label=experiment.collaboration.value,
                 )
             )
@@ -195,23 +196,23 @@ def plot_frame(frame_number, loom):
             color=colors[final.collaboration],
             marker=markers[final.experiment_type],
             s=120,
-            edgecolor="black",
+            edgecolor='black',
             zorder=5,
         )
         ax.annotate(
-            "This study",
+            'This study',
             xy=(final.year, final.n_events),
             xytext=(final.year - 10, final.n_events + 0.1 * final.n_events),
-            arrowprops={"facecolor": "black", "shrink": 0.05, "width": 1.5},
+            arrowprops={'facecolor': 'black', 'shrink': 0.05, 'width': 1.5},
             fontsize=12,
-            bbox={"boxstyle": "round,pad=0.3", "fc": "white", "ec": "black"},
+            bbox={'boxstyle': 'round,pad=0.3', 'fc': 'white', 'ec': 'black'},
         )
-    ax.set_xlabel("Year", fontsize=12)
-    ax.set_ylabel("Number of Observed Events", fontsize=12)
+    ax.set_xlabel('Year', fontsize=12)
+    ax.set_ylabel('Number of Observed Events', fontsize=12)
     legend1 = ax.legend(
         handles=type_legend,
-        title="Experiment Type",
-        loc="upper left",
+        title='Experiment Type',
+        loc='upper left',
         bbox_to_anchor=(0.01, 0.99),
         fontsize=10,
         title_fontsize=11,
@@ -220,8 +221,8 @@ def plot_frame(frame_number, loom):
 
     ax.legend(
         handles=collab_legend,
-        title="Collaboration",
-        loc="upper left",
+        title='Collaboration',
+        loc='upper left',
         bbox_to_anchor=(0.01, 0.70),
         fontsize=10,
         title_fontsize=11,
@@ -229,15 +230,15 @@ def plot_frame(frame_number, loom):
     ymax = framewise_ymax[frame_number]
     ax.set_ylim(-0.1 * max(ex.n_events for ex in experiments_in_year_range), ymax)
     ax.set_xlim(min_year - 3, year)
-    ax.spines["bottom"].set_position("zero")
-    ax.spines["bottom"].set_color("black")
-    ax.spines["bottom"].set_linewidth(1)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_visible(True)
-    ax.yaxis.set_ticks_position("left")
-    ax.xaxis.set_ticks_position("bottom")
-    ax.tick_params(axis="x", direction="out", length=5, width=1)
+    ax.spines['bottom'].set_position('zero')
+    ax.spines['bottom'].set_color('black')
+    ax.spines['bottom'].set_linewidth(1)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(True)
+    ax.yaxis.set_ticks_position('left')
+    ax.xaxis.set_ticks_position('bottom')
+    ax.tick_params(axis='x', direction='out', length=5, width=1)
     max_ticks = 12
     current_range = int(year) - (min_year - 2)
     step = max(1, int(np.ceil(current_range / max_ticks)))
@@ -246,17 +247,17 @@ def plot_frame(frame_number, loom):
     ax.text(
         0.99,
         -0.08,
-        f"Year: {int(year)}",
+        f'Year: {int(year)}',
         transform=ax.transAxes,
-        ha="right",
-        va="bottom",
+        ha='right',
+        va='bottom',
         fontsize=14,
-        bbox={"facecolor": "white", "edgecolor": "black", "boxstyle": "round,pad=0.3"},
+        bbox={'facecolor': 'white', 'edgecolor': 'black', 'boxstyle': 'round,pad=0.3'},
     )
     loom.save_frame(fig, frame_number)
 
 
 from joblib import Parallel, delayed
 
-with Loom("past_experiments.gif", fps=20, overwrite=True, parallel=True) as loom:
+with Loom('past_experiments.gif', fps=30, overwrite=True, parallel=True) as loom:
     Parallel(n_jobs=-1)(delayed(plot_frame)(i, loom) for i in range(total_frames))
