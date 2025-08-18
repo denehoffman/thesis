@@ -1,4 +1,4 @@
-\section{Code Availability}
+\section{Code Availability}\label{sec:code-availability}
 The source code for this document is available at:
 
 \begin{center}
@@ -15,7 +15,7 @@ Running it requires some level of access to the raw GlueX data, particularly the
 
 Once the files are obtained, the code executes a pipeline which outlines the various steps of the analysis described in this thesis, starting with fiducial cuts, moving to sPlot weighting, and finally performing fits over the selected, weighted data. This code is designed to be run in a container (one is provided in the repository) to ensure reproducibility of the results.
 
-\section{The \texttt{laddu} Library}
+\section{The \texttt{laddu} Library}\label{sec:the-laddu-library}
 Part of my last year of research has involved the development of a library for amplitude analysis. After using some of the available tools, I found that several experimental workflows, like the guided fits mentioned in \Cref{sub:guided-fits} and Markov-Chain Monte Carlo (MCMC) which I ended up not utilizing in this thesis, were too complex to implement within the existing frameworks. Additionally, the workflows being used to perform bootstrap analyses involved dozens of configuration files which had to be generated and modified for each individual model (multiplied by the number of bins used in binned fits). This was time-consuming and error prone, so I decided that a rewrite might give me more control over these features and a better understanding of the underlying numerical methods. The initial goal of \texttt{laddu} was to provide an interface in Python, which is great for quick prototyping and has many nicely integrated tools from other scientific libraries. At the same time, the operation needed to be as quick as possible, and I chose to write a backend in Rust. This came with several advantages and disadvantages, which I will describe in detail below. However, the outcome was a library which I enjoy using in my own projects and which I hope others find useful in their own analyses.
 
 The major advantages of Rust are that it is mostly memory safe, meaning null pointers and a host of memory issues related to them do not exist by design. While you can still leak memory and also choose to violate memory safety if desired, the compile-time guarantee that the code will not fail at runtime, at least for these reasons, is very nice. Rust also has several well-written libraries for parallelization and Python interoperability, as well as a built in package manager, which make it easy to code and distribute a Rust-based Python library with no external dependencies.

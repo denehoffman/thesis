@@ -63,7 +63,11 @@ Carnegie Mellon University
 \newpage
 \thispagestyle{empty}
 \begin{center}
-  \vspace*{2cm}
+  {\Huge\bfseries Photoproduction of $K_S^0$ Pairs at GlueX\\}
+  \vspace*{0.5cm}
+  {\LARGE\bfseries Nathaniel Dene Hoffman\\}
+  \fancybreak{\LARGE\pgfornament[width=3cm]{88}}%
+  \vspace*{0.5cm}
   {\LARGE\bfseries Department of Physics\\
   Mellon College of Science\\
   Carnegie Mellon University\\
@@ -92,14 +96,47 @@ Carnegie Mellon University
 
 \clearpage
 \thispagestyle{empty}
+{\centering \large\bfseries Abstract\par}
+\vspace{1cm}
+
+\begin{adjustwidth}{0.1\textwidth}{0.1\textwidth}
+  \noindent We present an study of the $\gamma p \to K_S^0 K_S^0 p$ channel measured by the GlueX experiment. This channel selects for resonances with $J^{PC} = \text{even}^{++}$ quantum numbers (the $f_0$, $f_2$, $a_0$, and $a_2$ light, flavorless mesons) and potentially contains contributions from the lightest scalar glueball ($G_0$). Data from the 2017, 2018, and 2020 run periods are used to perform a mass-independent (binned) partial-wave analysis to distinguish spin states. Due to the polarized photon beam at GlueX, we are also able to extract reflectivity amplitudes for the first time in this channel. Additionally, we perform mass-dependent partial-wave analyses using a fixed $K$-matrix parameterization to attempt a determination of the relative contribution of each resonance, and we present a guided initialization method which facilitates naviagation through a parameter space with many local minima. These mass-dependent fits are a proof-of-concept in using fixed $K$-matrix models constrained by other experiments to measure photoproduction amplitudes for overlapping states which may only differ by isospin, a propety which cannot be distinguished in this channel.
+\end{adjustwidth}
+
+\clearpage
+\thispagestyle{empty}
 \begin{center}
   \large\bfseries Acknowledgements
 \end{center}
 \vspace{1cm}
-(TODO, placeholder for now) Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer sed massa id libero elementum aliquet. Quisque a enim ut nisl dapibus mattis. Sed ullamcorper posuere lacus, in consectetur erat sagittis a. Vestibulum viverra orci at nulla consectetur pellentesque. Morbi imperdiet imperdiet commodo. Pellentesque sed neque arcu. Mauris consectetur lorem sed neque ultricies sagittis. Etiam luctus, lacus eu scelerisque aliquet, risus odio laoreet ipsum, eu semper purus sem ut ante. Integer vestibulum risus ac sapien scelerisque, a congue nisi vehicula. Nullam viverra, eros vel gravida tristique, metus eros consequat arcu, sed sollicitudin massa sem vel odio.
+% begin acknowledgements
+This thesis was not only built on the past work of many thousands of physicists, many of whom are cited in this text, it was also made with the support of advisors, colleagues, friends, and family. I will briefly acknowledge some of them here.
 
-Etiam urna lorem, gravida malesuada tellus vitae, ultricies ultricies erat. Phasellus diam purus, posuere vitae tincidunt sed, posuere eu nisl. In mattis mattis sollicitudin. In rhoncus tincidunt mi id fringilla. Morbi laoreet ultricies risus quis sollicitudin. Duis eget tincidunt mi. Praesent pellentesque erat eu turpis malesuada, nec volutpat nunc cursus. Morbi suscipit quam neque, vel aliquam velit tempor quis. Nunc leo lectus, finibus quis tincidunt non, efficitur id ante. Phasellus pulvinar metus efficitur tortor commodo dictum. Vestibulum eu convallis nisi, eget scelerisque turpis. Aenean semper finibus ipsum.
+My advisor, Reinhard Schumacher, has guided me to become a better scientist. He has prompted me to think about physics in new ways and has been a constant source of knowledge and advice, for which I am extremely grateful. I appreciate his patience with my questions and his willingness to let me explore new ideas within my research, and I have thoroughly enjoyed my time as his advisee.
+
+During my second semester, I rotated into Michael Widom's computational condensed matter group. I would like to thank him for his guidance during our brief time working together. He is also responsible for my first first-author paper, which also gave me a finite Erd\H{o}s number (5).
+
+Other professors who have helped me include my committee members, Curtis Meyer, Diana Parno, Colin Morningstar, and Eric Swanson. Additionally, I would like to thank Teoman Turgut for his helpful insights and conversations the world of research and teaching. At my undergraduate university, Giuseppe Strangi, Mohamed ElKabbash, and Robert Brown provided me with a solid foundation in physics and research.
+
+In the GlueX collaboration, Naomi Jarvis, Matthew Shepherd, Justin Stevens, Alexander Austregesilo, Malte Albrecht, Lawrence Ng, Gabriel Rodriguez, and Meike K{\"u}{\ss}ner have all helped me in various aspects of my research. The GlueX collaboration in general has been a pleasure to work with, and I hope to continue this work in the future.
+
+Students who have helped me include those in my group, Zach Baldwin, Alison LaDuke, Jiawei Guo, Will Imoehl, Willow Hagen, and Hao Li, my roommates from my first few years, Lily Saavedra and Marcell Howard, and many members of the CMU physics department, including but not limited to John Lyons, Logan Carpenter, Byron Daniels, Omar El-Refy, Can Aky\"uz, and Erin Aky\"uz.
+
+My family has always supported me, and I am eternally grateful to my parents, Scott and Cynthia, for listening to me talk about physics and providing me with an early curiosity for science. My twin brother, AJ, has also been a constant source of encouragement and my best friend. I should also mention my mother-in-law and father-in-law, Vaishali and Pravin, who accepted me into their family and supported me while I wrote part of this thesis in India.
+
+On that note, I want to thank my wonderful wife, Aditi, who has always been there for me throughout all of the struggles and successes of this project. I will always be grateful for her constant encouragement and patience and her ability to listen to me drone on about particle physics at all hours of the day.
+% end acknowledgements
 \clearpage
+% begin dedication
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{\fill}
+  {\LARGE\itshape For Aditi, with love\par}
+  \vspace*{\fill}
+\end{center}
+% end dedication
+\clearpage
+\aliaspagestyle{toc}{empty}
 \begin{KeepFromToc}
     \setcounter{tocdepth}{2}
     \renewcommand{\contentsname}{Table of Contents}
@@ -124,10 +161,12 @@ Etiam urna lorem, gravida malesuada tellus vitae, ultricies ultricies erat. Phas
 \input{conclusion.tex}
 
 \appendix
-\chapter{Fit Results}
+\chapter{Fit Results}\label{ch:fit-results}
 \input{fit-results.tex}
 \chapter{Code Summary}
 \input{code-summary.tex}
+\chapter{The Chew-Mandelstam Function}
+\input{chew-mandelstam.tex}
 
 \backmatter
 \printbibliography

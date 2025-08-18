@@ -12,6 +12,8 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{multicol}
+\usepackage{rotating}
+\usepackage{environ}
 
 \usepackage[centering, margin=1in]{geometry}
 \usepackage{afterpage}
@@ -51,6 +53,7 @@
 \usepackage{esint}
 
 \usepackage{printlen}
+\usepackage{pgfornament}
 
 \usepackage{hyperref}
 \usepackage{tablefootnote}
@@ -68,3 +71,8 @@
 \setlength\epigraphwidth{8cm}
 \setlength\epigraphrule{0pt}
 \AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+\setsecnumdepth{subsection}
+
+% Oxford comma in cleveref
+\newcommand{\creflastconjunction}{, and\nobreakspace}
