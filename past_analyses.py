@@ -67,7 +67,7 @@ experiments = [
     Experiment(2006, 870, ExperimentType.PHOTON_FUSION, Collaboration.LEP),
     Experiment(2006, 40553, ExperimentType.PION_BEAM, Collaboration.ITEP),
     Experiment(2018, 13500, ExperimentType.PHOTOPRODUCTION, Collaboration.JLAB),
-    Experiment(2025, 77673, ExperimentType.PHOTOPRODUCTION, Collaboration.JLAB),
+    Experiment(2025, 47649, ExperimentType.PHOTOPRODUCTION, Collaboration.JLAB),
 ]
 
 markers = {

@@ -1,0 +1,128 @@
+\section{A Derivation from the Dispersion Integral}\label{sec:chew-mandelstam}
+
+In the course of writing this thesis, the author came across the Chew-Mandelstam function in the $K$-matrix formulation (see \Cref{eq:chew-mandelstam}). However, finding a derivation which takes one from the dispersion integral to the function used was quite challenging. The integral itself is not trivial, and involves a careful choice of branch cut and extension of $\rho(s)$ to the complex plane. We begin with the once-subtracted dispersion integral
+\begin{equation}
+    C(s) = C(s_0) - \frac{s - s_0}{\pi} \int_{s_0}^{\infty} \dd{s'} \frac{\rho(s')}{(s'-s)(s-s_0)}
+\end{equation}
+where
+\begin{equation}
+    \rho(s) = \sqrt{\chi^+(s)\chi^-(s)}
+\end{equation}
+and
+\begin{equation}
+    \chi^{\pm}(s) = 1 - \frac{(m_2 \pm m_1)^2}{s}.
+\end{equation}
+First, define $s_\pm = (m_2 \pm m_1)^2$ (note that this makes $s_0 = s_+$). We can then write
+\begin{equation}
+    \chi^{\pm}(s) = \frac{s - s_\pm}{s}
+\end{equation}
+and
+\begin{equation}
+    \rho(s) = \frac{\sqrt{(s-s_+)(s-s_-)}}{s}.
+\end{equation}
+We may choose $C(s_+) = 0$, so our problem becomes
+\begin{equation}
+    C(s) = -\frac{s-s_+}{\pi} \int_{s_+}^{\infty} \dd{s'} \frac{\rho(s')}{(s'-s)(s'-s_+)}
+\end{equation}
+Next, we perform a change of variables,
+\begin{equation}
+    y = \sqrt{\frac{s' - s_+}{s' - s_-}},\qquad \dd{s'} = \dd{y}\frac{2 y (s_+ - s_-)}{(1 - y^2)^2},
+\end{equation}
+which changes the bounds of integration from $[s_+,\infty)$ to $[0,1)$. Additionally, we find that
+\begin{equation}
+    s' = \frac{s_+ - s_- y^2}{1-y^2}.
+\end{equation}
+Next, note that $s' - s_+ = y^2(s' - s_-)$, so
+\begin{equation}
+    \rho(s') = \frac{y(s' - s_-)}{s'}.
+\end{equation}
+We have not yet completely freed the integrand from its $s'$ dependence, but we can do so as follows:
+\begin{align}
+    s' - s &= \frac{s_+ - s_- y^2}{1-y^2} - s, \notag\\
+           &= \frac{(s_+ - s_- y^2) - (s(1 - y^2))}{1-y^2}, \notag\\
+           &= \frac{((s_+ - s) + (s - s_-)y^2)}{1-y^2}.
+\end{align}
+Together, the integral becomes
+\begin{align}
+    C(s) &= - \frac{s-s_+}{\pi} \int_0^1 \dd{y} \frac{2 y (s_+ - s_-)}{(1 - y^2)^2} \frac{y(s'-s_-)}{s'(s'-s)(s'-s_+)} \notag\\
+         &= - \frac{s-s_+}{\pi} \int_0^1 \dd{y} \frac{2 y (s_+ - s_-)}{(1 - y^2)^2} \frac{1}{s'(s'-s)y} \notag\\
+         &= - \frac{s-s_+}{\pi} \int_0^1 \dd{y} \frac{2 y (s_+ - s_-)}{(1 - y^2)^2} \frac{1-y^2}{s'((s_+ - s) + (s - s_-)y^2)y} \notag\\
+         &= - \frac{s-s_+}{\pi} \int_0^1 \dd{y} \frac{2 y (s_+ - s_-)}{(1 - y^2)^2} \frac{(1-y^2)^2}{(s_+ - s_- y^2)((s_+ - s) + (s - s_-)y^2)y} \notag\\
+         &= - \frac{s-s_+}{\pi} \int_0^1 \dd{y} \frac{2 (s_+ - s_-)}{(s_+ - s_- y^2)((s_+ - s) + (s - s_-)y^2)}
+\end{align}
+We next divide this integrand into partial fractions:
+\begin{equation}
+    \frac{2(s_+ - s_-)}{(s_+ - s_- y^2)((s_+ - s) + (s_- - s)y^2)} = \frac{2 s_- / s}{s_+ - s_- y^2} + \frac{2(s-s_-)/s}{(s_+ - s) + (s - s_-)y^2}.
+\end{equation}
+We now arrive at two separate integrals,
+\begin{equation}
+    C(s) = -\frac{s-s_+}{\pi}\left(\frac{2 s_-}{s}\int_0^1 \frac{\dd{y}}{s_+ - s_- y^2} + \frac{2(s-s_-)}{s}\int_0^1 \frac{\dd{y}}{(s_+ - s) + (s - s_-)y^2}\right)
+    \label{eq:integrand-1+2}
+\end{equation}
+Fortunately, both of these can be solved in a similar way, since in general
+\begin{equation}
+    \int_0^1 \frac{\dd{x}}{a-bx^2} = \frac{\mathrm{atanh}\sqrt{\frac{b}{a}}}{\sqrt{a b}}
+\end{equation}
+as long as $\Re[\sqrt{a/b}] > 1$, and
+\begin{equation}
+    \int_0^1 \frac{\dd{x}}{a+bx^2} = \frac{\arctan\sqrt{\frac{b}{a}}}{\sqrt{a b}}
+\end{equation}
+as long as $\Re[\sqrt{a/b}] \neq 0$. Since $\sqrt{s_+ / s_-} > 1$, the first term evaluates to
+\begin{equation}
+    \int_0^1 \frac{\dd{y}}{s_+ - s_- y^2} = \frac{1}{\sqrt{s_+ s_-}}\mathrm{atanh}\sqrt{\frac{s_-}{s_+}}.
+\end{equation}
+Furthermore, we have the relation
+\begin{equation}
+    \mathrm{atanh}(x) = \frac{1}{2} \ln \frac{1 + x}{1 - x}
+\end{equation}
+for $-1 < x < 1$ (which again is always guaranteed for $\sqrt{s_- / s_+}$), so
+\begin{equation}
+    \frac{1}{\sqrt{s_+s_-}}\mathrm{atanh}\sqrt{\frac{s_-}{s_+}} = \frac{1}{2\sqrt{s_+s_-}}\ln\frac{1 + \sqrt{\frac{s_-}{s_+}}}{1 - \sqrt{\frac{s_-}{s_+}}} = \frac{1}{2\sqrt{s_+s_-}}\ln\frac{m_2}{m_1}.
+    \label{eq:integrand-1}
+\end{equation}
+For the second integral, we find
+\begin{equation}
+    \int_0^1 \frac{\dd{y}}{(s_+ - s) + (s - s_-)y^2} = \frac{1}{\sqrt{(s_+ - s)(s - s_-)}}\arctan\sqrt{\frac{s - s_-}{s_+ - s}}.
+\end{equation}
+We can convert this to a logarithm by first noting that $\arctan z = \imath\, \mathrm{atanh}(-\imath z)$. Next, we extend this integrad to the complex plane with $s\to s + \imath\epsilon$ for small $\epsilon$. Taking the principle branch of the square root, we find
+\begin{align}
+    \sqrt{s_+ - (s + \imath\epsilon)} &= \sqrt{s_+ - s - \imath\epsilon} \notag\\
+                                      &= \sqrt{-(s - s_+) - \imath\epsilon} \notag\\
+                                      &= -\imath\sqrt{s - s_+}.
+\end{align}
+Therefore
+\begin{equation}
+    \sqrt{\frac{s-s_-}{s_+ - s}} = \imath\sqrt{\frac{s - s_-}{s - s_+}}
+\end{equation}
+and
+\begin{equation}
+    \arctan\sqrt{\frac{s - s_-}{s_+ - s}} = \imath\, \mathrm{atanh}\sqrt{\frac{s - s_-}{s - s_+}}.
+\end{equation}
+Next, we can show that
+\begin{equation}
+    \frac{\rho(s)}{\chi^+(s)} = \sqrt{\frac{\chi^+(s)\chi^-(s)}{(\chi^+(s))^2}} = \sqrt{\frac{\chi^-(s)}{\chi^+(s)}} = \sqrt{\frac{s - s_-}{s - s_+}},
+\end{equation}
+so
+\begin{equation}
+    \imath\, \mathrm{atanh}\sqrt{\frac{s-s_-}{s-s_+}} = \imath\, \mathrm{atanh}\frac{\rho(s)}{\chi^+(s)}.
+\end{equation}
+The second term all together becomes
+\begin{align}
+    \frac{2\imath(s-s_-)}{s\sqrt{(s_+ - s)(s - s_-)}}\mathrm{atanh}\frac{\rho(s)}{\chi^+(s)} &= \frac{2\imath}{s} \sqrt{\frac{(s-s_-)^2}{(s_+ - s)(s - s_-)}}\mathrm{atanh}\frac{\rho(s)}{\chi^+(s)} \notag\\
+                                                                                           &= \frac{2\imath}{s} \sqrt{\frac{(s-s_-)}{(s_+ - s)}}\mathrm{atanh}\frac{\rho(s)}{\chi^+(s)} \notag\\
+                                                                                           &= -\frac{2}{s} \sqrt{\frac{(s-s_-)}{(s - s_+)}}\mathrm{atanh}\frac{\rho(s)}{\chi^+(s)} \notag\\
+                                                                                           &= -\frac{1}{s} \sqrt{\frac{(s-s_-)}{(s - s_+)}}\ln\frac{1 + \frac{\rho(s)}{\chi^+(s)}}{1 - \frac{\rho(s)}{\chi^+(s)}} \notag\\
+                                                                                           &= -\frac{1}{s} \frac{\rho(s)}{\chi^+(s)}\ln\frac{\chi^+(s) + \rho(s)}{\chi^+(s) - \rho(s)}.
+                                                                                           \label{eq:integrand-2}
+\end{align}
+By inserting \Cref{eq:integrand-1} and \Cref{eq:integrand-2} into \Cref{eq:integrand-1+2}, we arrive at
+\begin{equation}
+    C(s) = -\frac{s-s_+}{\pi}\left(\frac{s_-}{s\sqrt{s_+s_-}}\ln\frac{m_2}{m_1} - \frac{1}{s}\frac{\rho(s)}{\chi^+(s)}\ln\frac{\chi^+(s) + \rho(s)}{\chi^+(s) - \rho(s)}\right).
+\end{equation}
+Distributing the first term, we get
+\begin{align}
+    C(s) &= - \frac{1}{\pi} \left(\chi^+(s) \sqrt{\frac{s_-^2}{s_+s_-}}\ln\frac{m_2}{m_1} - \rho(s)\ln\frac{\chi^+(s) + \rho(s)}{\chi^+(s) - \rho(s)}\right) \notag\\
+         &= - \frac{1}{\pi} \left(\chi^+(s) \frac{m_2 - m_1}{m_1 + m_2}\ln\frac{m_2}{m_1} - \rho(s)\ln\frac{\chi^+(s) + \rho(s)}{\chi^+(s) - \rho(s)}\right) \notag\\
+         &= \frac{\rho(s)}{\pi}\ln\frac{\chi^+(s) + \rho(s)}{\chi^+(s) - \rho(s)} - \frac{\chi^+(s)}{\pi} \frac{m_2 - m_1}{m_1 + m_2}\ln\frac{m_2}{m_1},
+\end{align}
+which is the desired result.
