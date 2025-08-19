@@ -5,9 +5,7 @@ import:
   rsync -av nhoffman@ernest.phys.cmu.edu:/raid3/nhoffman/thesis_analysis/analysis/reports/ reports
 
 bib:
-  biber --tool --configfile=format_bib.conf references.bib
-  mv references_bibertool.bib references.bib
-  ./unescape.py
+  ./format_bib.py
 
 build: clean
   #!/usr/bin/env bash

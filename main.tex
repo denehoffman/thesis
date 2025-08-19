@@ -1,65 +1,61 @@
 \documentclass[final]{memoir}
 \input{preamble.tex}
-% \SingleSpacing
-
 
 \begin{document}
 \frontmatter
-\thispagestyle{empty}
-% \pagecolor{navyblue}\afterpage{\nopagecolor}
-% \color{white}
-\vspace*{10pt}
-\begin{center}
-\Huge\bfseries\scshape
-\vspace*{10pt}
-\rule{\textwidth}{1pt}
-\vspace*{-9pt}
-Photoproduction of $K_S^0$ Pairs at GlueX
-\rule{\textwidth}{1pt}
-\vfill
-\begin{fmffile}{diagram}
-\begin{fmfgraph*}(200,200)
-    \fmfpen{thick}
-    \fmfstraight
-    \fmfleftn{i}{2}
-    \fmfrightn{o}{3}
-    \fmflabel{$p$}{i1}
-    \fmflabel{$\gamma$}{i2}
-    \fmflabel{$K_S^0$}{o2}
-    \fmflabel{$K_S^0$}{o3}
-    \fmflabel{$p$}{o1}
-    % \fmf{plain,foreground=white}{i1,t1}
-    % \fmf{photon,foreground=white}{i2,t2}
-    % \fmf{plain,foreground=white}{t1,t2}
-    % \fmf{plain,foreground=white}{t1,v1}
-    % \fmf{plain,foreground=white}{v1,o1}
-    \fmf{plain,foreground=black}{i1,t1}
-    \fmf{photon,foreground=black}{i2,t2}
-    \fmf{plain,foreground=black}{t1,t2}
-    \fmf{plain,foreground=black}{t1,v1}
-    \fmf{plain,foreground=black}{v1,o1}
-    \fmf{phantom}{t2,v2}
-    \fmf{phantom}{v2,o3}
-    \fmffreeze
-    % \fmf{plain,label=$X$,foreground=white}{t2,v3}
-    % \fmf{plain,foreground=white}{v3,o3}
-    % \fmf{plain,foreground=white}{v3,o2}
-    \fmf{plain,label=$X$,foreground=black}{t2,v3}
-    \fmf{plain,foreground=black}{v3,o3}
-    \fmf{plain,foreground=black}{v3,o2}
-    \fmflabel{$p$}{i1}
-\end{fmfgraph*}
-\end{fmffile}
-\vfill
-\Huge\bfseries\scshape
-Nathaniel Dene Hoffman
-
-Carnegie Mellon University
-\end{center}
-\color{black}
-\clearpage
-\newpage
-\thispagestyle{empty}
+% \thispagestyle{empty}
+% % \pagecolor{navyblue}\afterpage{\nopagecolor}
+% % \color{white}
+% \vspace*{10pt}
+% \begin{center}
+% \Huge\bfseries\scshape
+% \vspace*{10pt}
+% \rule{\textwidth}{1pt}
+% \vspace*{-9pt}
+% Photoproduction of $K_S^0$ Pairs at GlueX
+% \rule{\textwidth}{1pt}
+% \vfill
+% \begin{fmffile}{diagram}
+% \begin{fmfgraph*}(200,200)
+%     \fmfpen{thick}
+%     \fmfstraight
+%     \fmfleftn{i}{2}
+%     \fmfrightn{o}{3}
+%     \fmflabel{$p$}{i1}
+%     \fmflabel{$\gamma$}{i2}
+%     \fmflabel{$K_S^0$}{o2}
+%     \fmflabel{$K_S^0$}{o3}
+%     \fmflabel{$p$}{o1}
+%     % \fmf{plain,foreground=white}{i1,t1}
+%     % \fmf{photon,foreground=white}{i2,t2}
+%     % \fmf{plain,foreground=white}{t1,t2}
+%     % \fmf{plain,foreground=white}{t1,v1}
+%     % \fmf{plain,foreground=white}{v1,o1}
+%     \fmf{plain,foreground=black}{i1,t1}
+%     \fmf{photon,foreground=black}{i2,t2}
+%     \fmf{plain,foreground=black}{t1,t2}
+%     \fmf{plain,foreground=black}{t1,v1}
+%     \fmf{plain,foreground=black}{v1,o1}
+%     \fmf{phantom}{t2,v2}
+%     \fmf{phantom}{v2,o3}
+%     \fmffreeze
+%     % \fmf{plain,label=$X$,foreground=white}{t2,v3}
+%     % \fmf{plain,foreground=white}{v3,o3}
+%     % \fmf{plain,foreground=white}{v3,o2}
+%     \fmf{plain,label=$X$,foreground=black}{t2,v3}
+%     \fmf{plain,foreground=black}{v3,o3}
+%     \fmf{plain,foreground=black}{v3,o2}
+%     \fmflabel{$p$}{i1}
+% \end{fmfgraph*}
+% \end{fmffile}
+% \vfill
+% \Huge\bfseries\scshape
+% Nathaniel Dene Hoffman
+%
+% Carnegie Mellon University
+% \end{center}
+% \color{black}
+% \clearpage
 \newpage
 \thispagestyle{empty}
 \begin{center}
@@ -100,7 +96,7 @@ Carnegie Mellon University
 \vspace{1cm}
 
 \begin{adjustwidth}{0.1\textwidth}{0.1\textwidth}
-  \noindent We present an study of the $\gamma p \to K_S^0 K_S^0 p$ channel measured by the GlueX experiment. This channel selects for resonances with $J^{PC} = \text{even}^{++}$ quantum numbers (the $f_0$, $f_2$, $a_0$, and $a_2$ light, flavorless mesons) and potentially contains contributions from the lightest scalar glueball ($G_0$). Data from the 2017, 2018, and 2020 run periods are used to perform a mass-independent (binned) partial-wave analysis to distinguish spin states. Due to the polarized photon beam at GlueX, we are also able to extract reflectivity amplitudes for the first time in this channel. Additionally, we perform mass-dependent partial-wave analyses using a fixed $K$-matrix parameterization to attempt a determination of the relative contribution of each resonance, and we present a guided initialization method which facilitates naviagation through a parameter space with many local minima. These mass-dependent fits are a proof-of-concept in using fixed $K$-matrix models constrained by other experiments to measure photoproduction amplitudes for overlapping states which may only differ by isospin, a propety which cannot be distinguished in this channel.
+  \noindent We present an study of the $\gamma p \to K_S^0 K_S^0 p$ channel measured by the GlueX experiment. This channel selects for resonances with $J^{PC} = \text{even}^{++}$ quantum numbers (the $f_0$, $f_2$, $a_0$, and $a_2$ light, flavorless mesons) and potentially contains contributions from the lightest scalar glueball ($G_0$). Data from the 2017, 2018, and 2020 run periods are used to perform a mass-independent (binned) partial-wave analysis to distinguish spin states. Due to the polarized photon beam at GlueX, we are also able to extract reflectivity amplitudes for the first time in this channel. Additionally, we perform mass-dependent partial-wave analyses using a fixed $K$-matrix parameterization to attempt a determination of the relative contribution of each resonance, and we present a guided initialization method which facilitates navigation through a parameter space with many local minima. These mass-dependent fits are a proof-of-concept in using fixed $K$-matrix models constrained by other experiments to measure photoproduction amplitudes for overlapping states which may only differ by isospin, a property which cannot be distinguished in this channel.
 \end{adjustwidth}
 
 \clearpage
@@ -136,31 +132,40 @@ On that note, I want to thank my wonderful wife, Aditi, who has always been ther
 \end{center}
 % end dedication
 \clearpage
-\aliaspagestyle{toc}{empty}
-\begin{KeepFromToc}
+\aliaspagestyle{toc}{empty} % no numbers on continued ToC pages
+{
+  \makeatletter
+  \let\ps@plain\ps@empty   % make the first ToC page empty, locally
+  \makeatother
+  \begin{KeepFromToc}
     \setcounter{tocdepth}{2}
     \renewcommand{\contentsname}{Table of Contents}
     \tableofcontents
-\end{KeepFromToc}
+  \end{KeepFromToc}
+}
 \thispagestyle{empty}
 \mainmatter
 \chapter{Introduction}
-%\epigraph{``You know also that the beginning is the most important part of any work...''}{--- \textup{Plato} The Republic}
+\epigraph{``You know also that the beginning is the most important part of any work...''}{--- \textup{Plato} The Republic}
 \input{introduction.tex}
 \chapter{Experimental Design and Data Selection}
-%\epigraph{``It seems that perfection is finally achieved not when there is no longer anything to add, but when there is no longer anything to take away.''}{-- \textup{Antoine de Saint-Exup\'ery} Wind, Sand and Stars}
+\epigraph{``It seems that perfection is finally achieved not when there is no longer anything to add, but when there is no longer anything to take away.''}{-- \textup{Antoine de Saint-Exup\'ery} Wind, Sand and Stars}
 \input{experimental-design-and-data-selection.tex}
 \chapter{Partial-Wave Analysis}\label{ch:partial-wave-analysis}
-%\epigraph{``The best way to explain it is to do it.''}{---\textup{Lewis Carroll}, Alice in Wonderland}
+\epigraph{``The best way to explain it is to do it.''}{---\textup{Lewis Carroll}, Alice in Wonderland}
 \input{partial-wave-analysis.tex}
 \chapter{Results and Systematic Studies}
-%\epigraph{``Careful! We don't want to learn anything from this.''}{--- \textup{Bill Watterson}, Calvin and Hobbes}
+\epigraph{``Careful! We don't want to learn anything from this.''}{--- \textup{Bill Watterson}, Calvin and Hobbes}
 \input{results-and-systematic-studies.tex}
 \chapter{Conclusion}
-%\epigraph{``The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.''}{--- \textup{Albert Camus}, The Myth of Sisyphus}
+\epigraph{``The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.''}{--- \textup{Albert Camus}, The Myth of Sisyphus}
 \input{conclusion.tex}
 
 \appendix
+\crefalias{chapter}{appendix}
+\Crefname{appendix}{Appendix}{Appendices}
+\crefname{appendix}{appendix}{appendices}
+
 \chapter{Fit Results}\label{ch:fit-results}
 \input{fit-results.tex}
 \chapter{Code Summary}

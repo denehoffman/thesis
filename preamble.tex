@@ -19,6 +19,7 @@
 \usepackage{afterpage}
 
 \usepackage[sorting=none,backend=biber,style=ieee]{biblatex}
+\DeclareFieldFormat{titlecase}{#1}
 \addbibresource{references.bib}
 
 \usepackage{libertine}
@@ -44,7 +45,8 @@
 
 \usepackage[small, bf, hang]{caption}
 \usepackage{subcaption}
-\usepackage{url}
+\usepackage{xurl}
+\urlstyle{same}
 
 \usepackage[arrowdel]{physics}
 

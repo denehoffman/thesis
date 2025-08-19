@@ -221,16 +221,16 @@ The interpretation of these results is not straightforward, since the CLAS analy
 
 We now turn our attention to the $K$-matrix formalism discussed in \Cref{sec:k-matrix}. We could restrict the $K$-matrix to a single channel and fit both the production couplings ($\beta_\alpha$) and decay couplings ($g_{i\alpha}$), along with the mass poles ($m_\alpha$). This would ostensibly result in the same number of free parameters, as would Breit-Wigner peaks for each resonance. However, the key point of the $K$-matrix is its ability to describe the effect on resonances when a threshold energy is crossed and a channel is opened up, and this cannot be similarly captured with a single-channel approach. In the case of $K_S^0K_S^0$, the threshold production of the $f_0(980)$ and $a_0(980)$ is problematic for several reasons. First, both of these resonances have mass poles just smaller than the threshold for producing two $K_S^0$s, so the lineshape may be dependent on the coupling to other channels. Second, these particles differ only in isospin, which is not observable in the $K_S^0K_S^0$ channel. This makes it very difficult to control for the possible interference effects between the two resonances. Finally, the $\eta'\pi$ channel opens around $\SI{1.093}{\giga\electronvolt}$, and there is evidence that the $a_0(980)$ has a nonzero component in this channel~\cite{Ablikim2017,Chen2020}, and this may also alter the shape of the intensity from these resonances. We can attempt to circumvent the first two issues by using a fixed $K$-matrix. In principle, this is like fixing the masses and widths of a set of Breit-Wigner peaks to known values from literature. However, in practice, it allows us to incorporate some information about the effect of other channels on the intensity. We will use the results of~\cite{Albrecht2020} and~\cite{Kopf2021} as the basis for the $K$-matrix. This does not help us with the third problem, since the $\eta'\pi$ channel is not included in their fit for the $a_0$ $K$-matrix, but we will assume that their fit accurately covers the most prominent resonances in our region of interest. Using their published values for the decay couplings, mass peaks, and non-resonant background corrections ($\tilde{c}_{nij}$), we construct the $K$-matrix for the $f_0$, $a_0$, $f_2$, and $a_2$ channels accordingly and use these as the parameterization of $\hat{T}_{M;\eta}^{J(\epsilon)}(\vec{\beta};m,s)$ in \Cref{eq:generalized-polarized-intensity}. It should be noted that the values from their fit primarily come from Crystal Barrel data which was taken at a center-of-mass energy of $\sqrt{s} = \SI{2050}{\mega\electronvolt}$. On the other hand, our dataset nominally spans a beam energy range of $\qtyrange{8.0}{8.8}{\giga\electronvolt}$, corresponding to $\sqrt{s}$ in the range of $\qtyrange{3986}{4170}{\mega\electronvolt}$. \Cref{eq:invariant-k-matrix} includes background terms $\tilde{c}_{nij}$, which may scale differently with energy. However, we cannot leave these parameters floating in the fit, since they depend on data from other decay channels. Therefore, while we will proceed with the use of this fixed $K$-matrix, we should note that the accuracy of this approach is limited\footnote{This was first pointed out to me by Dr. Eric Swanson.}.
 
-We again begin with a fit to only positive-reflectivity waves ($S_0^{(+)}$ and $D_2^{(+)}$), the results of which can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-Sp-D2p}. While there is some general agreement between the mass-independent fit from the previous section and the mass-dependent fit shown by the solid lines, there are also large discrepancies, mostly in the region where the two $D$-wave peaks are located. We will address this shortly, but first we should note that the region around $\SI{1.15}{\giga\electronvolt}$ appears to contain a considerable contribution in the binned fits from the $D_2^{(+)}$ wave, but no spin-$2$ resonances exist in this mass range (or in the $K$-matrix model), so it will always be difficult for a model to account for this region accurately. The exact cause for this enhancement is unclear, but could be due to some background for which we have not yet accounted, and this will be discussed further in \Cref{sec:systematic-studies}.
+We again begin with a fit to only positive-reflectivity waves ($S_0^{(+)}$ and $D_2^{(+)}$), the results of which can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Dp2p}. While there is some general agreement between the mass-independent fit from the previous section and the mass-dependent fit shown by the solid lines, there are also large discrepancies, mostly in the region where the two $D$-wave peaks are located. We will address this shortly, but first we should note that the region around $\SI{1.15}{\giga\electronvolt}$ appears to contain a considerable contribution in the binned fits from the $D_2^{(+)}$ wave, but no spin-$2$ resonances exist in this mass range (or in the $K$-matrix model), so it will always be difficult for a model to account for this region accurately. The exact cause for this enhancement is unclear, but could be due to some background for which we have not yet accounted, and this will be discussed further in \Cref{sec:systematic-studies}.
 
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_binned_SE_unbinned_bootstrap_SE_kmatrix_SE.png}
   \end{center}
-  \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}\label{fig:unbinned-fit-chisqdof-3.0-Sp-D2p}
+  \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. See \Cref{tab:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Dp2p} for more information.}\label{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Dp2p}
 \end{figure}
 
-As in the previous section, this fit may be extended to a waveset with a negative-reflectivity $S$-wave. The result of this fit can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-Spn-D2p}. While the $S_{0}^{(-)}$ projection is overrepresented around $\SI{1.3}{\giga\electronvolt}$, we see generally good agreement between the mass-independent and mass-dependent fits.
+As in the previous section, this fit may be extended to a waveset with a negative-reflectivity $S$-wave. The result of this fit can be seen in \Cref{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}. While the $S_{0}^{(-)}$ projection is overrepresented around $\SI{1.3}{\giga\electronvolt}$, we see generally good agreement between the mass-independent and mass-dependent fits.
 
 Continuing to add waves quickly becomes unmanageable, as the number of free parameters grows quickly and the model becomes prone to overfitting. Because there is no ability to distinguish isospin, there are many ways for even the limited parameters we use to converge on similar fits while the underlying projections of each individual resonance may vary greatly. Without a coupled channel fit that includes channels which only contain a single isospin, such as $\pi^0\pi^0$ ($I=0$), $\eta\eta$ ($I=0$), $\eta\pi$, ($I=1$), or $\eta'\pi$ ($I=1$), this issue unfortunately cannot be resolved and is beyond the scope of this thesis. However, we can improve these results slightly by being more careful about the initialization of the fit, as will be shown in the following section.
 
@@ -238,7 +238,7 @@ Continuing to add waves quickly becomes unmanageable, as the number of free para
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_binned_SE_unbinned_bootstrap_SE_kmatrix_SE.png}
   \end{center}
-  \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}\label{fig:unbinned-fit-chisqdof-3.0-Spn-D2p}
+  \caption{Mass-independent (binned) and mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. See \Cref{tab:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p} for more information.}\label{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}
 \end{figure}
 
 \subsection{Guided Fits}\label{sub:guided-fits}
@@ -278,28 +278,28 @@ The results of this method are interesting. \Cref{fig:guided-fit-chisqdof-3.0-Sp
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_binned_SE_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
   \end{center}
-  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}\label{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p}
+  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. See \Cref{tab:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p} for more information.}\label{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p}
 \end{figure}
 
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_binned_SE_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
   \end{center}
-  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}\label{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}
+  \caption{Mass-independent (binned) and mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Uncapped error bars on binned fit points and shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. See \Cref{tab:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0m-Dp2p} for more information.}\label{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0m-Dp2p}
 \end{figure}
 
-Using these states as the initial position of the formal minimization, we obtain the results shown in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p,fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. The first of these fits appears to be improvements over the local minima found in the previous section, although there are still minor deviations from the binned fits. The $D$-wave is much closer to that of the binned fit in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Sp-D2p}, and the $S$ waves appear to be more consistent in \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}. However, this second fit with three waves seems to perform worse in the $D$-wave projection. This wave is more faithfully modeled in the guided step (\Cref{fig:guided-fit-chisqdof-3.0-Spn-D2p}), but the minimizer drifts from this solution when the guided objective is no longer present. This could be due to the unmodeled $D$-wave contribution around $\SI{1.2}{\giga\electronvolt}$, or it may simply be a local minimum of the parameter space. It should also be noted that the $D$-wave in the three-wave guided fit is actually consistent within the uncertainty from resampling the $K$-matrix (see \Cref{sub:k-matrix-resampling}). Nonetheless, these guided fits often provide better fit results, although the convergence of the guided step is not performant. As such, we have limited the number of guided steps to $200$ and the number of random starts to ten. This means that some of the guided steps may not converge, as can be seen in the $\chi^2_\nu < 5.0$ guided step result in \Cref{fig:guided-fit-all-Spn-D2p} (this may explain the discrepancy in the corresponding plot of \Cref{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p}). However, it is clearly the case that the guided initialization is not foolproof, since the $\chi^2_\nu < 3.0$ and $\chi^2_\nu < 4.0$ fits also perform poorly while their guided starts appear sound. It is also not guaranteed that the fit stays near the guided step when the likelihood is summarily maximized. This may be more of an issue that the underlying waves are not fully constrained.
+Using these states as the initial position of the formal minimization, we obtain the results shown in \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p,fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0m-Dp2p}. The first of these fits appears to be improvements over the local minima found in the previous section, although there are still minor deviations from the binned fits. The $D$-wave is much closer to that of the binned fit in \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p}, and the $S$ waves appear to be more consistent in \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0m-Dp2p}. However, this second fit with three waves seems to perform worse in the $D$-wave projection. This wave is more faithfully modeled in the guided step (\Cref{fig:guided-fit-chisqdof-3.0-Spn-D2p}), but the minimizer drifts from this solution when the guided objective is no longer present. This could be due to the unmodeled $D$-wave contribution around $\SI{1.2}{\giga\electronvolt}$, or it may simply be a local minimum of the parameter space. It should also be noted that the $D$-wave in the three-wave guided fit is actually consistent within the uncertainty from resampling the $K$-matrix (see \Cref{sub:k-matrix-resampling}). Nonetheless, these guided fits often provide better fit results, although the convergence of the guided step is not performant. As such, we have limited the number of guided steps to $200$ and the number of random starts to ten. This means that some of the guided steps may not converge, as can be seen in the $\chi^2_\nu < 5.0$ guided step result in \Cref{fig:guided-fit-all-Spn-D2p} (this may explain the discrepancy in the corresponding plot of \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0m-Dp2p}). However, it is clearly the case that the guided initialization is not foolproof, since the $\chi^2_\nu < 3.0$ and $\chi^2_\nu < 4.0$ fits also perform poorly while their guided starts appear sound. It is also not guaranteed that the fit stays near the guided step when the likelihood is summarily maximized. This may be more of an issue that the underlying waves are not fully constrained.
 
-Between the guided and standard fits, the number of free parameters remains the same. We therefore should be able to identify the best fits by their negative log-likelihood. For the fits with only positive reflectivity, the standard fit and guided fit have negative log-likelihoods of $-820516.80$ and $-820281.48$ respectively, which suggests that the standard fit is better despite its failure to accurately model the $D$-wave. For the fits with an $S_0^{(-)}$ wave, the standard and guided fits have negative log-likelihoods of $-821327.51$ and $-821469.42$ respectively, which also suggests that the guided fit, despite having a visually inferior $D$-wave projection, is the better of the two. We can see the parameter values for each resonance in these fits in \Cref{tab:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Dp2p,tab:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0n-Dp2p}. The results from the other two fits can be found in \Cref{ch:fit-results}.
+Between the guided and standard fits, the number of free parameters remains the same. We therefore should be able to identify the best fits by their negative log-likelihood. For the fits with only positive reflectivity, the standard fit and guided fit have negative log-likelihoods of $-820516.80$ and $-820281.48$ respectively, which suggests that the standard fit is better despite its failure to accurately model the $D$-wave. For the fits with an $S_0^{(-)}$ wave, the standard and guided fits have negative log-likelihoods of $-821327.51$ and $-821469.42$ respectively, which also suggests that the guided fit, despite having a visually inferior $D$-wave projection, is the better of the two. However, given how close these likelihood values are, we will prefer the fits which are more visually similar to their binned counterparts\textemdash the guided fit for two waves and the standard fit for three waves\textemdash although we include the results for the other two fits in \Cref{ch:fit-results} for completeness. We can see the parameter values for each resonance in these fits in \Cref{tab:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p,tab:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}.
 
-Examining these tables, we can see that there are some instances where the uncertainties on parameters are on the same scale as the parameters themselves, an indication that the fits are not well-constrained (which we already knew). The numerical results should therefore be taken with caution, but we can nonetheless attempt to make some conclusions. In particular, we noticed that the negative-reflectivity $S$-wave has a substantial projection near the region of the $f_0(1500)$. In \Cref{tab:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Sp0n-Dp2p}, we find that this resonance has a total magnitude of $(1.29 \pm 0.42 \pm 0.37) \times 10^6$ in the $S_0^{(+)}$ projection and $(7.92 \pm 0.51 \pm 0.95) \times 10^6$ in the $S_0^{(-)}$ projection. We can draw a similar conclusion about the $a_0(980)$. The region at threshold also appears to have a substantial peak in the $S_0^{(-)}$ wave, and the fit suggests that the $f_0(980)$ is mostly produced with positive-reflectivity by a factor of $20$ while the $a_0(980)$ seems to prefer negative-reflectivity production by a factor of around $6.5$. The results of the binned fits can also be found in \Cref{ch:fit-results}. We believe this is the first measurement of reflectivity in this channel, and this is certainly true for photoproduction.
+Examining these tables, we can see that there are some instances where the uncertainties on parameters are on the same scale as the parameters themselves, an indication that the fits are not well-constrained (which we already knew). The numerical results should therefore be taken with caution, but we can nonetheless attempt to make some conclusions. In particular, we noticed that the negative-reflectivity $S$-wave has a substantial projection near the region of the $f_0(1500)$. In \Cref{tab:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}, we find that this resonance has a total magnitude of $(1.50 \pm 0.28 \pm 0.38) \times 10^6$ in the $S_0^{(+)}$ projection and $(1.01 \pm 0.17 \pm 0.32) \times 10^6$ in the $S_0^{(-)}$ projection. We can draw a similar conclusion about the $f_0(980)$ and $a_0(980)$. The region at threshold also appears to have a substantial peak in the $S_0^{(-)}$ wave, and the fit suggests that the $f_0(980)$ is mostly produced with negative-reflectivity by a factor of $7.7$ while the $a_0(980)$ seems to also prefer negative-reflectivity production by a factor of around $1.5$. The results of the binned fits can also be found in \Cref{ch:fit-results}. We believe this is the first measurement of reflectivity in this channel, and this is certainly true for photoproduction.
 
 \clearpage
 \begin{sidewaystable}[p]
 \centering
 \begingroup
   \RenewEnviron{table}[1][]{\BODY}
-  \input{ext/analysis/reports/unbinned_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_unc_sys.tex}
+  \input{ext/analysis/reports/unbinned_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_guided_unc_sys.tex}
 \endgroup
 \end{sidewaystable}
 \clearpage
@@ -307,98 +307,98 @@ Examining these tables, we can see that there are some instances where the uncer
 \centering
 \begingroup
   \RenewEnviron{table}[1][]{\BODY}
-  \input{ext/analysis/reports/unbinned_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_guided_unc_sys.tex}
+  \input{ext/analysis/reports/unbinned_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_unc_sys.tex}
 \endgroup
 \end{sidewaystable}
 
-It is additionally useful to see the projections of these fits onto variables other than the $K_S^0K_S^0$ invariant mass. In particular, we can see projections onto $\cos\theta_{\text{HX}}$ and $\varphi_{\text{HX}}$ in \Cref{fig:unbinned-fit-chisqdof-3.0-Sp-D2p-costheta,fig:unbinned-fit-chisqdof-3.0-Sp-D2p-costheta,fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p-costheta,fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p-costheta}. The observant reader may note that the $\varphi_{\text{HX}}$ distributions in some bins appear to have a $\cos\left(2\varphi_{\text{HX}}\right)$ dependence. This is an expected effect from the sum of an $S$ and $D$ wave, despite those individual waves being isotropic in $\varphi_{\text{HX}}$. Note that because the $Y_2^2(\theta, \varphi)$ spherical harmonic has a $\varphi$-dependence of $e^{2\imath\varphi}$, the absolute square of the sum of an $S$ and $D_2$ wave is $\abs{S_0}^2 + \abs{D_2}^2 + 2 \abs{S_0} \abs{D_2} \cos\left(2\varphi\right)$, which is the same functional form we see in several of these plots.
+It is additionally useful to see the projections of these fits onto variables other than the $K_S^0K_S^0$ invariant mass. In particular, we can see projections onto $\cos\theta_{\text{HX}}$ and $\varphi_{\text{HX}}$ in \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p-costheta,fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p-phi,fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p-costheta,fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p-phi}. The observant reader may note that the $\varphi_{\text{HX}}$ distributions in some bins appear to have a $\cos\left(2\varphi_{\text{HX}}\right)$ dependence. This is an expected effect from the sum of an $S$ and $D$ wave, despite those individual waves being isotropic in $\varphi_{\text{HX}}$. Note that because the $Y_2^2(\theta, \varphi)$ spherical harmonic has a $\varphi$-dependence of $e^{2\imath\varphi}$, the absolute square of the sum of an $S$ and $D_2$ wave is $S_0^2 + D_2^2 + 2 S_0 D_2 \cos\left(2\varphi\right)$, which is the same functional form we see in several of these plots.
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_costheta_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
 
-    \caption{Mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves projected onto $\cos\left(\theta_{\text{HX}}\right)$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}
-    \label{fig:unbinned-fit-chisqdof-3.0-Sp-D2p-costheta}
+    \caption{Mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves projected onto $\cos\left(\theta_{\text{HX}}\right)$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. These results correspond to \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p}.}
+    \label{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p-costheta}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_491_phi_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
     \end{subfigure}
 
-    \caption{Mass-dependent (unbinned) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves projected onto $\varphi_{\text{HX}}$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}
-    \label{fig:unbinned-fit-chisqdof-3.0-Sp-D2p-phi}
+    \caption{Mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$ and $D_{+2}^{(+)}$ waves projected onto $\varphi_{\text{HX}}$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. These results correspond to \Cref{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p}.}
+    \label{fig:unbinned-fit-chisqdof-3.0-guided-resampled-Sp0p-Dp2p-phi}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_costheta_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
 
-    \caption{Mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves projected onto $\cos\left(\theta_{\text{HX}}\right)$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}
-    \label{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p-costheta}
+    \caption{Mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves projected onto $\cos\left(\theta_{\text{HX}}\right)$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. These results correspond to \Cref{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}.}
+    \label{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p-costheta}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.0_1.15_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.2_1.25_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.25_1.35_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE_guided.png}
+        \includegraphics[width=\linewidth]{ext/analysis/plots/pwa_fit_pz_masscut_chisqdof_3.0_mesons_fixed_3_29099_phi_1.45_1.6_unbinned_bootstrap_SE_kmatrix_SE.png}
     \end{subfigure}
 
-    \caption{Mass-dependent (unbinned, guided) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves projected onto $\varphi_{\text{HX}}$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings.}
-    \label{fig:unbinned-guided-fit-chisqdof-3.0-Spn-D2p-phi}
+    \caption{Mass-dependent (unbinned) fit of $S_{0}^{(+)}$, $S_{0}^{(-)}$, and $D_{+2}^{(+)}$ waves projected onto $\varphi_{\text{HX}}$ in various bins of $K_S^0 K_S^0$ invariant mass. Uncertainties on the data are found from the square root of the sum of squares of sPlot weights. Shaded regions around the unbinned fit line are standard errors over $ 100 $ bootstrap iterations. Capped error bars on the unbinned fit line are standard errors from $ 100 $ $K$-matrix resamplings. These results correspond to \Cref{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p}.}
+    \label{fig:unbinned-fit-chisqdof-3.0-resampled-Sp0p-Sp0m-Dp2p-phi}
 \end{figure}
 
 
